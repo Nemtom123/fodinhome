@@ -1,9 +1,9 @@
 <!DOCTYPE HTML>
-<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="hu"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="hu"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="hu"> <![endif]-->
 <!--[if gt IE 8]><!-->
-<html lang="hu">
+<html class="no-js" lang="hu">
 <!--<![endif]-->
 <head>
 
@@ -19,15 +19,16 @@
     <link rel="icon" href="image/favicon.ico">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+
     <!-- Bootstrap Core CSS -->
     <link href="bootsnav-master/css/bootstrap.min.css" rel="stylesheet">
     <link href="bootsnav-master/css/animate.css" rel="stylesheet">
     <link href="bootsnav-master/css/bootsnav.css" rel="stylesheet">
     <link href="bootsnav-master/css/style.css" rel="stylesheet">
-    <link href="carousel.css" rel="stylesheet">
+
     <!-- Image -->
     <link href="bootsnav-master/images/brand/logo-black.png" rel="import">
     <!-- Icons -->
@@ -35,15 +36,6 @@
 
     <!-- Font Style -->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-
-    <!-- Animate -->
-    <link href="bootsnav-master/css/animate.css" rel="stylesheet">
-
-    <!-- Bootsnav -->
-    <link href="bootsnav-master/css/bootsnav.css" rel="stylesheet">
-
-    <!-- Custom style -->
-    <link href="bootsnav-master/css/style.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -54,22 +46,164 @@
     <script src="js/html5shiv.min.js"></script>
     <script src="js/respond.min.js"></script>
     <![endif]-->
-    <style>
-        .kiemeles:hover {box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.77);}"
-    </style>
+    <script src="typed.js-master/js/typed.js" type="text/javascript"></script>
+    <script src="typed.js-master/js/typednext.js" type="text/javascript"></script>
     <script>
-        $(document).ready(function(){
-            $("kep").hover(function(){
-                $("div").animate({
-                    left: '20px',
-                    opacity: '0.1',
-                    height: '600px',
-                    width: '1500px'
-                });
-            });
-        });
-    </script>
+        document.addEventListener('DOMContentLoaded', function(){
 
+            Typed.new("#typed", {
+                stringsElement: document.getElementById('typed-strings'),
+                typeSpeed: 30,
+                backDelay: 500,
+                loop: false,
+                contentType: 'html', // or text
+                // defaults to null for infinite loop
+                loopCount: null,
+                callback: function(){ foo(); },
+                resetCallback: function() { newTyped(); }
+            });
+
+            var resetElement = document.querySelector('.reset');
+            if(resetElement) {
+                resetElement.addEventListener('click', function() {
+                    document.getElementById('typed')._typed.reset();
+                });
+            }
+
+        });
+
+        function newTyped(){ /* A new typed object */ }
+
+        function foo(){ console.log("Callback"); }
+
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+
+            Typednext.new("#typednext", {
+                stringsElement: document.getElementById('typed-strings'),
+                typeSpeed: 30,
+                backDelay: 500,
+                loop: false,
+                contentType: 'html', // or text
+                // defaults to null for infinite loop
+                loopCount: null,
+                callback: function(){ foo(); },
+                resetCallback: function() { newTypednext(); }
+            });
+
+            var resetElement = document.querySelector('.reset');
+            if(resetElement) {
+                resetElement.addEventListener('click', function() {
+                    document.getElementById('typednext')._typed.reset();
+                });
+            }
+
+        });
+
+        function newTypednext(){ /* A new typed object */ }
+
+        function foo(){ console.log("Callback"); }
+
+    </script>
+    <link href="main.css" rel="stylesheet"/>
+    <style>
+        .title-bar {
+            padding: 5px 0;
+            font-family: "Lucida Grande", sans-serif;
+            font-size: 0.75em;
+            text-align: center;
+            text-shadow: rgba(255, 255, 255, 0.8) 0px 1px 0px;
+            background-color: #f8f8f8;
+            background-image: -webkit-linear-gradient(top, #f3f3f3, #bcbbbc);
+            background-image: -moz-linear-gradient(top, #f3f3f3, #bcbbbc);
+            background-image: linear-gradient(top, #f3f3f3, #bcbbbc);
+            box-shadow: inset rgba(255, 255, 255, 0.7) 0px 1px 1px;
+            border-bottom: #6a6a6a 1px solid;
+        }
+        /* code for animated blinking cursor */
+        .typed-cursor{
+            opacity: 1;
+            font-weight: 100;
+            -webkit-animation: blink 0.7s infinite;
+            -moz-animation: blink 0.7s infinite;
+            -ms-animation: blink 0.7s infinite;
+            -o-animation: blink 0.7s infinite;
+            animation: blink 0.7s infinite;
+        }
+        .text-body {
+            height: 70px;
+            background-color: rgba(0, 0, 0, 0.85);
+            padding: 10px;
+            color: #f0f0f0;
+            text-shadow: #000 0px 1px 0px;
+            font-family: "Consolas", "Courier New", "Courier";
+            font-size: 1.75em;
+            line-height: 1.40em;
+            font-weight: 500;
+            text-align: left;
+            overflow: hidden;
+            -webkit-transition: all 0.5s ease-out;
+            -moz-transition: all 0.5s ease-out;
+            -ms-transition: all 0.5s ease-out;
+            -o-transition: all 0.5s ease-out;
+            transition: all 0.5s ease-out;
+        }
+        .text-body2 {
+            height: 250px;
+            background-color: rgba(0, 0, 0, 0.85);
+            padding: 10px;
+            color: #f0f0f0;
+            text-shadow: #000 0px 1px 0px;
+            font-family: "Consolas", "Courier New", "Courier";
+            font-size: 1.75em;
+            line-height: 1.40em;
+            font-weight: 500;
+            text-align: left;
+            overflow: hidden;
+            -webkit-transition: all 0.5s ease-out;
+            -moz-transition: all 0.5s ease-out;
+            -ms-transition: all 0.5s ease-out;
+            -o-transition: all 0.5s ease-out;
+            transition: all 0.5s ease-out;
+        }
+
+        main.css-2 * {
+            padding: 0;
+            margin: 0;
+        }
+        @-webkit-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+        @-webkit-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+        @-moz-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+        @-ms-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+        @-o-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+
+        .typed-fade-out{
+            opacity: 0;
+            animation: 0;
+            transition: opacity .25s;
+        }
+    </style>
 </head>
 <body>
 
@@ -105,19 +239,19 @@
                             <p style="color: #5f5f5f">Gáz - <span class="price" style="color: #5f5f5f">Ügyeletes</span></p>
                         </li>
                         <li>
-                            <a href="szerviz.html" class="photo"><img src="image/NagyIstvan.jpg" class="cart-thumb"
-                                                                      alt="Nagy István" /></a>
+                            <a href="szerviz.html"
+                               class="photo"><img src="image/NagyIstvan.jpg" class="cart-thumb" alt="Nagy István" /></a>
                             <h6><a href="szerviz.html">Nagy István</a></h6>
                             <p style="color: #5f5f5f">Víz - <span class="price" style="color: #5f5f5f">Ügyeletes</span></p>
                         </li>
                         <li>
-                            <a href="szerviz.html" class="photo"><img src="image/OsváthTibi.jpg" class="cart-thumb"
-                                                                      alt="Osváth Tibor" /></a>
+                            <a href="szerviz.html"
+                               class="photo"><img src="image/OsváthTibi.jpg" class="cart-thumb" alt="Osváth Tibor" /></a>
                             <h6><a href="szerviz.html">Osváth Tibi</a></h6>
                             <p style="color: #5f5f5f">Villany - <span class="price" style="color: #5f5f5f">Ügyeletes</span></p>
                         </li>
                         <li class="total">
-                            <span class="pull-right" style="color: #5f5f5f"><strong>Ügyeletben</strong>:3 - fő</span>
+                            <span class="pull-right" style="color: #5f5f5f"><strong>Ügyeletben</strong>: 3 - fő</span>
                             <a href="szerviz.html" class="btn btn-default btn-cart">Szervizes</a>
                         </li>
                     </ul>
@@ -131,7 +265,7 @@
         <!-- Start Header Navigation -->
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
-                <i class="fa fa-bars"></i>
+                <i class="fa fa-bars" style="color: #3f3f3f"></i>
             </button>
             <a class="navbar-brand" href="#brand">
                 <img src="bootsnav-master/images/brand/logo-white.png" class="logo logo-display" alt="">
@@ -172,8 +306,10 @@
                 </li>
                 <li><a href="kontakt.html">Kontakt</a></li>
             </ul>
-        </div><!-- /.navbar-collapse -->
+        </div>
+        <!-- /.navbar-collapse -->
     </div>
+
     <!-- Start Side Menu -->
     <div class="side">
         <a href="#" class="close-side"><i class="fa fa-times"></i></a>
@@ -202,103 +338,44 @@
 </nav>
 <!-- End Navigation -->
 
-<div class="clearfix"></div>
-<div class="site-wrapper">
-    <!--kép-->
-    <a href="#" class="photo"><img src="bootsnav-master/images/thumb/fa.png" class="cart-thumb" alt="" /></a>
-    <div class="site-wrapper-inner">
-        <div class="cover-container">
-        </div>
-    </div>
-</div>
-<!-- End Home -->
+
+
+
+
+
 
 <div class="clearfix"></div>
-<!-- Start Adsense -->
-<div class="container margintop50">
-  <!--  <script type="text/javascript">
-        ( function() {
-            if (window.CHITIKA === undefined) { window.CHITIKA = { 'units' : [] }; };
-            var unit = {"calltype":"async[2]","publisher":"adamnurdin93","width":300,"height":250,"sid":"Chitika Default"};
-            var placement_id = window.CHITIKA.units.length;
-            window.CHITIKA.units.push(unit);
-            document.write('<div id="chitikaAdBlock-' + placement_id + '"></div>');
-        }());
-    </script>
-    <script type="text/javascript" src="//cdn.chitika.net/getads.js" async></script> -->
+<!-- Start Footer -->
+<footer class="footer"  style="background-color: #2f6f9f">
+    <div class="text-center" style="background-color:#FFFFFF " >
+        <a class="up-arrow" href="index.html" data-toggle="tooltip" title="TO TOP">
+            <span class="glyphicon glyphicon-chevron-up"  style="color: #2f6f9f"></span>
+        </a><br><br>
+        <p  style="color: #2f6f9f">Licenced by FODIN HOME KFT</p>
+
+    </div>
+</footer>
+
+<!-- End Footer -->
+
+<!-- START JAVASCRIPT -->
+
+<!-- Placed at the end of the document so the pages load faster -->
+<script type="bootsnav-master/text/javascript" src="js/jquery.min.js"></script>
+<script src="bootnav-master/js/bootstrap.min.js"></script>
+
+<!-- Place this tag in your head or just before your close body tag. -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- Bootsnavs -->
+<script src="bootsnav-master/js/bootsnav.js"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="bootstrap-3.3.7/dist/js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="bootstrap-4-dev/docs/assets/js/ie10-viewport-bug-workaround.js"></script>
+<script src="flowup/flowup.js"></script>
+</form>
 </div>
-<!-- End Adsense -->
-
-
-<!-- Marketing messaging and featurettes
-   ================================================== -->
-<!-- Wrap the rest of the page in another container to center all the content. -->
-
-
-<div class="container marketing">
-
-
-
-    <!-- START THE FEATURETTES -->
-
-    <hr class="featurette-divider">
-
-    <div class="row featurette">
-        <div class="col-md-12">
-            <h1 style="">Cím</h1>
-            <script>
-                function myMap() {
-                    var mapCanvas = document.getElementById("map");
-                    var mapOptions = {
-                        center: new google.maps.LatLng(48.10420, 20.75900), zoom: 18
-                    };
-                    var map = new google.maps.Map(mapCanvas, mapOptions);
-                }
-            </script>
-            <div class="kiemeles">
-            <div id="map" style="width:115px;height:600px;background:white"></div>
-            </div>
-        </div>
-    </div>
-
-    </div>
-    <hr class="featurette-divider">
-
-    <!-- /END THE FEATURETTES -->
-
-
-    <div class="clearfix"></div>
-    <br> <br> <br>
-    <!-- Start Footer -->
-    <footer class="footer" style="background-color: #2f6f9f">
-        <div class="text-center" style="background-color:#2B81AF " >
-            <a class="up-arrow" href="kontakt.html" data-toggle="tooltip" title="TO TOP">
-                <span class="glyphicon glyphicon-chevron-up"></span>
-            </a><br><br>
-            <p>Licenced by FODIN HOME KFT</p>
-
-        </div>
-    </footer>
-
-    <!-- End Footer -->
-
-    <!-- START JAVASCRIPT -->
-
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script type="bootsnav-master/text/javascript" src="js/jquery.min.js"></script>
-    <script src="bootnav-master/js/bootstrap.min.js"></script>
-
-    <!-- Place this tag in your head or just before your close body tag. -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-
-    <!-- Bootsnavs -->
-    <script src="bootsnav-master/js/bootsnav.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="bootstrap-3.3.7/dist/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="bootstrap-4-dev/docs/assets/js/ie10-viewport-bug-workaround.js"></script>
-
 </body>
 </html>

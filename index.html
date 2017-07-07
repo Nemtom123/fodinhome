@@ -1,0 +1,672 @@
+<!DOCTYPE HTML>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="hu"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="hu"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="hu"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="hu">
+<!--<![endif]-->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bootsnav is a multi purpose header based with Bootstrap, you can build any header style with bootsnav only with a few minutes">
+    <meta name="keywords" content="Bootsnav, Menu, Navigation, Navbar, Bootstrap, Dropdown, Multi Dropdown, Megamenu">
+    <meta name="robots" content="index,follow">
+
+
+    <title>Fodin-Home Kft</title>
+    <link rel="icon" href="image/favicon.ico">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+
+    <!-- Bootstrap Core CSS -->
+    <link href="bootsnav-master/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootsnav-master/css/animate.css" rel="stylesheet">
+    <link href="bootsnav-master/css/bootsnav.css" rel="stylesheet">
+    <link href="bootsnav-master/css/style.css" rel="stylesheet">
+
+    <!-- Image -->
+    <link href="bootsnav-master/images/brand/logo-black.png" rel="import">
+    <!-- Icons -->
+    <link href="fonts/FontAwesome/font-awesome.css" rel="stylesheet">
+
+    <!-- Font Style -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="js/ie-emulation-modes-warning.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.min.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <script src="typed.js-master/js/typed.js" type="text/javascript"></script>
+    <script src="typed.js-master/js/typednext.js" type="text/javascript"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+
+            Typed.new("#typed", {
+                stringsElement: document.getElementById('typed-strings'),
+                typeSpeed: 30,
+                backDelay: 500,
+                loop: false,
+                contentType: 'html', // or text
+                // defaults to null for infinite loop
+                loopCount: null,
+                callback: function(){ foo(); },
+                resetCallback: function() { newTyped(); }
+            });
+
+            var resetElement = document.querySelector('.reset');
+            if(resetElement) {
+                resetElement.addEventListener('click', function() {
+                    document.getElementById('typed')._typed.reset();
+                });
+            }
+
+        });
+
+        function newTyped(){ /* A new typed object */ }
+
+        function foo(){ console.log("Callback"); }
+
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+
+            Typednext.new("#typednext", {
+                stringsElement: document.getElementById('typed-strings'),
+                typeSpeed: 30,
+                backDelay: 500,
+                loop: false,
+                contentType: 'html', // or text
+                // defaults to null for infinite loop
+                loopCount: null,
+                callback: function(){ foo(); },
+                resetCallback: function() { newTypednext(); }
+            });
+
+            var resetElement = document.querySelector('.reset');
+            if(resetElement) {
+                resetElement.addEventListener('click', function() {
+                    document.getElementById('typednext')._typed.reset();
+                });
+            }
+
+        });
+
+        function newTypednext(){ /* A new typed object */ }
+
+        function foo(){ console.log("Callback"); }
+
+    </script>
+    <link href="main.css" rel="stylesheet"/>
+    <style>
+        .title-bar {
+            padding: 5px 0;
+            font-family: "Lucida Grande", sans-serif;
+            font-size: 0.75em;
+            text-align: center;
+            text-shadow: rgba(255, 255, 255, 0.8) 0px 1px 0px;
+            background-color: #f8f8f8;
+            background-image: -webkit-linear-gradient(top, #f3f3f3, #bcbbbc);
+            background-image: -moz-linear-gradient(top, #f3f3f3, #bcbbbc);
+            background-image: linear-gradient(top, #f3f3f3, #bcbbbc);
+            box-shadow: inset rgba(255, 255, 255, 0.7) 0px 1px 1px;
+            border-bottom: #6a6a6a 1px solid;
+        }
+        /* code for animated blinking cursor */
+        .typed-cursor{
+            opacity: 1;
+            font-weight: 100;
+            -webkit-animation: blink 0.7s infinite;
+            -moz-animation: blink 0.7s infinite;
+            -ms-animation: blink 0.7s infinite;
+            -o-animation: blink 0.7s infinite;
+            animation: blink 0.7s infinite;
+        }
+        .text-body {
+            height: 70px;
+            background-color: rgba(0, 0, 0, 0.85);
+            padding: 10px;
+            color: #f0f0f0;
+            text-shadow: #000 0px 1px 0px;
+            font-family: "Consolas", "Courier New", "Courier";
+            font-size: 1.75em;
+            line-height: 1.40em;
+            font-weight: 500;
+            text-align: left;
+            overflow: hidden;
+            -webkit-transition: all 0.5s ease-out;
+            -moz-transition: all 0.5s ease-out;
+            -ms-transition: all 0.5s ease-out;
+            -o-transition: all 0.5s ease-out;
+            transition: all 0.5s ease-out;
+        }
+        .text-body2 {
+            height: 250px;
+            background-color: rgba(0, 0, 0, 0.85);
+            padding: 10px;
+            color: #f0f0f0;
+            text-shadow: #000 0px 1px 0px;
+            font-family: "Consolas", "Courier New", "Courier";
+            font-size: 1.75em;
+            line-height: 1.40em;
+            font-weight: 500;
+            text-align: left;
+            overflow: hidden;
+            -webkit-transition: all 0.5s ease-out;
+            -moz-transition: all 0.5s ease-out;
+            -ms-transition: all 0.5s ease-out;
+            -o-transition: all 0.5s ease-out;
+            transition: all 0.5s ease-out;
+        }
+
+        main.css-2 * {
+            padding: 0;
+            margin: 0;
+        }
+        @-webkit-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+        @-webkit-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+        @-moz-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+        @-ms-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+        @-o-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+
+        .typed-fade-out{
+            opacity: 0;
+            animation: 0;
+            transition: opacity .25s;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Start Navigation -->
+<nav class="navbar navbar-default navbar-fixed navbar-transparent dark bootsnav">
+
+    <!-- Start Top Search -->
+    <div class="top-search">
+        <div class="container">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                <input type="text" class="form-control" placeholder="Keresés">
+                <span class="input-group-addon close-search"><i class="fa fa-times"></i></span>
+            </div>
+        </div>
+    </div>
+    <!-- End Top Search -->
+
+    <div class="container">
+        <!-- Start Atribute Navigation -->
+        <div class="attr-nav">
+            <ul>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" >
+                        <i class="fa glyphicon glyphicon-user"></i>
+                        <span class="badge">3</span>
+                    </a>
+                    <ul class="dropdown-menu cart-list">
+                        <li>
+                            <a href="szerviz.html" class="photo"><img src="image/KirályGábor.jpg"
+                                                           class="cart-thumb" alt="Király Gábor" /></a>
+                            <h6><a href="szerviz.html">Király Gábor</a></h6>
+                            <p style="color: #5f5f5f">Gáz - <span class="price" style="color: #5f5f5f">Ügyeletes</span></p>
+                        </li>
+                        <li>
+                            <a href="szerviz.html"
+                               class="photo"><img src="image/NagyIstvan.jpg" class="cart-thumb" alt="Nagy István" /></a>
+                            <h6><a href="szerviz.html">Nagy István</a></h6>
+                            <p style="color: #5f5f5f">Víz - <span class="price" style="color: #5f5f5f">Ügyeletes</span></p>
+                        </li>
+                        <li>
+                            <a href="szerviz.html"
+                               class="photo"><img src="image/OsváthTibi.jpg" class="cart-thumb" alt="Osváth Tibor" /></a>
+                            <h6><a href="szerviz.html">Osváth Tibi</a></h6>
+                            <p style="color: #5f5f5f">Villany - <span class="price" style="color: #5f5f5f">Ügyeletes</span></p>
+                        </li>
+                        <li class="total">
+                            <span class="pull-right" style="color: #5f5f5f"><strong>Ügyeletben</strong>: 3 - fő</span>
+                            <a href="szerviz.html" class="btn btn-default btn-cart">Szervizes</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
+                <li class="side-menu"><a href="#"><i class="fa fa-bars"></i></a></li>
+            </ul>
+        </div>
+        <!-- End Atribute Navigation -->
+
+        <!-- Start Header Navigation -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                <i class="fa fa-bars" style="color: #3f3f3f"></i>
+            </button>
+            <a class="navbar-brand" href="#brand">
+                <img src="bootsnav-master/images/brand/logo-white.png" class="logo logo-display" alt="">
+                <img src="bootsnav-master/images/brand/logo-black.png" class="logo logo-scrolled" alt="">
+            </a>
+        </div>
+        <!-- End Header Navigation -->
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-menu">
+            <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+                <li><a href="index.html">Fodin-Home</a></li>
+                <li><a href="proba.html">Szolgáltatások</a></li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Szolgáltatások részletesen</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="parkettazas.html">Parketázás</a></li>
+                        <li><a href="hidegburkolas.html">Hidegburkolás</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Energia</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="viz.html">Viz</a></li>
+                                <li><a href="gaz.html">Gáz</a></li>
+                                <li><a href="villanyszereles.html">Villanyszerelés</a></li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Fűtés</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="padlo.html">Padló</a></li>
+                                        <li><a href="radiator.html">Radiátor</a></li>
+                                        <li><a href="kozponti.html">Központi</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="gipszkarton.html">Gipszkartonozás</a></li>
+                    </ul>
+                </li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+
+    <!-- Start Side Menu -->
+    <div class="side">
+        <a href="#" class="close-side"><i class="fa fa-times"></i></a>
+        <div class="widget">
+            <h6 class="title">Menü</h6>
+            <ul class="link">
+                <li><a href="leiras.html">Leírás</a></li>
+                <li><a href="szerviz.html">Szervíz</a></li>
+                <li><a href="bejegyzesek.php">Bejegyzések</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="kontakt.html">Kontact</a></li>
+            </ul>
+        </div>
+        <div class="widget">
+            <h6 class="title">További linkek</h6>
+            <ul class="link">
+                <li><a href="ujotthon.html">Új otthon</a></li>
+                <li><a href="erdekessegek.html">Érdekességek</a></li>
+                <li><a href="szakaszok.html">Szakaszok</a></li>
+                <li><a href="epiteszet.html">Az építészet</a></li>
+                <li><a href="login.php">Bejelentkezés</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- End Side Menu -->
+</nav>
+<!-- End Navigation -->
+
+<div class="clearfix"></div>
+        <div class="site-wrapper">
+            <!--kép-->
+            <a href="#" class="photo"><img src="bootsnav-master/images/thumb/fa.png" class="cart-thumb" alt="" /></a>
+                 <div class="site-wrapper-inner">
+                    <div class="cover-container">
+                    </div>
+                </div>
+        </div>
+    <!-- End Home -->
+
+<div class="clearfix"></div>
+    <!-- Start Adsense -->
+    <div class="container margintop50">
+
+    </div>
+    <!-- End Adsense -->
+
+
+<div class="head-wrap">
+
+    <div class="text-editor-wrap">
+
+        <div class="text-body">
+            $ <span id="typed"></span>
+        </div>
+    </div>
+</div>
+</div>
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+        <div class="item active">
+            <img  src="image/home2.jpg" alt="">
+        </div>
+
+        <div class="item">
+            <img  src="image/home1.jpg" alt="Chicago">
+        </div>
+
+        <div class="item">
+            <img src="image/home3.jpg" alt="New York">
+        </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+<!-- Marketing messaging and featurettes
+   ================================================== -->
+<!-- Wrap the rest of the page in another container to center all the content. -->
+
+<div class="container">
+
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th style="color: #5f5f5f">Építőipari panaszmentességi igazolás</th>
+            <th style="color: #5f5f5f; alignment: center">A cégünk bemutatása</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+            <object data="image/Fodin.pdf" type="application/pdf" width="" style="height: 580px; width: 370px">
+                <p style="color: #5f5f5f">Kattints a linkre <a href="image/Fodin.pdf" style="color: #aa0000">letőlthető PDF!</a></p>
+            </object>
+            </td>
+            <td style="color: #5f5f5f">
+                <p> A történetünk:</p>
+                <p>
+                A Fodin-Home kft 2006-ban azzal a céllal alakult, hogy segítséget nyújtson azon
+                emberek számára akik építkeznek vagy felújítanak, esetleg olyan elgondolásuk született mely jobbá és szebbé tenné a saját környezetüket. Ebbe beletartozik akár egy lakásfestés, padlóburkolás vagy egy hibaelhárítás a saját otthonukban, illetve a hétvégi nyaralóban. Pályafutásunkat több éves tapasztalatra és több éves tanulásra alapozva kezdtük el.
+                </p>
+                <p>
+                 Megalakulásunk óta folyamatosan bővülő tendenciát produkál a vállalatunk. Mely annak köszönhető,
+                 hogy precíz, pontos munkát végzünk. A megnövekedett megrendeléseket megfelelő állományú kapacitás biztosítása mellett, illetve az árverseny terén megfelelő alternatívát tudunk kínálni ügyfeleink számára.
+                </p>
+                <p>
+                A Fodin-Home Kft alapfilozófiánk körébe tartozik a minőség és a pontosság, kiterjesztve a komplex
+                    szolgáltatást, ami nálunk annyit jelent, hogy a megrendelő leadja a megrendelését és mi az első
+                    lépéstől az utolsóig lépésig minden gondot levesszünk az ügyfeleink válláról.
+                </p>
+                <p>
+                A nyersanyag és a hozzávaló kellékek beszerzését is vállaljuk, mely megkönnyíti a mindennapos
+                munkavégzésünket, valamint az ügyfeleink életét
+                </p>
+                <p>
+                Természetesen mindezeket a folyamatokat korszerű gépparkkal és több éves tapasztalattal rendelkező
+                kollégákkal végezzük, folyamatos minőség ellenőrzés mellett.
+                </p>
+                  </tr>
+        </tbody>
+    </table>
+    <script>
+        $(document).ready(function() {
+            $("body").flowUp("table", { transalteY: 350, duration: 100 });
+        });
+    </script>
+
+
+        <button type="button" class="btn-lg btn-info center-block" data-toggle="modal"
+                data-target="#myModal">Írjon nekünk
+        </button>
+                <form id="register1" action="belepett.php" method="post" onsubmit="return check()">
+                    <!--<form id="register" action="" method="post" onsubmit="return check()">-->
+
+                    <h2 style="text-align: center"></h2>
+                    <br>
+                    <form id="register" action="belepes.php" method="post" onsubmit="return check()">
+                        <div class="modal fade" id="myModal" role="dialog">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header modal-header-info">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                        <h6><i class="glyphicon glyphicon-align-right"></i>Levélküldés</h6>
+                                    </div>
+
+                                    <div class="modal-body">
+                                        <div style="text-align: center; width: auto; height: auto">
+                                            <img src="image/level.png" alt="Avatar" class="avatar">
+                                        </div>
+                                        <form class="noteform" id="notesmodal" method="post">
+                                            <fieldset>
+                                                <p style="align-content: center; color: #3f3f3f">Email</p>
+                                                <input type="text" name="ugyfel" id="ugyfel" class="form-control"
+                                                       data-live-search="true" placeholder="Pl:kovacs.janos@gmail.com"/>
+                                                <br>
+                                                <p style="align-content: center; color: #3f3f3f">Üzenet</p>
+                                                <div class="col-lg-pull-12 ">
+                                                <textarea type="massage-text" name="uzenet" id="uzenet"
+                                                       class="form-control"
+                                                          data-live-search="true" rows="6"></textarea>
+
+                                                    <br>
+                                                </div>
+                                            </fieldset>
+                                            <br>
+                                        </form>
+                                        <div class="col-sm-offset-5 col-sm-2 text-center">
+                                            <input type="submit" name="submit" class="btn btn-danger"
+                                                   data-toggle="modal" data-target="#myModal"
+                                                   id="submitnote" value="Küldés" />
+                                        </div>
+
+                                        <br>
+                                        <br>
+                                        <br>
+
+                                        <div class="modal-footer modal-footer-info" >
+                                            <button type="button" class="btn btn-default"
+                                                    data-dismiss="modal">Bezár
+                                            </button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th style="color: #5f5f5f; font-size: x-large">Építés, tervezés</th>
+                            <th style="color: #5f5f5f; font-size: x-large">Generálozás</th>
+
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr>
+                            <td style="color: #5f5f5f">
+                                <p style="font-size: x-large">
+                                    Új társasházak és új családi házak továbbá irodák, valamint raktárépületek tervezésével és
+                                    kivitelezésével szintén foglalkozunk. Alapos és precíz tervezéssel, minőségi alapanyagokkal
+                                    és kifogástalan kivitelezéssel vívtuk ki megrendelőink bizalmát.
+
+                                </p>
+                            </td>
+                            <td style="color: #5f5f5f">
+                                <p style="font-size: x-large">
+                                    Egyik fő szakterületünk a generálozás. Vállaljuk lakóházak és társasházak, irodák, raktárépületek
+                                    generálozását ehhez kapcsolódóan az összes renoválást és beépítését, és a belsőépítészetet is.
+                                </p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th style="color: #5f5f5f">Design-kultúra szemléletünk</th>
+                            <th style="color: #5f5f5f">Formatervezés</th>
+
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr>
+                            <td style="color: #5f5f5f">
+                                <p>
+                                    A körülöttünk lévő alkotások alakzatok, formák, festészet, szobrászat, építészet, egyszóval
+                                    tárgyak mind beépülnek a gondolatvilágunkba mely későbbiek folyamán valamilyen szinten
+                                    befolyásolják a tudatunkat. Mindennapi életünkre hatással van, formálja az egyéni ízlésünket
+                                    és egyéniségünket.
+                                </p>
+                                <p>
+                                    Mindig is végig kísért életem során a művészet, valamint a formatervezési elméleti és gyakorlati
+                                    háttere, azonban ezt a gyakorlatban kaptam meg erre a lehetőséget, hogy az ezzel kapcsolatos
+                                    tudásomat magas szakmai nívóra emeljem.
+                                </p>
+                                <p>
+                                    Vásárlói központosított forma Az 1970-1980-as éveket meglehetősen szűkös kínálat és szerény
+                                    színvonal jellemezte az elérhető termékeket. A kuncsaft igényei nem voltak fontosak a gyártó
+                                    számára. Az 1990-es évek 4 gazdasági változásai reformálták a vásárolható termékek körét és
+                                    színvonalát, a gyártó és a vevő helyet cserélt, a terméktervezés, a gyártás és az értékesítés
+                                    középpontjába a fogyasztó került. A fogyasztó a tervezés és a gyártás során nem általánosságban,
+                                    hanem fogyasztói igény formájában jelenik meg.
+                                </p>
+                                <p>
+                                    A design bevonja az értelmezésbe a készítménnyel kapcsolatba kerülő embert és a környezetet. Az
+                                    aspektus hívei nem egy elszigetelt készítmény, hanem egy rendszerbe optimálisan beilleszkedő
+                                    árucikk, illetve kialakítások fejlesztését tekintik célnak.
+                                </p>
+                                <p>
+                                    Természeti formák alkalmazása a lakásban. A természetben található kész megoldások legtöbbször
+                                    módosítás nélkül nem használhatók fel a műszaki gyakorlatban, hiszen figyelembe kell venni a
+                                    rendelkezésre álló technológiákat és anyagokat.
+                                </p>
+                                <p>
+                                    Technológia helyes természeti adaptációval viszont
+                                    lehetőség nyílik a hosszú idők óta működőképes és jól bevált hatáselvek, illetve hatáshordozók
+                                    széleskörű felhasználására. Ebből adódóan természetben található hasonló termékeket használhatunk
+                                    fel mind építkezésnél vagy felújításnál.
+                                </p>
+                            </td>
+                            <td>
+                                <object data="image/ajtó.pdf" type="application/pdf" width="" style="height: 680px; width: 280px">
+                                    <p style="color: #5f5f5f">Kattints a linkre <a href="image/ajtó.pdf" style="color: #aa0000">letőlthető PDF!</a></p>
+                                </object>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th style="color: #5f5f5f">Elérhetőségünk</th>
+
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            <div class="head-wrap">
+
+                <div class="text-editor-wrap">
+                    <div class="title-bar" style="color: #3f3f3f"><span class="title">FODIN-HOME KFT &mdash; bash &mdash; 138x<span class="terminal-height">15</span></span></div>
+                    <div class="text-body2">
+                        <span id="typednext"></span>
+                    </div>
+                </div>
+
+            </div>
+
+        </td>
+    </tr>
+    </tbody>
+</table>
+    <script>
+        $(document).ready(function() {
+            $("body").flowUp("p", { transalteY: 350, duration: 1 });
+        });
+    </script>
+
+
+
+
+
+<div class="clearfix"></div>
+<!-- Start Footer -->
+    <footer class="footer"  style="background-color: #2f6f9f">
+        <div class="text-center" style="background-color:#FFFFFF " >
+            <a class="up-arrow" href="index.html" data-toggle="tooltip" title="TO TOP">
+                <span class="glyphicon glyphicon-chevron-up"  style="color: #2f6f9f"></span>
+            </a><br><br>
+        <p  style="color: #2f6f9f">Licenced by FODIN HOME KFT</p>
+
+        </div>
+    </footer>
+
+<!-- End Footer -->
+
+<!-- START JAVASCRIPT -->
+
+<!-- Placed at the end of the document so the pages load faster -->
+<script type="bootsnav-master/text/javascript" src="js/jquery.min.js"></script>
+<script src="bootnav-master/js/bootstrap.min.js"></script>
+
+<!-- Place this tag in your head or just before your close body tag. -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- Bootsnavs -->
+<script src="bootsnav-master/js/bootsnav.js"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="bootstrap-3.3.7/dist/js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="bootstrap-4-dev/docs/assets/js/ie10-viewport-bug-workaround.js"></script>
+<script src="flowup/flowup.js"></script>
+                </form>
+</div>
+</body>
+</html>

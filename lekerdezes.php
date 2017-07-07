@@ -1,9 +1,17 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: dobiasz.tamas
+ * Date: 2017.06.19.
+ * Time: 12:54
+ */
+?>
 <!DOCTYPE HTML>
-<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="hu"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="hu"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="hu"> <![endif]-->
 <!--[if gt IE 8]><!-->
-<html lang="hu">
+<html class="no-js" lang="hu">
 <!--<![endif]-->
 <head>
 
@@ -19,9 +27,11 @@
     <link rel="icon" href="image/favicon.ico">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+
+
     <!-- Bootstrap Core CSS -->
     <link href="bootsnav-master/css/bootstrap.min.css" rel="stylesheet">
     <link href="bootsnav-master/css/animate.css" rel="stylesheet">
@@ -36,15 +46,6 @@
     <!-- Font Style -->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 
-    <!-- Animate -->
-    <link href="bootsnav-master/css/animate.css" rel="stylesheet">
-
-    <!-- Bootsnav -->
-    <link href="bootsnav-master/css/bootsnav.css" rel="stylesheet">
-
-    <!-- Custom style -->
-    <link href="bootsnav-master/css/style.css" rel="stylesheet">
-
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="js/ie-emulation-modes-warning.js"></script>
@@ -54,25 +55,10 @@
     <script src="js/html5shiv.min.js"></script>
     <script src="js/respond.min.js"></script>
     <![endif]-->
-    <style>
-        .kiemeles:hover {box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.77);}"
-    </style>
-    <script>
-        $(document).ready(function(){
-            $("kep").hover(function(){
-                $("div").animate({
-                    left: '20px',
-                    opacity: '0.1',
-                    height: '600px',
-                    width: '1500px'
-                });
-            });
-        });
-    </script>
-
+    <script src="typed.js-master/js/typed.js" type="text/javascript"></script>
+    <script src="typed.js-master/js/typednext.js" type="text/javascript"></script>
 </head>
 <body>
-
 <!-- Start Navigation -->
 <nav class="navbar navbar-default navbar-fixed navbar-transparent dark bootsnav">
 
@@ -174,6 +160,7 @@
             </ul>
         </div><!-- /.navbar-collapse -->
     </div>
+
     <!-- Start Side Menu -->
     <div class="side">
         <a href="#" class="close-side"><i class="fa fa-times"></i></a>
@@ -203,6 +190,7 @@
 <!-- End Navigation -->
 
 <div class="clearfix"></div>
+<div class="clearfix"></div>
 <div class="site-wrapper">
     <!--kép-->
     <a href="#" class="photo"><img src="bootsnav-master/images/thumb/fa.png" class="cart-thumb" alt="" /></a>
@@ -212,11 +200,10 @@
     </div>
 </div>
 <!-- End Home -->
-
 <div class="clearfix"></div>
 <!-- Start Adsense -->
 <div class="container margintop50">
-  <!--  <script type="text/javascript">
+    <script type="text/javascript">
         ( function() {
             if (window.CHITIKA === undefined) { window.CHITIKA = { 'units' : [] }; };
             var unit = {"calltype":"async[2]","publisher":"adamnurdin93","width":300,"height":250,"sid":"Chitika Default"};
@@ -225,80 +212,200 @@
             document.write('<div id="chitikaAdBlock-' + placement_id + '"></div>');
         }());
     </script>
-    <script type="text/javascript" src="//cdn.chitika.net/getads.js" async></script> -->
+    <script type="text/javascript" src="//cdn.chitika.net/getads.js" async></script>
 </div>
 <!-- End Adsense -->
+<div  style="color: #5f5f5f; padding-left:120px"><h5>Készlet</h5></div>
+<div class="col-lg-12" style="color: #5f5f5f">
+
+    <table class="table table-responsive table-striped table-inverse">
+
+        <thead class="alert">
+        <tr>
+            <th>#</th>
+            <th>Megnevezés</th>
+            <th>Egység</th>
+            <th>Mennyiség</th>
+            <th>Brutto</th>
+            <th>Nettó</th>
+            <th>Nyomtatás</th>
+            <th>Törlés</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td scope="row">valami</td>
+            <td scope="row"></td>
+            <td scope="row"></td>
+            <td scope="row"></td>
+            <td scope="row"></td>
+            <td scope="row"></td>
+            <td scope="row"></td>
+</div>
+
+</div>
+</tr>
+<tr>
+    <th scope="row">2</th>
+    <td scope="row">valami</td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+
+</tr>
+<tr>
+    <th scope="row">3</th>
+    <td scope="row">valami</td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+
+</tr>
+<tr>
+    <th scope="row">4</th>
+    <td scope="row">valami</td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+
+</tr>
+<tr>
+    <th scope="row">5</th>
+    <td scope="row">valami</td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+
+</tr>
+<tr>
+    <th scope="row">6</th>
+    <td scope="row">valami</td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+
+</tr>
+<tr>
+    <th scope="row">7</th>
+    <td scope="row">valami</td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+
+</tr>
+<tr>
+    <th scope="row">8</th>
+    <td scope="row">valami</td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+
+</tr>
+<tr>
+    <th scope="row">9</th>
+    <td scope="row">valami</td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+
+</tr>
+<tr>
+    <th scope="row">10</th>
+    <td scope="row">valami</td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+
+</tr>
+<tr>
+    <th scope="row">11</th>
+    <td scope="row">valami</td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+
+</tr>
+<tr>
+    <th scope="row">12</th>
+    <td scope="row">valami</td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+    <td scope="row"></td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+<br><br><br><br><br>
+<div class="clearfix"></div>
+
+<script>
+    $(document).ready(function() {
+        $("body").flowUp("p", { transalteY: 350, duration: 1 });
+    });
+</script>
 
 
-<!-- Marketing messaging and featurettes
-   ================================================== -->
-<!-- Wrap the rest of the page in another container to center all the content. -->
 
+<div class="clearfix"></div>
+<!-- Start Footer -->
+<footer class="footer"  style="background-color: #2f6f9f">
+    <div class="text-center" style="background-color:#FFFFFF " >
+        <a class="up-arrow" href="index.html" data-toggle="tooltip" title="TO TOP">
+            <span class="glyphicon glyphicon-chevron-up"  style="color: #2f6f9f"></span>
+        </a><br><br>
+        <p  style="color: #2f6f9f">Licenced by FODIN HOME KFT</p>
 
-<div class="container marketing">
-
-
-
-    <!-- START THE FEATURETTES -->
-
-    <hr class="featurette-divider">
-
-    <div class="row featurette">
-        <div class="col-md-12">
-            <h1 style="">Cím</h1>
-            <script>
-                function myMap() {
-                    var mapCanvas = document.getElementById("map");
-                    var mapOptions = {
-                        center: new google.maps.LatLng(48.10420, 20.75900), zoom: 18
-                    };
-                    var map = new google.maps.Map(mapCanvas, mapOptions);
-                }
-            </script>
-            <div class="kiemeles">
-            <div id="map" style="width:115px;height:600px;background:white"></div>
-            </div>
-        </div>
     </div>
+</footer>
 
-    </div>
-    <hr class="featurette-divider">
+<!-- End Footer -->
+<!-- Bootsnavs -->
+<script src="bootsnav-master/js/bootsnav.js"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src='css3-animate-it-master/js/css3-animate-it.js'></script>
+<script src="bootstrap-3.3.7/dist/js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="bootstrap-4-dev/docs/assets/js/ie10-viewport-bug-workaround.js"></script>
 
-    <!-- /END THE FEATURETTES -->
-
-
-    <div class="clearfix"></div>
-    <br> <br> <br>
-    <!-- Start Footer -->
-    <footer class="footer" style="background-color: #2f6f9f">
-        <div class="text-center" style="background-color:#2B81AF " >
-            <a class="up-arrow" href="kontakt.html" data-toggle="tooltip" title="TO TOP">
-                <span class="glyphicon glyphicon-chevron-up"></span>
-            </a><br><br>
-            <p>Licenced by FODIN HOME KFT</p>
-
-        </div>
-    </footer>
-
-    <!-- End Footer -->
-
-    <!-- START JAVASCRIPT -->
-
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script type="bootsnav-master/text/javascript" src="js/jquery.min.js"></script>
-    <script src="bootnav-master/js/bootstrap.min.js"></script>
-
-    <!-- Place this tag in your head or just before your close body tag. -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-
-    <!-- Bootsnavs -->
-    <script src="bootsnav-master/js/bootsnav.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="bootstrap-3.3.7/dist/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="bootstrap-4-dev/docs/assets/js/ie10-viewport-bug-workaround.js"></script>
 
 </body>
 </html>

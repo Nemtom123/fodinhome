@@ -1,78 +1,65 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: dobiasz.tamas
+ * Date: 2017.06.18.
+ * Time: 12:47
+ */
+include_once 'dbMySql.php';
+$con = new DB_con();
+$table = "users";
+$res=$con->select($table);
+?>
 <!DOCTYPE HTML>
-<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="hu"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="hu"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="hu"> <![endif]-->
 <!--[if gt IE 8]><!-->
-<html lang="hu">
+<html class="no-js" lang="hu">
 <!--<![endif]-->
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Bootsnav is a multi purpose header based with Bootstrap, you can build any header style with bootsnav only with a few minutes">
     <meta name="keywords" content="Bootsnav, Menu, Navigation, Navbar, Bootstrap, Dropdown, Multi Dropdown, Megamenu">
     <meta name="robots" content="index,follow">
-
-
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
     <title>Fodin-Home Kft</title>
     <link rel="icon" href="image/favicon.ico">
+
+    <link rel="stylesheet" href="css3-animate-it-master/css/animations.css" type="text/css">
+
+    <!-- STUFF JUST FOR THIS TEMPLATE -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link href="bootsnav-master/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css3-animate-it-master/example-assets/style.css" type="text/css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <!-- Bootstrap Core CSS -->
-    <link href="bootsnav-master/css/bootstrap.min.css" rel="stylesheet">
-    <link href="bootsnav-master/css/animate.css" rel="stylesheet">
+    <!-- Bootstrap Core CSS-->
+
     <link href="bootsnav-master/css/bootsnav.css" rel="stylesheet">
     <link href="bootsnav-master/css/style.css" rel="stylesheet">
-    <link href="carousel.css" rel="stylesheet">
+    <link href="bootsnav-master/css/animate.css" rel="stylesheet">
     <!-- Image -->
     <link href="bootsnav-master/images/brand/logo-black.png" rel="import">
     <!-- Icons -->
     <link href="fonts/FontAwesome/font-awesome.css" rel="stylesheet">
+    <script src="css3-animate-it-master/js/css3-animate-it.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
-    <!-- Font Style -->
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
-    <!-- Animate -->
-    <link href="bootsnav-master/css/animate.css" rel="stylesheet">
 
-    <!-- Bootsnav -->
-    <link href="bootsnav-master/css/bootsnav.css" rel="stylesheet">
-
-    <!-- Custom style -->
-    <link href="bootsnav-master/css/style.css" rel="stylesheet">
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="js/ie-emulation-modes-warning.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="js/html5shiv.min.js"></script>
-    <script src="js/respond.min.js"></script>
-    <![endif]-->
-    <style>
-        .kiemeles:hover {box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.77);}"
-    </style>
-    <script>
-        $(document).ready(function(){
-            $("kep").hover(function(){
-                $("div").animate({
-                    left: '20px',
-                    opacity: '0.1',
-                    height: '600px',
-                    width: '1500px'
-                });
-            });
-        });
-    </script>
 
 </head>
 <body>
-
 <!-- Start Navigation -->
 <nav class="navbar navbar-default navbar-fixed navbar-transparent dark bootsnav">
 
@@ -131,7 +118,7 @@
         <!-- Start Header Navigation -->
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
-                <i class="fa fa-bars"></i>
+                <i class="fa fa-bars" style="color: #3f3f3f"></i>
             </button>
             <a class="navbar-brand" href="#brand">
                 <img src="bootsnav-master/images/brand/logo-white.png" class="logo logo-display" alt="">
@@ -172,8 +159,10 @@
                 </li>
                 <li><a href="kontakt.html">Kontakt</a></li>
             </ul>
-        </div><!-- /.navbar-collapse -->
+        </div>
+        <!-- /.navbar-collapse -->
     </div>
+
     <!-- Start Side Menu -->
     <div class="side">
         <a href="#" class="close-side"><i class="fa fa-times"></i></a>
@@ -212,93 +201,120 @@
     </div>
 </div>
 <!-- End Home -->
-
 <div class="clearfix"></div>
 <!-- Start Adsense -->
-<div class="container margintop50">
-  <!--  <script type="text/javascript">
+<!--<div class="container margintop50">
+    <script type="text/javascript">
         ( function() {
-            if (window.CHITIKA === undefined) { window.CHITIKA = { 'units' : [] }; };
+            if (window.CHITIKA === undefined) {
+                window.CHITIKA = {'units': []};
+            }
             var unit = {"calltype":"async[2]","publisher":"adamnurdin93","width":300,"height":250,"sid":"Chitika Default"};
             var placement_id = window.CHITIKA.units.length;
             window.CHITIKA.units.push(unit);
             document.write('<div id="chitikaAdBlock-' + placement_id + '"></div>');
         }());
     </script>
-    <script type="text/javascript" src="//cdn.chitika.net/getads.js" async></script> -->
-</div>
+    <script type="text/javascript" src="//cdn.chitika.net/getads.js" async></script>
+</div>-->
 <!-- End Adsense -->
+<div class="clearfix"></div>
 
 
-<!-- Marketing messaging and featurettes
-   ================================================== -->
-<!-- Wrap the rest of the page in another container to center all the content. -->
+<form id="register" action="lekerdezes.php" method="post" onsubmit="return check()">
+    <!--<form id="register" action="" method="post" onsubmit="return check()">-->
+
+    <h2 style="text-align: center"></h2>
+    <br>
 
 
-<div class="container marketing">
+    <button type="button" class="btn-lg btn-info center-block" data-toggle="modal"
+            data-target="#myModal">Bejelentkezés
+    </button>
 
 
+    <form id="register" action="lekerdezes.php" method="post" onsubmit="return check()">
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header modal-header-info">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4><i class="glyphicon glyphicon-align-right"></i>Bejelentkezés</h4>
+                    </div>
 
-    <!-- START THE FEATURETTES -->
+                    <div class="modal-body">
+                        <div style="text-align: center; width: auto; height: auto">
+                            <img src="image/user.png" alt="Avatar" class="avatar">
+                        </div>
+                        <form class="noteform" id="notesmodal" method="post">
+                            <fieldset>
+                                <p style="align-content: center; color: #3f3f3f">Felhasználói név</p>
+                                <input type="text" name="ugyfel" id="ugyfel"
+                                       class="form-control"
+                                       data-live-search="true"/>
+                                <br>
+                                <p style="align-content: center; color: #3f3f3f">Jelszó</p>
+                                <input type="password" name="jelszo" id="jelszo"
+                                       class="form-control"
+                                       data-live-search="true"/>
+                            </fieldset>
+                            <br>
+                        </form>
+                        <div class="col-sm-offset-5 col-sm-2 text-center">
+                            <input type="submit" name="submit" class="btn btn-danger"
+                                   data-toggle="modal" data-target="#myModal"
+                                   id="submitnote" value="Bejelentkezés" />
+                        </div>
 
-    <hr class="featurette-divider">
+                        <br>
+                        <br>
+                        <br>
 
-    <div class="row featurette">
-        <div class="col-md-12">
-            <h1 style="">Cím</h1>
-            <script>
-                function myMap() {
-                    var mapCanvas = document.getElementById("map");
-                    var mapOptions = {
-                        center: new google.maps.LatLng(48.10420, 20.75900), zoom: 18
-                    };
-                    var map = new google.maps.Map(mapCanvas, mapOptions);
-                }
-            </script>
-            <div class="kiemeles">
-            <div id="map" style="width:115px;height:600px;background:white"></div>
+                        <div class="modal-footer modal-footer-info" >
+                            <button type="button" class="btn btn-default"
+                                    data-dismiss="modal">Bezár
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-
-    </div>
-    <hr class="featurette-divider">
-
-    <!-- /END THE FEATURETTES -->
+        <?php  $row == POST['ugyfel'] && $row == POST['password'] ?>
+    </form>
 
 
-    <div class="clearfix"></div>
-    <br> <br> <br>
-    <!-- Start Footer -->
-    <footer class="footer" style="background-color: #2f6f9f">
-        <div class="text-center" style="background-color:#2B81AF " >
-            <a class="up-arrow" href="kontakt.html" data-toggle="tooltip" title="TO TOP">
+
+
+<div class="clearfix"></div>
+
+<!-- Start Footer -->
+<div class='animatedParent' data-sequence='1000' >
+    <footer class='animated growIn, navbar-fixed-bottom panel-footer' data-id='1' style="background-color:#282E34">
+        <div class="text-center"  >
+            <a class="up-arrow" href="login.php" data-toggle="tooltip" title="TO TOP">
                 <span class="glyphicon glyphicon-chevron-up"></span>
-            </a><br><br>
-            <p>Licenced by FODIN HOME KFT</p>
+            </a><br><br><br><br><br><br>
+            <p style="color: white">Licenced by FODIN HOME KFT</p>
 
         </div>
     </footer>
+</div>
+<!-- End Footer -->
 
-    <!-- End Footer -->
+<!-- Bootsnavs -->
+<script src="bootsnav-master/js/bootsnav.js"></script>
 
-    <!-- START JAVASCRIPT -->
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src='css3-animate-it-master/js/css3-animate-it.js'></script>
+<script src="bootstrap-3.3.7/dist/js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="bootstrap-4-dev/docs/assets/js/ie10-viewport-bug-workaround.js"></script>
 
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script type="bootsnav-master/text/javascript" src="js/jquery.min.js"></script>
-    <script src="bootnav-master/js/bootstrap.min.js"></script>
-
-    <!-- Place this tag in your head or just before your close body tag. -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-
-    <!-- Bootsnavs -->
-    <script src="bootsnav-master/js/bootsnav.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="bootstrap-3.3.7/dist/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="bootstrap-4-dev/docs/assets/js/ie10-viewport-bug-workaround.js"></script>
 
 </body>
 </html>
+
+
