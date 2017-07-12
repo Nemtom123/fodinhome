@@ -3,7 +3,7 @@
 <!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
 <!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!-->
-<html class="no-js" lang="hu">
+<html class="no-js" lang="hu" xmlns:color="http://www.w3.org/1999/xhtml">
 <!--<![endif]-->
 <head>
     <meta charset="utf-8">
@@ -88,7 +88,7 @@
         }
 
 
-        .bgimg-6 {
+        .bgim {
             background-image: url("image/bedroom1.jpg");
             min-height: 400px;
         }
@@ -125,7 +125,7 @@
 
         /* Turn off parallax scrolling for tablets and phones */
         @media only screen and (max-device-width: 1024px) {
-            .bgimg-1, .bgimg-2, .bgimg-3 .bgimg-4, .bgimg-5, .bgimg-6 .bgimg-7{
+            .bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4, .bgimg-5, .bgimg-6 .bgimg-7{
                 background-attachment: scroll;
             }
         }
@@ -149,7 +149,6 @@
     <!-- End Top Search -->
 
     <div class="container">
-        <!-- Start Atribute Navigation -->
         <div class="attr-nav">
             <ul>
                 <li class="dropdown">
@@ -193,7 +192,7 @@
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
                 <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand" href="#brand">
+            <a class="navbar-brand" href="#">
                 <img src="bootsnav-master/images/brand/logo-white.png" class="logo logo-display" alt="">
                 <img src="bootsnav-master/images/brand/logo-black.png" class="logo logo-scrolled" alt="">
             </a>
@@ -205,12 +204,13 @@
             <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
                 <li><a href="index.html">Fodin-Home</a></li>
                 <li><a href="proba.html">Szolgáltatások</a></li>
+                <li><a href="faiparimunkak.html">Faipari munkák</a></li>
 
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Szolgáltatások részletesen</a>
                     <ul class="dropdown-menu">
                         <li><a href="parkettazas.html">Parketázás</a></li>
-                        <li><a href="hidegburkolas.html">Hidegburkolás</a></li>
+                        <li><a href="hidegburkolas.html">Hideg burkolás</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Energia</a>
                             <ul class="dropdown-menu">
@@ -221,8 +221,8 @@
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Fűtés</a>
                                     <ul class="dropdown-menu">
                                         <li><a href="padlo.html">Padló</a></li>
-                                        <li><a href="radiator.html">Radiátor</a></li>
-                                        <li><a href="kozponti.htm">Központi</a></li>
+                                        <li><a href="#">Radiátor</a></li>
+                                        <li><a href="kozponti.html">Központi</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -273,166 +273,26 @@
     </div>
 </div>
 <!-- End Home -->
-<div class="clearfix"></div>
-<!-- Start Adsense -->
-<div class="container margintop50">
-</div>
-<!-- End Adsense -->
-
-<div class="bgimg-1" style="padding-bottom: 400px">
-    <div class="caption">
-        <span class="border"></span>
-    </div>
-</div>
-
-<div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;">
-    <h3 style="text-align:center; color: red">Portfolio</h3>
-    <p>
-
-    </p>
-</div>
-
-<h2 style="text-align: center">Ötletelések</h2>
-
-<div id="nanogallery2" data-nanogallery2='{
-        "thumbnailHeight":           210, "thumbnailWidth": 210,
-        "thumbnailL1GutterWidth":    90,
-        "thumbnailL1GutterHeight":   90,
-        "itemsBaseURL":              "image/",
-        "thumbnailStacks":           4,
-        "thumbnailStacksTranslateZ": 0.5,
-        "thumbnailStacksRotateX":    0.9,
-        "galleryBuildInit2":         "perspective_900px|perspective-origin_50% 150%",
-        "thumbnailHoverEffect2":     "thumbnail_translateZ_0px_100px_easeOutQuad_400 | thumbnail_rotateX_0deg_10deg_easeOutBack_200 | thumbnail_rotateX_10deg_0deg_delay250_keyframe_hoverin_easeOutBack_400"
-      }'>
-
-    <!-- IMAGES -->
-    <a href="bathroom2.jpg" data-ngthumb="bathroom2.jpg">Fűrdőszoba</a>
-    <a href="bedroom1.jpg" data-ngthumb="bedroom1.jpg">Hálószoba</a>
-    <a href="living5.jpg" data-ngthumb="living5.jpg">Nappali</a>
-</div>
 <br>
-<div class="bgimg-2" style="padding-bottom: 400px">
-    <div class="caption">
-        <span class="border"></span>
-    </div>
-</div>
-<div style="position:relative;">
-    <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;">
-        <h3 style="text-align:center;color: red"></h3>
-        <p>
-
-        </p>
-
-        <button type="button" class="btn-lg btn-info center-block" data-toggle="modal"
-                data-target="#myModal">Kérjen árajánlatot
-        </button>
-        <form id="register1" action="belepett.php" method="post" onsubmit="return check()">
-            <!--<form id="register" action="" method="post" onsubmit="return check()">-->
-
-            <h2 style="text-align: center"></h2>
-            <br>
-            <form id="register" action="belepes.php" method="post" onsubmit="return check()">
-                <div class="modal fade" id="myModal" role="dialog">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                            <div class="modal-header modal-header-info">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                <h6><i class="glyphicon glyphicon-align-right"></i>Levélküldés</h6>
-                            </div>
-
-                            <div class="modal-body">
-                                <div style="text-align: center; width: auto; height: auto">
-                                    <img src="image/level.png" alt="Avatar" class="avatar">
-                                </div>
-                                <form class="noteform" id="notesmodal" method="post">
-                                    <fieldset>
-                                        <p style="align-content: center; color: #3f3f3f">Email</p>
-                                        <input type="text" name="ugyfel" id="ugyfel" class="form-control"
-                                               data-live-search="true" placeholder="Pl:kovacs.janos@gmail.com"/>
-                                        <br>
-                                        <p style="align-content: center; color: #3f3f3f">Üzenet</p>
-                                        <div class="col-lg-pull-12 ">
-                                                <textarea type="massage-text" name="uzenet" id="uzenet"
-                                                          class="form-control"
-                                                          data-live-search="true" rows="6"></textarea>
-
-                                            <br>
-                                        </div>
-                                    </fieldset>
-                                    <br>
-                                </form>
-                                <div class="col-sm-offset-5 col-sm-2 text-center">
-                                    <input type="submit" name="submit" class="btn btn-danger"
-                                           data-toggle="modal" data-target="#myModal"
-                                           id="submitnote" value="Küldés" />
-                                </div>
-
-                                <br>
-                                <br>
-                                <br>
-
-                                <div class="modal-footer modal-footer-info" >
-                                    <button type="button" class="btn btn-default"
-                                            data-dismiss="modal">Bezár
-                                    </button>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </form>
-    </div>
-</div>
-<div id="nanogallery2" data-nanogallery2='{
-        "thumbnailHeight":           210, "thumbnailWidth": 210,
-        "thumbnailL1GutterWidth":    90,
-        "thumbnailL1GutterHeight":   90,
-        "itemsBaseURL":              "image/",
-        "thumbnailStacks":           4,
-        "thumbnailStacksTranslateZ": 0.5,
-        "thumbnailStacksRotateX":    0.9,
-        "galleryBuildInit2":         "perspective_900px|perspective-origin_50% 150%",
-        "thumbnailHoverEffect2":     "thumbnail_translateZ_0px_100px_easeOutQuad_400 | thumbnail_rotateX_0deg_10deg_easeOutBack_200 | thumbnail_rotateX_10deg_0deg_delay250_keyframe_hoverin_easeOutBack_400"
-      }'>
-
-    <!-- IMAGES -->
-    <a href="bathroom2.jpg" data-ngthumb="bathroom2.jpg">Fűrdőszoba</a>
-    <a href="bedroom1.jpg" data-ngthumb="bedroom1.jpg">Hálószoba</a>
-    <a href="living5.jpg" data-ngthumb="living5.jpg">Nappali</a>
-</div>
-<br>
-<div class="bgimg-4" style="padding-bottom: 400px">
-    <div class="caption">
-        <span class="border"> </span>
-    </div>
-</div>
-<div style="position:relative;">
-    <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;">
-        <h3 style="text-align:center;color: red"> </h3>
-        <p>
-
-        </p>
-    </div>
-</div>
+<div class="alert-dismissable"><h2 style="color: #aa0000; text-align: center" >Fejlesztés alatt</h2></div>
 <div class="clearfix"></div>
 
 <!-- Start Footer -->
-<footer class="footer"  style="background-color: #2f6f9f">
-    <div class="text-center" style="background-color:#282E34 " >
-        <a class="up-arrow" href="hidegburkolas.html" data-toggle="tooltip" title="TO TOP">
-            <span class="glyphicon glyphicon-chevron-up"  style="color: #2f6f9f"></span>
-        </a><br><br>
-        <p  style="color: #2f6f9f">Licenced by FODIN HOME KFT</p>
+<footer class="footer navbar-fixed-bottom"  style="background-color: #282E34">
+    <div class="text-center" style="background-color:#282E34" >
+        <a class="up-arrow" href="index.html" data-toggle="tooltip" title="TO TOP">
+            <span class="glyphicon glyphicon-chevron-up"></span>
+        </a><br><br><br><br><br><br>
+        <p style="color: white">Licenced by FODIN HOME KFT</p>
 
     </div>
 </footer>
+
 <!-- End Footer -->
 
 <!-- Placed at the end of the document so the pages load faster -->
-<script type="bootsnav-master/text/javascript" src="js/jquery.min.js"></script>
-<script src="bootnav-master/js/bootstrap.min.js"></script>
+<script type="bootsnav-master/text/javascript" src="bootsnav-master/js/jquery.min.js"></script>
+<script type="text/javascript" src="bootnav-master/js/bootstrap.min.js"></script>
 <!-- Bootsnavs -->
 <script src="bootsnav-master/js/bootsnav.js"></script>
 

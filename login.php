@@ -132,6 +132,7 @@ $res=$con->select($table);
             <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
                 <li><a href="index.html">Fodin-Home</a></li>
                 <li><a href="proba.html">Szolgáltatások</a></li>
+                <li><a href="faiparimunkak.html">Faipari munkák</a></li>
 
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Szolgáltatások részletesen</a>
