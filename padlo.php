@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
-<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="hu"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="hu"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="hu"> <![endif]-->
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!-->
 <html class="no-js" lang="hu">
 <!--<![endif]-->
@@ -21,6 +21,9 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css3-animate-it-master/example-assets/style.css" type="text/css">
+    <link rel="stylesheet" href="css3-animate-it-master/css/animations.css" type="text/css">
+    <script src="css3-animate-it-master/js/css3-animate-it.js"></script>
 
 
     <!-- Bootstrap Core CSS -->
@@ -28,7 +31,7 @@
     <link href="bootsnav-master/css/animate.css" rel="stylesheet">
     <link href="bootsnav-master/css/bootsnav.css" rel="stylesheet">
     <link href="bootsnav-master/css/style.css" rel="stylesheet">
-
+    <link href="carousel.css" rel="stylesheet">
     <!-- Image -->
     <link href="bootsnav-master/images/brand/logo-black.png" rel="import">
     <!-- Icons -->
@@ -136,7 +139,7 @@
             background-color: rgba(0, 0, 0, 0.85);
             padding: 10px;
             color: #f0f0f0;
-            text-shadow: #000 0 1px 0;
+            text-shadow: #000 0px 1px 0px;
             font-family: "Consolas", "Courier New", "Courier";
             font-size: 1.75em;
             line-height: 1.40em;
@@ -154,7 +157,7 @@
             background-color: rgba(0, 0, 0, 0.85);
             padding: 10px;
             color: #f0f0f0;
-            text-shadow: #000 0 1px 0;
+            text-shadow: #000 0px 1px 0px;
             font-family: "Consolas", "Courier New", "Courier";
             font-size: 1.75em;
             line-height: 1.40em;
@@ -239,19 +242,19 @@
                             <p style="color: #5f5f5f">Gáz - <span class="price" style="color: #5f5f5f">Ügyeletes</span></p>
                         </li>
                         <li>
-                            <a href="szerviz.php"
-                               class="photo"><img src="image/NagyIstvan.jpg" class="cart-thumb" alt="Nagy István" /></a>
+                            <a href="szerviz.php" class="photo"><img src="image/NagyIstvan.jpg" class="cart-thumb"
+                                                                     alt="Nagy István" /></a>
                             <h6><a href="szerviz.php">Nagy István</a></h6>
                             <p style="color: #5f5f5f">Víz - <span class="price" style="color: #5f5f5f">Ügyeletes</span></p>
                         </li>
                         <li>
-                            <a href="szerviz.php"
-                               class="photo"><img src="image/OsváthTibi.jpg" class="cart-thumb" alt="Osváth Tibor" /></a>
+                            <a href="szerviz.php" class="photo"><img src="image/OsváthTibi.jpg" class="cart-thumb"
+                                                                     alt="Osváth Tibor" /></a>
                             <h6><a href="szerviz.php">Osváth Tibi</a></h6>
                             <p style="color: #5f5f5f">Villany - <span class="price" style="color: #5f5f5f">Ügyeletes</span></p>
                         </li>
                         <li class="total">
-                            <span class="pull-right" style="color: #5f5f5f"><strong>Ügyeletben</strong>: 3 - fő</span>
+                            <span class="pull-right" style="color: #5f5f5f"><strong>Ügyeletben</strong>:3 - fő</span>
                             <a href="szerviz.php" class="btn btn-default btn-cart">Szervizes</a>
                         </li>
                     </ul>
@@ -280,6 +283,7 @@
                 <li><a href="index.html">Fodin-Home</a></li>
                 <li><a href="proba.php">Szolgáltatások</a></li>
                 <li><a href="faiparimunkak.php">Faipari munkák</a></li>
+
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Szolgáltatások részletesen</a>
                     <ul class="dropdown-menu">
@@ -298,6 +302,7 @@
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Fűtés</a>
                                     <ul class="dropdown-menu">
                                         <li><a href="padlo.php">Padló</a></li>
+                                        <li><a href="radiator.html">Radiátor</a></li>
                                         <li><a href="kozponti.php">Központi</a></li>
                                     </ul>
                                 </li>
@@ -330,7 +335,7 @@
             <ul class="link">
                 <li><a href="ujotthon.php">Új otthon</a></li>
                 <li><a href="erdekessegek.php">Érdekességek</a></li>
-                <li><a href="levelezes.php">Levelezés</a></li>
+                <li><a href="szakaszok.html">Szakaszok</a></li>
                 <li><a href="epiteszet.php">Az építészet</a></li>
                 <li><a href="login.php">Bejelentkezés</a></li>
             </ul>
@@ -341,54 +346,47 @@
 <!-- End Navigation -->
 
 <div class="clearfix"></div>
-        <div class="site-wrapper">
-            <!--kép-->
-            <a href="#" class="photo"><img src="bootsnav-master/images/thumb/fa.png" class="cart-thumb" alt="" /></a>
-                 <div class="site-wrapper-inner">
-                    <div class="cover-container">
-                    </div>
-                </div>
-        </div>
-    <!-- End Home -->
-
-<div class="clearfix"></div>
-    <!-- Start Adsense -->
-    <div class="container margintop50">
-
-    </div>
-    <!-- End Adsense -->
-
-
-<div class="head-wrap">
-
-    <div class="text-editor-wrap">
-
-        <div class="text-body">
-            $ <span id="typed"></span>
+<div class="site-wrapper">
+    <!--kép-->
+    <a href="#" class="photo"><img src="bootsnav-master/images/thumb/fa.png" class="cart-thumb" alt="" /></a>
+    <div class="site-wrapper-inner">
+        <div class="cover-container">
         </div>
     </div>
 </div>
-</div>
+<!-- End Home -->
+
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
         <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+        <li data-target="#myCarousel" data-slide-to="4"></li>
+
     </ol>
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
         <div class="item active">
-            <img  src="image/home2.jpg" alt="">
+            <img  src="image/padlo5.jpg" alt="FODIN-HOME KFT">
         </div>
 
         <div class="item">
-            <img  src="image/home1.jpg" alt="Chicago">
+            <img src="image/padlo1.jpg" alt="FODIN-HOME KFT ">
         </div>
 
         <div class="item">
-            <img src="image/home3.jpg" alt="New York">
+            <img  src="image/padlo2.jpg" alt="FODIN-HOME KFT">
+        </div>
+
+        <div class="item">
+            <img src="image/padlo3.jpg" alt="FODIN-HOME KFT ">
+        </div>
+
+        <div class="item">
+            <img src="image/padlo4.jpg" alt="FODIN-HOME KFT ">
         </div>
     </div>
 
@@ -411,42 +409,13 @@
     <table class="table table-hover">
         <thead>
         <tr>
-            <th style="color: #5f5f5f">Építőipari panaszmentességi igazolás</th>
-            <th style="color: #5f5f5f; alignment: center">A cégünk bemutatása</th>
-
+            <th style="color: red">Padlófűtés szöveg</th>
         </tr>
         </thead>
         <tbody>
         <tr>
-            <td>
-            <object data="image/Fodin.pdf" type="application/pdf" width="" style="height: 580px; width: 370px">
-                <p style="color: #5f5f5f">Kattints a linkre <a href="image/Fodin.pdf" style="color: #aa0000">letőlthető PDF!</a></p>
-            </object>
-            </td>
-            <td style="color: #5f5f5f">
-                <p> A történetünk:</p>
-                <p>
-                A Fodin-Home kft 2006-ban azzal a céllal alakult, hogy segítséget nyújtson azon
-                emberek számára akik építkeznek vagy felújítanak, esetleg olyan elgondolásuk született mely jobbá és szebbé tenné a saját környezetüket. Ebbe beletartozik akár egy lakásfestés, padlóburkolás vagy egy hibaelhárítás a saját otthonukban, illetve a hétvégi nyaralóban. Pályafutásunkat több éves tapasztalatra és több éves tanulásra alapozva kezdtük el.
-                </p>
-                <p>
-                 Megalakulásunk óta folyamatosan bővülő tendenciát produkál a vállalatunk. Mely annak köszönhető,
-                 hogy precíz, pontos munkát végzünk. A megnövekedett megrendeléseket megfelelő állományú kapacitás biztosítása mellett, illetve az árverseny terén megfelelő alternatívát tudunk kínálni ügyfeleink számára.
-                </p>
-                <p>
-                A Fodin-Home Kft alapfilozófiánk körébe tartozik a minőség és a pontosság, kiterjesztve a komplex
-                    szolgáltatást, ami nálunk annyit jelent, hogy a megrendelő leadja a megrendelését és mi az első
-                    lépéstől az utolsóig lépésig minden gondot levesszünk az ügyfeleink válláról.
-                </p>
-                <p>
-                A nyersanyag és a hozzávaló kellékek beszerzését is vállaljuk, mely megkönnyíti a mindennapos
-                munkavégzésünket, valamint az ügyfeleink életét
-                </p>
-                <p>
-                Természetesen mindezeket a folyamatokat korszerű gépparkkal és több éves tapasztalattal rendelkező
-                kollégákkal végezzük, folyamatos minőség ellenőrzés mellett.
-                </p>
-                  </tr>
+            <td style="background-color: #3f3f3f">Padlófűtés szöveg </td>
+        </tr>
         </tbody>
     </table>
     <script>
@@ -454,200 +423,187 @@
             $("body").flowUp("table", { transalteY: 350, duration: 100 });
         });
     </script>
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal butorok-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Padlófűtés szöveg</h4>
+                </div>
+                <div class="modal-body">
+                    <div style="text-align: center; width: auto; height: auto">
+                        <img src="image/gipsz613.jpg" title="GIPSZKARTON PROFIL" alt="Smiley face" height="300" width="302">
+                    </div>
+                    <h6><br>Padlófűtés szöveg<br>
+                        - Padlófűtés szöveg<br>
+                    </h6>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Bezárás</button>
+                </div>
+            </div>
+            <!-- Modal butorok end-->
+        </div>
+    </div>
+    <div class="modal fade" id="myModal1" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal butorok-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Padlófűtés szöveg</h4>
+                </div>
+                <div class="modal-body">
+                    <div style="text-align: center; width: auto; height: auto">
+                        <img src="image/gipsz613.jpg" title="GIPSZKARTON PROFIL" alt="Smiley face" height="300" width="302">
+                    </div>
+                    <h6><br>Padlófűtés szöveg<br>
+                        - Padlófűtés szöveg<br>
+                    </h6>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Bezárás</button>
+                </div>
+            </div>
+            <!-- Modal butorok end-->
+        </div>
+    </div>
+    <div class="modal fade" id="myModal2" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal butorok-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Padlófűtés szöveg</h4>
+                </div>
+                <div class="modal-body">
+                    <div style="text-align: center; width: auto; height: auto">
+                        <img src="image/gipsz613.jpg" title="GIPSZKARTON PROFIL" alt="Smiley face" height="300" width="302">
+                    </div>
+                    <h6 style="color: #3f3f3f"><br>Padlófűtés szöveg<br>
+                        - Padlófűtés szöveg<br>
+                    </h6>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Bezárás</button>
+                </div>
+            </div>
+            <!-- Modal butorok end-->
+        </div>
+    </div>
+
+    <!-- On Click Sequencing -->
+    <div class='animatedParent row article'>
+        <h3 class='animated bounceInDown'>Igazán pazar megoldások</h3>
+        <div class='col-md-4'>
+            <p class='animated bounceInDown slow'>
+                <div class="thumbnail animated bounceInDown slow">
+                    <img src="image/gipsz61.jpg" alt="Smiley face" height="300" width="302">
+            <p style="color: #5e5e5e;text-align: center"><strong >Padlófűtés szöveg</strong></p>
+            <p style="color: #5e5e5e; text-align: center">Padlófűtés szöveg</p>
+            <div class="buttonHolder">
+                <button class="btn" data-toggle="modal" data-target="#myModal"
+                        style="background-color: #aa0000; color: white">Leírás</button>
+            </div>
+        </div>
+        </p>
+    </div>
+
+    <div class='col-md-4'>
+        <p class='animated bounceInUp slow'>
+            <div class="thumbnail animated bounceInUp slow">
+                <img src="image/gipsz62.jpg" alt="Smiley face" height="300" width="302">
+        <p style=" color: #5e5e5e; text-align: center"><strong >Padlófűtés szöveg</strong></p>
+        <p style="color: #5e5e5e; text-align: center">Padlófűtés szöveg</p>
+        <div class="buttonHolder">
+            <button class="btn" data-toggle="modal" data-target="#myModal1"
+                    style="background-color: #aa0000; color: white">Leírás</button>
+        </div>
+    </div>
+    </p>
+</div>
+<div class='col-md-4'>
+    <p class='animated bounceInDown slow'>
+        <div class="thumbnail animated bounceInDown slow">
+            <img src="image/gipszkarton7.jpg" alt="Smiley face" height="300" width="302">
+    <p style="color: #5e5e5e; text-align: center"><strong >Padlófűtés szöveg</strong></p>
+    <p style="color: #5e5e5e; text-align: center">Padlófűtés szöveg</p>
+    <div class="buttonHolder">
+        <button class="btn" data-toggle="modal" data-target="#myModal2" style="background-color: #aa0000; color: white">Leírás</button>
+    </div>
+</div>
+</p>
+</div>
+
+</div>
+
+<div class='animatedParent'>
+    <hr class='animated fadeInDown slow' />
+</div>
 
 
-        <button type="button" class="btn-lg btn-info center-block" data-toggle="modal"
-                data-target="#myModal">Írjon nekünk
-        </button>
-                <form id="register1" action="belepett.php" method="post" onsubmit="return check()">
-                    <!--<form id="register" action="" method="post" onsubmit="return check()">-->
+<div class='animatedParent col-md-12'>
+<pre class='animated bounceInUp slow' style="background-color: #282E34; color: white">
+Padlófűtés szöveg
 
-                    <h2 style="text-align: center"></h2>
-                    <br>
-                    <form id="register" action="belepes.php" method="post" onsubmit="return check()">
-                        <div class="modal fade" id="myModal" role="dialog">
-                            <div class="modal-dialog modal-lg">
-                                <div class="modal-content">
-                                    <div class="modal-header modal-header-info">
-                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                        <h6><i class="glyphicon glyphicon-align-right"></i>Levélküldés</h6>
-                                    </div>
+</pre>
+</div>
+<div class='animatedParent'>
+    <hr class='animated fadeIn slow' />
+</div>
 
-                                    <div class="modal-body">
-                                        <div style="text-align: center; width: auto; height: auto">
-                                            <img src="image/level.png" alt="Avatar" class="avatar">
-                                        </div>
-                                        <form class="noteform" id="notesmodal" method="post">
-                                            <fieldset>
-                                                <p style="align-content: center; color: #3f3f3f">Email</p>
-                                                <input type="text" name="ugyfel" id="ugyfel" class="form-control"
-                                                       data-live-search="true" placeholder="Pl:kovacs.janos@gmail.com"/>
-                                                <br>
-                                                <p style="align-content: center; color: #3f3f3f">Üzenet</p>
-                                                <div class="col-lg-pull-12 ">
-                                                <textarea type="massage-text" name="uzenet" id="uzenet"
-                                                       class="form-control"
-                                                          data-live-search="true" rows="6"></textarea>
 
-                                                    <br>
-                                                </div>
-                                            </fieldset>
-                                            <br>
-                                        </form>
-                                        <div class="col-sm-offset-5 col-sm-2 text-center">
-                                            <input type="submit" name="submit" class="btn btn-danger"
-                                                   data-toggle="modal" data-target="#myModal"
-                                                   id="submitnote" value="Küldés" />
-                                        </div>
 
-                                        <br>
-                                        <br>
-                                        <br>
+<!-- End Home -->
 
-                                        <div class="modal-footer modal-footer-info" >
-                                            <button type="button" class="btn btn-default"
-                                                    data-dismiss="modal">Bezár
-                                            </button>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-
-                    <table class="table table-hover">
-                        <thead>
-                        <tr>
-                            <th style="color: #5f5f5f; font-size: x-large">Építés, tervezés</th>
-                            <th style="color: #5f5f5f; font-size: x-large">Generálozás</th>
-
-                        </tr>
-                        </thead>
-
-                        <tbody>
-                        <tr>
-                            <td style="color: #5f5f5f">
-                                <p style="font-size: x-large">
-                                    Új társasházak és új családi házak továbbá irodák, valamint raktárépületek tervezésével és
-                                    kivitelezésével szintén foglalkozunk. Alapos és precíz tervezéssel, minőségi alapanyagokkal
-                                    és kifogástalan kivitelezéssel vívtuk ki megrendelőink bizalmát.
-
-                                </p>
-                            </td>
-                            <td style="color: #5f5f5f">
-                                <p style="font-size: x-large">
-                                    Egyik fő szakterületünk a generálozás. Vállaljuk lakóházak és társasházak, irodák, raktárépületek
-                                    generálozását ehhez kapcsolódóan az összes renoválást és beépítését, és a belsőépítészetet is.
-                                </p>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                    <table class="table table-hover">
-                        <thead>
-                        <tr>
-                            <th style="color: #5f5f5f">Design-kultúra szemléletünk</th>
-                            <th style="color: #5f5f5f">Formatervezés</th>
-
-                        </tr>
-                        </thead>
-
-                        <tbody>
-                        <tr>
-                            <td style="color: #5f5f5f">
-                                <p>
-                                    A körülöttünk lévő alkotások alakzatok, formák, festészet, szobrászat, építészet, egyszóval
-                                    tárgyak mind beépülnek a gondolatvilágunkba mely későbbiek folyamán valamilyen szinten
-                                    befolyásolják a tudatunkat. Mindennapi életünkre hatással van, formálja az egyéni ízlésünket
-                                    és egyéniségünket.
-                                </p>
-                                <p>
-                                    Mindig is végig kísért életem során a művészet, valamint a formatervezési elméleti és gyakorlati
-                                    háttere, azonban ezt a gyakorlatban kaptam meg erre a lehetőséget, hogy az ezzel kapcsolatos
-                                    tudásomat magas szakmai nívóra emeljem.
-                                </p>
-                                <p>
-                                    Vásárlói központosított forma Az 1970-1980-as éveket meglehetősen szűkös kínálat és szerény
-                                    színvonal jellemezte az elérhető termékeket. A kuncsaft igényei nem voltak fontosak a gyártó
-                                    számára. Az 1990-es évek 4 gazdasági változásai reformálták a vásárolható termékek körét és
-                                    színvonalát, a gyártó és a vevő helyet cserélt, a terméktervezés, a gyártás és az értékesítés
-                                    középpontjába a fogyasztó került. A fogyasztó a tervezés és a gyártás során nem általánosságban,
-                                    hanem fogyasztói igény formájában jelenik meg.
-                                </p>
-                                <p>
-                                    A design bevonja az értelmezésbe a készítménnyel kapcsolatba kerülő embert és a környezetet. Az
-                                    aspektus hívei nem egy elszigetelt készítmény, hanem egy rendszerbe optimálisan beilleszkedő
-                                    árucikk, illetve kialakítások fejlesztését tekintik célnak.
-                                </p>
-                                <p>
-                                    Természeti formák alkalmazása a lakásban. A természetben található kész megoldások legtöbbször
-                                    módosítás nélkül nem használhatók fel a műszaki gyakorlatban, hiszen figyelembe kell venni a
-                                    rendelkezésre álló technológiákat és anyagokat.
-                                </p>
-                                <p>
-                                    Technológia helyes természeti adaptációval viszont
-                                    lehetőség nyílik a hosszú idők óta működőképes és jól bevált hatáselvek, illetve hatáshordozók
-                                    széleskörű felhasználására. Ebből adódóan természetben található hasonló termékeket használhatunk
-                                    fel mind építkezésnél vagy felújításnál.
-                                </p>
-                            </td>
-                            <td>
-                                <object data="image/ajtó.pdf" type="application/pdf" width="" style="height: 680px; width: 280px">
-                                    <p style="color: #5f5f5f">Kattints a linkre <a href="image/ajtó.pdf" style="color: #aa0000">letőlthető PDF!</a></p>
-                                </object>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
 
 <table class="table table-hover">
-    <thead>
-    <tr>
-        <th style="color: #5f5f5f">Elérhetőségünk</th>
+        <thead>
+        <tr>
+            <th style="color:red">Padlófűtés </th>
 
 
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>
-            <div class="head-wrap">
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td style="background-color: #3f3f3f">Padlófűtés szöveg
+            </td>
+        </tr>
+        </tbody>
+    </table>
 
-                <div class="text-editor-wrap">
-                    <div class="title-bar" style="color: #3f3f3f"><span class="title">FODIN-HOME KFT &mdash; bash &mdash; 138x<span class="terminal-height">15</span></span></div>
-                    <div class="text-body2">
-                        <span id="typednext"></span>
+                    <div class="text-editor-wrap">
+                        <div class="title-bar" style="color: #3f3f3f"><span class="title">FODIN-HOME KFT &mdash; bash &mdash; 138x<span class="terminal-height">15</span></span></div>
+                        <div class="text-body2">
+                            $ <span id="typednext"></span>
+                        </div>
                     </div>
+
                 </div>
-
-            </div>
-
-        </td>
-    </tr>
-    </tbody>
-</table>
     <script>
         $(document).ready(function() {
             $("body").flowUp("p", { transalteY: 350, duration: 1 });
         });
     </script>
-
-
-
-
-
 <div class="clearfix"></div>
 <!-- Start Footer -->
-    <footer class="footer"  style="background-color: #2f6f9f">
-        <div class="text-center" style="background-color:#FFFFFF " >
-            <a class="up-arrow" href="index.html" data-toggle="tooltip" title="TO TOP">
-                <span class="glyphicon glyphicon-chevron-up"  style="color: #2f6f9f"></span>
-            </a><br><br>
+<footer class="footer"  style="background-color: #FFFFFF">
+    <div class="text-center" style="background-color:#FFFFFF " >
+        <a class="up-arrow" href="index.html" data-toggle="tooltip" title="TO TOP">
+            <span class="glyphicon glyphicon-chevron-up"  style="color: #2f6f9f"></span>
+        </a><br><br>
         <p  style="color: #2f6f9f">Licenced by FODIN HOME KFT</p>
 
-        </div>
-    </footer>
+    </div>
+</footer>
+
+
+
 
 <!-- End Footer -->
 
@@ -665,10 +621,9 @@
 <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="bootstrap-3.3.7/dist/js/bootstrap.min.js"></script>
+<script src='css3-animate-it-master/js/css3-animate-it.js'></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="bootstrap-4-dev/docs/assets/js/ie10-viewport-bug-workaround.js"></script>
 <script src="flowup/flowup.js"></script>
-                </form>
-</div>
 </body>
 </html>

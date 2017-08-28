@@ -1,0 +1,431 @@
+<!DOCTYPE HTML>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="hu">
+<!--<![endif]-->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bootsnav is a multi purpose header based with Bootstrap, you can build any header style with bootsnav only with a few minutes">
+    <meta name="keywords" content="Bootsnav, Menu, Navigation, Navbar, Bootstrap, Dropdown, Multi Dropdown, Megamenu">
+    <meta name="robots" content="index,follow">
+
+
+    <title>Fodin-Home Kft</title>
+    <link rel="icon" href="image/favicon.ico">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css3-animate-it-master/example-assets/style.css" type="text/css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <!-- Bootstrap Core CSS -->
+    <link href="bootsnav-master/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootsnav-master/css/animate.css" rel="stylesheet">
+    <link href="bootsnav-master/css/bootsnav.css" rel="stylesheet">
+    <link href="bootsnav-master/css/style.css" rel="stylesheet">
+    <link href="carousel.css" rel="stylesheet">
+    <!-- Image -->
+    <link href="bootsnav-master/images/brand/logo-black.png" rel="import">
+    <!-- Icons -->
+    <link href="fonts/FontAwesome/font-awesome.css" rel="stylesheet">
+
+    <!-- Font Style -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+
+    <!-- Animate -->
+    <link href="bootsnav-master/css/animate.css" rel="stylesheet">
+
+    <!-- Bootsnav -->
+    <link href="bootsnav-master/css/bootsnav.css" rel="stylesheet">
+
+    <!-- Custom style -->
+    <link href="bootsnav-master/css/style.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="js/ie-emulation-modes-warning.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.min.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        body, html {
+
+            margin: 0;
+            font: 400 15px/1.8 "Lato", sans-serif;
+            color: #5e5e5e;
+        }
+        .bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4, .bgimg-5, .bgimg-6, .bgimg-7{
+            position: relative;
+            opacity: 0.65;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .bgimg-1 {
+            background-image: url("image/living5.jpg");
+            min-height: 100%;
+        }
+        .bgimg-2 {
+            background-image: url("image/bathroom2.jpg");
+            min-height: 400px;
+        }
+
+
+        .bgimg-3 {
+            background-image: url("image/living4.jpg");
+            min-height: 400px;
+        }
+
+        .bgimg-4 {
+            background-image: url("image/living1.jpg");
+            min-height: 100%;
+        }
+        .bgimg-5 {
+            background-image: url("image/bathroom1.jpg");
+            min-height: 400px;
+        }
+
+
+        .bgimg-6 {
+            background-image: url("image/bedroom1.jpg");
+            min-height: 400px;
+        }
+
+
+        .bgimg-7 {
+            background-image: url("image/livingroom3.jpg");
+            min-height: 400px;
+        }
+
+        .caption {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 100%;
+            text-align: center;
+            color: #000;
+        }
+
+        .caption span.border {
+            background-color: #111;
+            color: #fff;
+            padding: 18px;
+            font-size: 25px;
+            letter-spacing: 10px;
+        }
+
+        h3 {
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            font: 20px "Lato", sans-serif;
+            color: #111;
+        }
+
+        /* Turn off parallax scrolling for tablets and phones */
+        @media only screen and (max-device-width: 1024px) {
+            .bgimg-1, .bgimg-2, .bgimg-3 .bgimg-4, .bgimg-5, .bgimg-6 .bgimg-7{
+                background-attachment: scroll;
+            }
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            $("body").flowUp("h3", { transalteY: 350, duration: 100 });
+        });
+    </script>
+</head>
+<body>
+<!-- Start Navigation -->
+<nav class="navbar navbar-default navbar-fixed navbar-transparent dark bootsnav">
+
+    <!-- Start Top Search -->
+    <div class="top-search">
+        <div class="container">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                <input type="text" class="form-control" placeholder="Keresés">
+                <span class="input-group-addon close-search"><i class="fa fa-times"></i></span>
+            </div>
+        </div>
+    </div>
+    <!-- End Top Search -->
+
+    <div class="container">
+        <!-- Start Atribute Navigation -->
+        <div class="attr-nav">
+            <ul>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" >
+                        <i class="fa glyphicon glyphicon-user"></i>
+                        <span class="badge">3</span>
+                    </a>
+                    <ul class="dropdown-menu cart-list">
+                        <li>
+                            <a href="szerviz.php" class="photo"><img src="image/KirályGábor.jpg"
+                                                                     class="cart-thumb" alt="Király Gábor" /></a>
+                            <h6><a href="szerviz.php">Király Gábor</a></h6>
+                            <p style="color: #5f5f5f">Gáz - <span class="price" style="color: #5f5f5f">Ügyeletes</span></p>
+                        </li>
+                        <li>
+                            <a href="szerviz.php" class="photo"><img src="image/NagyIstvan.jpg" class="cart-thumb"
+                                                                     alt="Nagy István" /></a>
+                            <h6><a href="szerviz.php">Nagy István</a></h6>
+                            <p style="color: #5f5f5f">Víz - <span class="price" style="color: #5f5f5f">Ügyeletes</span></p>
+                        </li>
+                        <li>
+                            <a href="szerviz.php" class="photo"><img src="image/OsváthTibi.jpg" class="cart-thumb"
+                                                                     alt="Osváth Tibor" /></a>
+                            <h6><a href="szerviz.php">Osváth Tibi</a></h6>
+                            <p style="color: #5f5f5f">Villany - <span class="price" style="color: #5f5f5f">Ügyeletes</span></p>
+                        </li>
+                        <li class="total">
+                            <span class="pull-right" style="color: #5f5f5f"><strong>Ügyeletben</strong>:3 - fő</span>
+                            <a href="szerviz.php" class="btn btn-default btn-cart">Szervizes</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
+                <li class="side-menu"><a href="#"><i class="fa fa-bars"></i></a></li>
+            </ul>
+        </div>
+        <!-- End Atribute Navigation -->
+
+        <!-- Start Header Navigation -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand" href="#brand">
+                <img src="bootsnav-master/images/brand/logo-white.png" class="logo logo-display" alt="">
+                <img src="bootsnav-master/images/brand/logo-black.png" class="logo logo-scrolled" alt="">
+            </a>
+        </div>
+        <!-- End Header Navigation -->
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-menu">
+            <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+                <li><a href="index.html">Fodin-Home</a></li>
+                <li><a href="proba.php">Szolgáltatások</a></li>
+                <li><a href="faiparimunkak.php">Faipari munkák</a></li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Szolgáltatások részletesen</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="parkettazas.php">Parketázás</a></li>
+                        <li><a href="hidegburkolas.php">Hidegburkolás</a></li>
+                        <li><a href="festes.php">Festés mázolás</a></li>
+                        <li><a href="komuves.php">Kőműves munkák</a></li>
+                        <li><a href="szigeteles.php">Szigetelés</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Energia</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="viz.php">Viz</a></li>
+                                <li><a href="gaz.php">Gáz</a></li>
+                                <li><a href="villanyszereles.php">Villanyszerelés</a></li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Fűtés</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="padlo.php">Padló</a></li>
+                                        <li><a href="kozponti.php">Központi</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="gipszkarton.html">Gipszkartonozás</a></li>
+                    </ul>
+                </li>
+                <li><a href="kontakt.php">Kontakt</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div>
+
+    <!-- Start Side Menu -->
+    <div class="side">
+        <a href="#" class="close-side"><i class="fa fa-times"></i></a>
+        <div class="widget">
+            <h6 class="title">Menü</h6>
+            <ul class="link">
+                <li><a href="leiras.php">Leírás</a></li>
+                <li><a href="szerviz.php">Szervíz</a></li>
+                <li><a href="bejegyzesek.php">Bejegyzések</a></li>
+                <li><a href="portfolio.php">Portfolio</a></li>
+                <li><a href="kontakt.php">Kontact</a></li>
+            </ul>
+        </div>
+        <div class="widget">
+            <h6 class="title">További linkek</h6>
+            <ul class="link">
+                <li><a href="ujotthon.php">Új otthon</a></li>
+                <li><a href="erdekessegek.php">Érdekességek</a></li>
+                <li><a href="szakaszok.html">Szakaszok</a></li>
+                <li><a href="epiteszet.php">Az építészet</a></li>
+                <li><a href="login.php">Bejelentkezés</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- End Side Menu -->
+</nav>
+<!-- End Navigation -->
+
+<div class="clearfix"></div>
+<div class="site-wrapper">
+    <!--kép-->
+    <a href="#" class="photo"><img src="bootsnav-master/images/thumb/fa.png" class="cart-thumb" alt="" /></a>
+    <div class="site-wrapper-inner">
+        <div class="cover-container">
+        </div>
+    </div>
+</div>
+<!-- End Home -->
+<div class="clearfix"></div>
+<!-- Start Adsense -->
+<div class="container margintop50">
+    <!-- <script type="text/javascript">
+        ( function() {
+            if (window.CHITIKA === undefined) { window.CHITIKA = { 'units' : [] }; };
+            var unit = {"calltype":"async[2]","publisher":"adamnurdin93","width":300,"height":250,"sid":"Chitika Default"};
+            var placement_id = window.CHITIKA.units.length;
+            window.CHITIKA.units.push(unit);
+            document.write('<div id="chitikaAdBlock-' + placement_id + '"></div>');
+        }());
+    </script>
+    <script type="text/javascript" src="//cdn.chitika.net/getads.js" async></script>
+     -->
+</div>
+<!-- End Adsense -->
+
+<div class="bgimg-1" style="padding-bottom: 400px">
+    <div class="caption">
+        <span class="border">Szakterületünk az építés</span>
+    </div>
+</div>
+<div style="color: #777;background-color:white;text-align:center;padding:50px 80px;text-align: justify;">
+    <h3>Parketta</h3>
+    <h4 style="text-align:center;"><button
+            type="button" class="btn btn-warning"><a href="parkettazas.php">Parkettázás részletesen</a></button></h4>
+    <p>A parkettázás előkészülete minden esetben ki kell egyenlíteni az aljzatot. Az aljzatbeton kiegyenlítés nem
+        egyszerű feladat, könnyű elrontani így a végeredmény katasztrofális lehet. Mindenféleképpen célszerű szakember
+        segítségét kérni, mivel nem rendelkezünk szakmai rutinnal. Ezért megy hamarabb tönkre, ezért csúszik szét
+        a parketta, nem megfelelő alapok hiánya miatt. </p>
+</div>
+<div class="bgimg-2" style="padding-bottom: 400px">
+    <div class="caption">
+        <span class="border" style="background-color:transparent;font-size:25px;color: #f7f7f7;">
+            <button type="button" class="btn btn-danger" style="text-align: center">
+                <a href="hidegburkolas.php">Hidegburkolásrészletesen</a></button></span>
+    </div>
+</div>
+
+<div style="position:relative;">
+    <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;">
+        <p>A burkoláshoz szükséges csempe és padlólap mennyiségének meghatározásához érdemes terveket készíteni és
+            felméréseket végezni. Érdemes ráhagyni körülbelül 8-10% vágási és törési veszteségek biztosítására. </p>
+    </div>
+</div>
+<div class="bgimg-3" style="padding-bottom: 400px">
+    <div class="caption">
+        <span class="border"><a href="gipszkarton.html">Gipszkartonról bővebben</a> </span>
+    </div>
+</div>
+<div style="color: #777;background-color:white;text-align:center;padding:50px 80px;text-align: justify;">
+    <h3 style="text-align:center;">Gipszkarton</h3>
+    <p>
+        Gipszkartont használhatunk a vezetékek elrejtéséhez, hang-, és hőszigeteléshez, különböző belsőépítészeti
+        megoldások megvalósításához. A legnagyobb előnye a gipszkarton válaszfalaknak, hogy sokkal egyszerűbben
+        felhúzhatók, mint egy téglafal.Jó hír mindenkinek, hogy kevesebb munkával és megtakarítással jár.
+        Nem elhanyagolható szempont az sem, hogy az így felhúzott falak könnyen, viszonylag kevés ráfordítással
+        elbonthatóak, áthelyezhetőek. A felhúzás után, azonnal csinosíthatjuk: festhetjük, csempézhetjük, tapétázhatjuk.
+        Könnyen dolgozhatunk vele, milliméter pontossággal vágható és alakítható.
+    </p>
+</div>
+<div class="bgimg-4" style="padding-bottom: 400px">
+    <div class="caption">
+        <span class="border"><a href="viz.php">Vízszerelés link</a> </span>
+    </div>
+</div>
+
+<div style="position:relative;">
+    <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;">
+        <p>Vízvezeték szerelésnél a hivatalos mértékegysége a milliméter a régi jól megszokott elnevezése a coll.
+            A coll méretei 1/4"-12mm, 3/8"-15mm, 1/2"-21mm, 3/4"-26mm, 1"-32mm, 5/4"-41mm, 6/4"-46mm, 2"-58mm. </p>
+    </div>
+</div>
+<div class="bgimg-5" style="padding-bottom: 400px">
+    <div class="caption">
+        <span class="border"><a href="gaz.php">Gázszerelés link</a></span>
+    </div>
+</div>
+<div style="color: #777;background-color:white;text-align:center;padding:50px 80px;text-align: justify;">
+    <h3 style="text-align:center;">Gázszerelés</h3>
+    <p>A gázszolgáltatásról szóló törvény előírása szerint csatlakozó vezetéket és fogyasztói berendezést csak a gázszolgáltató által felülvizsgált és kivitelezésre alkalmasnak minősített terv alapján lehet végezni. A tervezés jogosultsághoz kötött mérnöki tevékenység, amelyet a Magyar Mérnöki Kamara hivatalos névjegyzékében szereplő tervező végezhet. A gázhálózat méretezéséhez tervezési segédletek állnak rendelkezésre</p>
+</div>
+<div class="bgimg-6" style="padding-bottom: 400px">
+    <div class="caption">
+        <span class="border" style="background-color:transparent;font-size:25px;color: #f7f7f7;"><a
+                href="villanyszereles.php">Villanyszerelés bővebben</a></span>
+    </div>
+</div>
+
+<div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;">
+    <h4 style="text-align: center; color: #FFFFFF">Villanyszerelés</h4>
+    <p>
+        A villanyszerelési alapismeretekkel jó ha tisztában vagyunk, hogy veszélytelenül meg tudjuk oldani az
+        elvégzendő hibát vagy kiépítést. Ezen háttértudás nélkül inkább bízzuk szakemberre. Tudnunk kell mindenek
+        előtt a saját tudásunk korlátait, amit viszont lehet fejleszteni. Tudjuk például azt, hogy bármilyen
+        elektromos készülékhez csak akkor nyúlhatunk hozzá, ha meggyőződtünk róla, hogy az valóban feszültségmentes.
+        <a href="padlo.php" style="color: #777;color:red;">Villanyszerelésről bővebben...katt ide....</a>
+    </p>
+</div>
+
+<div class="bgimg-5" style="padding-bottom: 400px">
+    <div class="caption">
+        <span class="border"><a href="padlo.php">A padlófűtésről általában</a></span>
+    </div>
+</div>
+<div style="color: #777;background-color:white;text-align:center;padding:50px 80px;text-align: justify;">
+    <h4 style="text-align: center">Padlófűtés</h4>
+    <p>
+        A padlófűtés lényege, hogy nagyobb felületen keresztül adja át a leadott hőt.
+        A hagyományos radiátoroknál oldal irányú ami kevésbé igaz, illetve felfelé közvetíti a meleget.
+        Ezáltal nagyobb lesz a hőveszteség mint a korszerűbb padlófűtésnél. A padlófűtéses helyiségekben a meleg
+        padlóból sugárzik felfelé, egyenletes hőmérsékletet biztosítva az egész lakásban. Emiatt a hőmérséklet
+        fokozatosan csökken a padlótól a mennyezetig. Radiátoros rendszernél pedig a mennyezetet melegítjük.
+        <a href="padlo.php" style="color: #777;color:red;">Melyik érimeg jobban olvass tovább?</a>
+    </p>
+</div>
+<div class="bgimg-6" style="padding-bottom: 400px">
+    <div class="caption">
+        <span class="border" style="background-color:transparent;font-size:25px;color: #f7f7f7;"><a
+                href="kozponti.php">Központi fűtés bővebben</a></span>
+    </div>
+</div>
+
+<div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;">
+    <h4 style="text-align:center; color: #FFFFFF">Központi fűtés</h4>
+    <p>
+        Mi is az a központi fűtés? Egy épületben több helyiséget egyszerre tudunk fűteni, ezt nevezzük kazánháznak.
+        A kazánban előállított hőenergiát, valamilyen hőhordó közeggel továbbítjuk a többi szobába.
+        <a href="padlo.php" style="color: #777;color:red;">Olvass tovább...</a>
+    </p>
+</div>
+
+
+<!-- /END THE FEATURETTES -->
+
+
+<div class="clearfix"></div>
+<!-- Start Footer -->
+<?php include_once ("footer.php");?>
