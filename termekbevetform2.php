@@ -5,6 +5,7 @@
  * Date: 2017.08.27.
  * Time: 17:06
  */
+require_once("Raktar.php");
 ?>
 <div id="contact" class="container">
     <h3 class="text-center">Termékbevételezés</h3>
@@ -23,10 +24,16 @@
                         #
                     </th>
                     <th class="text-center">
+                        Megnevezés__
+                    </th>
+                    <th class="text-center">
                         Termékneve
                     </th>
                     <th class="text-center">
                         Termék ára netto
+                    </th>
+                    <th class="text-center">
+                        Új ár netto
                     </th>
                     <th class="text-center">
                         Mennyiség
@@ -45,11 +52,24 @@
                         1
                     </td>
                     <td>
+                        <select class="form-control" id="sel1" name="jav" >
+                            <?php
+                            while ($sor = $keres->fetch(PDO::FETCH_ASSOC)){
+                                print "<option value='".$sor['megnevezes_id']."' >".$sor['megnevezes']."</option>";
+                            }
+                            ?>
+                        </select>
+                    </td>
+                    <td>
                         <input type="text" name='Termékneve0'  placeholder='Termék neve' class="form-control"
                                pattern="[A-Za-z,öÖüÜóÓőŐúÚéÉáÁűŰíÍ\s]{3,50}"  title="Betüket lehet beütni" required/>
                     </td>
                     <td>
                         <input type="text" name='Termékáranetto0' placeholder='Termék ára netto' class="form-control"  pattern="[0-9\s]{1,50}"  title="Számokat lehet beütni"  required/>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" id="disabledInput"  name='Ujáranetto0' placeholder='Új ár netto' class="form-control"
+                               pattern="[0-9\s]{1,50}"  title="Számokat lehet beütni"  disabled>
                     </td>
                     <td>
                         <input type="text" name='Mennyiség0' placeholder='Mennyiség' class="form-control"pattern="[0-9\s]{1,50}"  title="Számokat lehet beütni"  required/>
@@ -85,15 +105,20 @@
     $(document).ready(function(){
         var i=1;
         $("#add_row").click(function(){
-            $('#addr'+i).html("<td>"+ (i+1) +"</td><td><input name='Termékneve"+i+"' type='text' placeholder='Termék " +
+            $('#addr'+i).html("<td>"+ (i+1) +"</td>" +
+                "<td><select class='form-control' id='sel1' name='jav'><?php    while ($sor=$keres->fetch(PDO::FETCH_ASSOC)){print "<option value='".$sor['megnevezes_id']."' >".$sor['megnevezes']."</option>";}?></select> </td>" +
+                "<td><input name='Termékneve["+i+"]' type='text' placeholder='Termék' " +
                 "neve' class='form-control input-md' pattern='[A-Za-z,öÖüÜóÓőŐúÚéÉáÁűŰíÍ\s]{3,50}'  title='Betüket " +
                 "lehet beütni' required/> </td>" +
-                "<td><input  name='Termékáranetto"+i+"' type='text' placeholder='Termék ára netto'  " +
-                "class='form-control input-md'pattern='[0-9\s]{1,50}'  title='Számokat lehet beütni' required/></td>" +
+                "<td><input  name='Termékáranetto"+i+"' type='text' placeholder='Termék ára netto' class='form-control input-md'pattern='[0-9\s]{1,50}'  title='Számokat lehet beütni' required/></td>" +
+                "<td><input  name='Újánetto"+i+"' type='text' placeholder='Új ár netto' class='form-control " +
+                "input-md'pattern='[0-9\s]{1,50}'  title='Számokat lehet beütni' disabled></td>" +
                 "<td><input  name='Mennyiség"+i+"' type='text' placeholder='Mennyiség'  class='form-control input-md'></td>" +
                 "<td><select class='form-control' data-live-search='true' " +
                 "name='mennyisegegyseg"+i+"' placeholder='Mennyiségi egysége' required> <option " +
-                "placeholder='Mennyiségi egység választás'>Mennyiségi egység választás</option> <option value='Db'>Db</option> <option value='Kg'>Kg</option> <option value='Liter'>Liter</option> <option value='M'>M</option> <option value='M3'>M3</option> </select></td>" +
+                "placeholder='Mennyiségi egység választás'>Mennyiségi egység választás</option> <option " +
+                "value='Db'>Darab</option> <option value='Kg'>Kilgramm</option> <option value='Liter'>Liter</option> " +
+                "<option value='M'>Méter</option> <option value='M3'>Köbméter</option> </select></td>" +
                 "<td><input  name='Rögzítésiidő"+i+"' type='text' placeholder='Rögzítési idő'  value='<?php echo $date = date('Y-m-d'); ?>' class='form-control'/></td>"
             );
 

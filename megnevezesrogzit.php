@@ -1,17 +1,20 @@
 <?php
 require_once("session.php");
 require_once("Raktar.php");
-
+require_once("error.php");
 $auth_user = new USER();
 $user_id = $_SESSION['user_session'];
 $stmt = $auth_user->runQuery("SELECT * FROM users WHERE user_id=:user_id");
-$stmt->execute(array(":user_id"=>$user_id));
-$userRow=$stmt->fetch(PDO::FETCH_ASSOC);
+$stmt->execute(array(":user_id" => $user_id));
+$userRow = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE HTML>
-<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="hu"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="hu"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="hu"> <![endif]-->
+<!--[if lt IE 7]>
+<html class="no-js ie6 oldie" lang="hu"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js ie7 oldie" lang="hu"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js ie8 oldie" lang="hu"> <![endif]-->
 <!--[if gt IE 8]><!-->
 <html class="no-js" lang="hu" xmlns:color="http://www.w3.org/1999/xhtml">
 <!--<![endif]-->
@@ -19,7 +22,8 @@ $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Bootsnav is a multi purpose header based with Bootstrap, you can build any header style with bootsnav only with a few minutes">
+    <meta name="description"
+          content="Bootsnav is a multi purpose header based with Bootstrap, you can build any header style with bootsnav only with a few minutes">
     <meta name="keywords" content="Bootsnav, Menu, Navigation, Navbar, Bootstrap, Dropdown, Multi Dropdown, Megamenu">
     <meta name="robots" content="index,follow">
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
@@ -55,94 +59,111 @@ $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
 </head>
 <body>
 <!-- Start Navigation -->
-<?php include_once ("raktarmenu.php");?>
-<br/><br>
+<?php include_once("raktarmenu.php"); ?>
+<br><br>
 <!-- Container (Contact Section) -->
 <?php
-    require_once("Raktar.php");
-    $rogzit = new Raktar();
+require_once("Raktar.php");
+$rogzit = new Raktar();
 
-    if(isset($_POST['btn-rogzit']))
-    {
+//print "<pre>";
 
-        if ($_POST['megnevezes0'] == $_POST['megnevezes0']) {
-            $megnevezes = strip_tags($_POST['megnevezes0']);
-        }
+//print "</pre>";
+$lekert = array();
+if (isset($_POST['btn-rogzit'])) {
 
-        if($_POST['megnevezes01']==$_POST['megnevezes01'] )	{
-            $error[] = "Ez át jön !";
-        }
+    $leker = $rogzit->leKerdez("SELECT megnevezes FROM megnevezes ");
+    $leker->execute(array());
 
-        if($megnevezes=="")	{
-            $error[] = "Ne hagyd üresen kérlek !";
-        }
-        else
-        {
-            try
-            {
-                $leker = $rogzit->runQuery("SELECT megnevezes FROM megnevezes WHERE megnevezes=:megnevezes");
-                $leker->execute(array(':megnevezes'=>$megnevezes));
-                $row=$leker->fetch(PDO::FETCH_ASSOC);
+    while ($sor = $leker->fetch(PDO::FETCH_ASSOC)) {
+        $lekert[$sor['megnevezes_id']] = $sor['megnevezes'];
+    }
 
-                if($row['megnevezes']==$megnevezes) {
-                    $error[] = "Létezik ez a megnevezés";
+    print  "<pre>";
+    print_r($lekert);
+    print  "</pre>";
+
+    $letezik = array();
+    $nem_letezik = array();
+
+    foreach ($_POST as $key => $altomb) {
+        if (is_array($altomb)) {
+            foreach ($altomb as $key2 => $value2) {
+                if (TombKereses($lekert, $value2)) {
+                    array_push($letezik, $value2);
+                    $error[] = $ertek." Létezik már az adatbázisban";
+                } else {
+                    array_push($nem_letezik, $value2);
+                    $rogzit->rogzit($value2);
+
                 }
-                else
-                {
-                    if($rogzit->rogzit($megnevezes)){
-                        $rogzit->redirect('megnevezesrogzit.php?joined');
-                    }
-                    if($rogzit->rogzit($megnevezes1)){
-                        $rogzit->redirect('megnevezesrogzit.php?joined');
-                    }
-                }
-            }
-            catch(PDOException $e)
-            {
-                echo $e->getMessage();
+
             }
         }
     }
-    ?>
-    <form method="post" class="btn-rogzit">
-        <div class="container-fluid" style="margin-top:80px;">
+
+  /*  print  "<pre>";
+    print_r($letezik);
+    print  "</pre>";
+
+    print  "<pre>";
+    print_r($nem_letezik);
+    print  "</pre>"; */
+    $rogzit->redirect('megnevezesrogzit.php?joined.');
+
+    exit;
+}
+
+function TombKereses($amiben, $amit)
+{
+    $vissza = FALSE;
+    foreach ($amiben as $kulcs => $ertek) {
+        if (strtolower($ertek) === strtolower($amit)) {
+            $vissza = TRUE;
+        }
+    }
+    return $vissza;
+}
+
+?>
+<form method="post" class="btn-rogzit">
+    <div class="container-fluid" style="margin-top:80px;">
 
 
-            <h2 class="form-signin-heading"></h2>
-            <?php
-            if(isset($error))
-            {
-                foreach($error as $error)
-                {
-                    ?>
-                    <div class="alert alert-danger">
-                        <i class="glyphicon glyphicon-warning-sign"></i> &nbsp; <?php echo $error; ?>
-                    </div>
-                    <?php
-                }
-            }
-            else if(isset($_GET['joined']))
-            {
+        <h2 class="form-signin-heading"></h2>
+        <?php
+        if (isset($error)) {
+            foreach ($error as $error) {
                 ?>
-                <div class="alert alert-info">
-                    <i class="glyphicon 	glyphicon glyphicon-thumbs-up">-</i>Sikeres rögzítés-<b onChange="this
-                      .form.submit()">Gratulálok</b>
+                <div class="alert alert-danger">
+                    <i class="glyphicon glyphicon-warning-sign"></i> &nbsp; <?php echo $error; ?>
                 </div>
                 <?php
             }
+        } else if (isset($_GET['joined'])) {
             ?>
+            <div class="alert alert-info">
+                <i class="glyphicon-user 	glyphicon glyphicon-thumbs-up">-</i>Sikeres
+                rögzítés-<b>Gratulálok</b>
+            </div>
+            <?php
+        }
+        ?>
     </div>
 
 </form>
-<?php include_once ('anyagbevetform.php'); ?>
+<?php
 
+include_once('anyagbevetform.php');
+
+?>
 <!-- Start Footer -->
 
 <br><br><br><br><br><br><br><br><br><br><br><br>
 <div class="clearfix"></div>
 <!-- Start Footer -->
-<footer class="footer"  style="background-color: #FFFFFF">
-    <div class="text-center" style="background-color:#FFFFFF" >
+<footer class="footer" style="background-color: #FFFFFF">
+    <div class="text-center" style="background-color:#FFFFFF">
         <a class="up-arrow" href="kontakt.php" data-toggle="tooltip" title="TO TOP">
             <span class="glyphicon glyphicon-chevron-up" style="color: #2f6f9f"></span>
         </a>
@@ -154,12 +175,14 @@ $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
 
 <!-- Placed at the end of the document so the pages load faster -->
 <script type="bootsnav-master/text/javascript" src="bootsnav-master/js/jquery.min.js"></script>
-<script type="text/javascript" src="bootnav-master/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="bootsnav-master/js/bootstrap.min.js"></script>
 <!-- Bootsnavs -->
 <script src="bootsnav-master/js/bootsnav.js"></script>
 
 <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+        integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+        crossorigin="anonymous"></script>
 
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="bootstrap-3.3.7/docs/assets/js/ie10-viewport-bug-workaround.js"></script>

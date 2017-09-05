@@ -17,7 +17,7 @@
         <div class="row clearfix">
             <div class="col-md-12 column">
                 <table class="table table-bordered  table-hover"  id="tab_logic">
-                    <thead class="alert-info">
+                    <thead class="alert-warning">
                     <tr >
                         <th class="text-center">
                             #
@@ -33,7 +33,7 @@
                             1
                         </td>
                         <td>
-                            <input type="text" name='megnevezes0'  placeholder='PL:Csavarok' class="form-control"
+                            <input type="text" name='megnevezes[0]'  placeholder='PL:Csavarok' class="form-control"
                                    pattern="[A-Za-z,öÖüÜóÓőŐúÚéÉáÁűŰíÍ\s]{3,50}"  title="Betüket lehet beütni" required/>
                         </td>
                     </tr>
@@ -52,11 +52,11 @@
     $(document).ready(function(){
         var i=1;
         $("#add_row").click(function(){
-            $('#addr'+i).html("<td>"+ (i+1) +"</td><td><input name='megnevezes0"+i+"' type='text' placeholder='Termék" +
+            $('#addr'+i).html("<td>"+ (i+1) +"</td><td><input name='megnevezes["+i+"]' type='text' " +
+                "placeholder='Termék" +
                 " " +
-                "neve' class='form-control input-md' pattern='[A-Za-z,öÖüÜóÓőŐúÚéÉáÁűŰíÍ\s]{3,50}'  title='Betüket " +
+                "neve' class='form-control input-md' pattern='[A-Za-z,öÖüÜóÓőŐúÚéÉáÁűŰíÍ \s]{3,50}'  title='Betüket " +
                 "lehet beütni' required/> </td>");
-
             $('#tab_logic').append('<tr id="addr'+(i+1)+'"></tr>');
             i++;
         });
@@ -66,6 +66,20 @@
                 i--;
             }
         });
-
+    });
+    $('#add_row').click(function(){
+        var values = [];
+        $('table input:text').each(
+            function() {
+                if (values.indexOf(this.value) >= 0) {
+                    $(this).css("border-color", "red");
+                    alert("Sajnos dupla adatot próbálsz felvenni!!!");
+                    close();
+                } else {
+                    $(this).css("border-color", ""); //clears since last check
+                    values.push(this.value);
+                }
+            }
+        );
     });
 </script>
