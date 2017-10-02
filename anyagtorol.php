@@ -163,7 +163,7 @@ $keres->execute(array());
                     else if(isset($_GET['joined']))
                     {
                         ?>
-                        <div class="alert alert-info">
+                        <div class=" btn-alert alert-info">
                             <i class="glyphicon 	glyphicon glyphicon-thumbs-up">-</i>Sikeres rögzítés-<b onChange="this
                       .form.submit()">Gratulálok</b>
                         </div>

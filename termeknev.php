@@ -1,7 +1,8 @@
 <?php
 require_once("session.php");
+require_once("Raktar.php");
+require_once("Termek.php");
 require_once("error.php");
-require_once("Megrenedelo.php");
 $auth_user = new USER();
 $user_id = $_SESSION['user_session'];
 $stmt = $auth_user->runQuery("SELECT * FROM users WHERE user_id=:user_id");
@@ -14,55 +15,49 @@ include_once("raktarheader.php");
 <br/><br><br><br>
 <?php
 
-$javit = new Megrenedelo();
+$javit = new Raktar();
 
-$keres = $javit->runQuery("SELECT * FROM megrendelo ORDER BY megrendelocsaladi ASC");
+$keres = $javit->runQuery("SELECT * FROM megnevezes ORDER BY megnevezes ASC");
 $keres->execute(array());
 
-$beker = new Megrenedelo();
-$talal = $beker->runQuery("SELECT * FROM megrendelo ORDER BY megrendelocsaladi ASC");
+$beker = new Raktar();
+$talal = $beker->runQuery("SELECT * FROM megnevezes ORDER BY megnevezes ASC");
 $talal->execute(array());
 
-$lekerdez = new Megrenedelo();
-$megrendelo = $lekerdez->runQuery("SELECT * FROM megrendelo ORDER BY megrendeloemail ASC");
-$megrendelo->execute(array());
+$lekerdez = new Termek();
+$bekeres = $lekerdez->runQuery("SELECT * FROM temektabla ORDER BY termekneve ASC");
+$bekeres->execute(array());
 
 $lekert = array();
-if (isset($_POST['btn-rogzit'])) {
+if (isset($_POST['rogzit'])) {
 
     try {
-        while ($sor = $megrendelo->fetch(PDO::FETCH_ASSOC)) {
-            $lekert[$sor['megrendelo_id']] = $sor['megrendeloemail'];
+        while ($sor = $bekeres->fetch(PDO::FETCH_ASSOC)) {
+            $lekert[$sor['termek_id']] = $sor['termekneve'];
         }
 
         $letezik = array();
         $nem_letezik = array();
-        foreach ($_POST['megrendeloemail'] as $key => $value) {
+
+        foreach ($_POST['megnevezes_id'] as $key => $value) {
             $tomb1 = $value;
-            $tomb10 = $_POST['megrendelocsaladi'][$key];
-            $tomb2 = $_POST['megrendelokereszt'][$key];
-            $tomb3 = $_POST['megrendelovaros'][$key];
-            $tomb4 = $_POST['megrendeloutca'][$key];
-            $tomb5 = $_POST['megrendelohazszam'][$key];
-            $tomb6 = $_POST['megrendeloemelet'][$key];
-            $tomb7 = $_POST['megrendelotelefon'][$key];
-            $tomb8 = $_POST['megrendelomobil'][$key];
-            $tomb9 = $_POST['megrendelodate'][$key];
-            if (TombKereses($lekert, $tomb1)) {
-                array_push($letezik, $tomb1);
+            $tomb2 = $_POST['termekneve'][$key];
+            if (TombKereses($lekert, $tomb2)) {
+                array_push($letezik, $tomb2);
             } else {
-                array_push($nem_letezik, $tomb1);
-                $lekerdez->megrendeloRogzit($tomb10, $tomb2, $tomb3, $tomb4, $tomb5, $tomb6, $tomb1, $tomb7, $tomb8, $tomb9);
+                array_push($nem_letezik, $tomb2);
+                $lekerdez->termekNevRogzit($tomb1, $tomb2);
 
             }
 
         }
-        $lekerdez->redirect('megrendelofelvetel.php?joined.');
+       $lekerdez->redirect('termeknev.php?joined.');
+
+        exit;
 
     } catch (PDOException $e) {
         echo $e->getMessage();
     }
-    exit;
 }
 function TombKereses($amiben, $amit)
 {
@@ -77,10 +72,6 @@ function TombKereses($amiben, $amit)
 }
 
 ?>
-
-</div>
-
-</form>
 <form method="post" class="rogzit">
     <div class="container-fluid" style="margin-top:80px;">
         <h2 class="form-signin-heading"></h2>
@@ -101,8 +92,11 @@ function TombKereses($amiben, $amit)
             </div>
             <?php
         }
-
-
-        include("megrenedelofelvetelform.php");
-        include_once("raktarfooter.php");
         ?>
+    </div>
+
+</form>
+<?php
+include("termeknevform.php");
+include_once("raktarfooter.php");
+?>

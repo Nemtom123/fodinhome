@@ -6,7 +6,7 @@ $url = new Raktar();
 
 
 ?>
-<nav class="navbar navbar-default navbar-fixed navbar-transparent active bootsnav" >
+<nav class="navbar navbar-inverse navbar-fixed navbar-transparent active bootsnav" >
 
     <!-- Start Top Search -->
     <div class="top-search">
@@ -24,36 +24,6 @@ $url = new Raktar();
         <!-- Start Atribute Navigation -->
         <div class="attr-nav">
             <ul>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" >
-                        <i class="fa glyphicon glyphicon-user"></i>
-                        <span class="badge">3</span>
-                    </a>
-                    <ul class="dropdown-menu cart-list">
-                        <li>
-                            <a href="szerviz.php" class="photo"><img src="image/KirályGábor.jpg"
-                                                                     class="cart-thumb" alt="Király Gábor" /></a>
-                            <h6><a href="szerviz.php">Király Gábor</a></h6>
-                            <p style="color: #5f5f5f">Gáz - <span class="price" style="color: #5f5f5f">Ügyeletes</span></p>
-                        </li>
-                        <li>
-                            <a href="szerviz.php"
-                               class="photo"><img src="image/NagyIstvan.jpg" class="cart-thumb" alt="Nagy István" /></a>
-                            <h6><a href="szerviz.php">Nagy István</a></h6>
-                            <p style="color: #5f5f5f">Víz - <span class="price" style="color: #5f5f5f">Ügyeletes</span></p>
-                        </li>
-                        <li>
-                            <a href="szerviz.php"
-                               class="photo"><img src="image/OsváthTibi.jpg" class="cart-thumb" alt="Osváth Tibor" /></a>
-                            <h6><a href="szerviz.php">Osváth Tibi</a></h6>
-                            <p style="color: #5f5f5f">Villany - <span class="price" style="color: #5f5f5f">Ügyeletes</span></p>
-                        </li>
-                        <li class="total">
-                            <span class="pull-right" style="color: #5f5f5f"><strong>Ügyeletben</strong>: 3 - fő</span>
-                            <a href="szerviz.php" class="btn btn-default btn-cart">Szervizes</a>
-                        </li>
-                    </ul>
-                </li>
                 <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
                 <li class="side-menu"><a href="#"><i class="fa fa-bars"></i></a></li>
             </ul>
@@ -75,42 +45,35 @@ $url = new Raktar();
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navbar-menu">
             <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-                <li><a href="index.html">Fodin-Home</a></li>
-                <li><a href="proba.php">Szolgáltatások</a></li>
-                <li><a href="faiparimunkak.php">Faipari munkák</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Raktárkészlet nyílvántartó</a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Megnevezés csoport</a>
                     <ul class="dropdown-menu">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Megnevezés csoport</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="megnevezesrogzit.php">Megnevezés csoport rögzítés</a></li>
-                                <li><a href="anyagmodosit.php">Megnevezés csoport javítás</a></li>
-                                <li><a href="anyagtorol.php">Megnevezés csoport törlés</a></li>
-                            </ul>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Termékbevételezés</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="termekbevetelezes.php">Termék bevételezés</a></li>
-                                <li><a href="gaz.php">Termék kiadás</a></li>
-                                <li><a href="villanyszereles.php">Termék törlés</a></li>
-                            </ul>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Projektek</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="viz.php">Megrendelő felvétel</a></li>
-                                <li><a href="gaz.php">Megrendelő javítás</a></li>
-                                <li><a href="villanyszereles.php">Megrendelő törlés</a></li>
-                            </ul>
-                        <li class="dropdown">
+                        <li><a href="megnevezesrogzit.php">Megnevezés rögzítés</a></li>
+                        <li><a href="nyagmodosituj.php">Megnevezés javítás</a></li>
+                        <li><a href="anyagtoroluj.php">Megnevezés törlés</a></li>
+                    </ul>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Termékbevételezés</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="termeknev.php">Új terméknév rögzítés</a></li>
+                        <li><a href="termekbevetelezes.php">Termék bevételezés</a></li>
+                        <li><a href="termekkiadas.php">Termék kiadás</a></li>
+                        <li><a href="termekjavitas.php">Termék javítás</a></li>
+                        <li><a href="termektorol.php">Termék törlés</a></li>
+                    </ul>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Projektek</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="megrendelofelvetel.php">Megrendelő felvétel</a></li>
+                        <li><a href="megrendelojavitas.php">Megrendelő javítás</a></li>
+                        <li><a href="megrendelotorles.php">Megrendelő törlés</a></li>
+                    </ul>
+                <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Lekérdezések</a>
                             <ul class="dropdown-menu">
-                                <li><a href="viz.php">Termék lekérdezés</a></li>
-                                <li><a href="gaz.php">Megrendelő lekérdezés</a></li>
-                            </ul
-                        </li>
-                    </ul>
-                </li>
+                                <li><a href="termeklekerdezes.php">Termék lekérdezés</a></li>
+                                <li><a href="megrendelolekerdezes.php">Megrendelő lekérdezés</a></li>
+                            </ul>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <span class="glyphicon glyphicon-user"></span>Szia <?php echo $userRow['user_name']; ?>&nbsp;
@@ -132,23 +95,22 @@ $url = new Raktar();
         <div class="widget">
             <h6 class="title">Menü</h6>
             <ul class="link">
-                <li><a href="leiras.php">Leírás</a></li>
-                <li><a href="szerviz.php">Szervíz</a></li>
-                <li><a href="bejegyzesek.php">Bejegyzések</a></li>
-                <li><a href="portfolio.php">Portfolio</a></li>
-                <li><a href="kontakt.php">Kontact</a></li>
-            </ul>
-        </div>
-        <div class="widget">
-            <h6 class="title">További linkek</h6>
-            <ul class="link">
-                <li><a href="ujotthon.php">Új otthon</a></li>
-                <li><a href="erdekessegek.php">Érdekességek</a></li>
-                <li><a href="levelezes.php">Levelezés</a></li>
-                <li><a href="epiteszet.php">Az építészet</a></li>
-                <li><a href="login.php">Bejelentkezés</a></li>
+                <li><a href="arajanlat.php">Árajánlat készítéss</a></li>
+                <li><a href="logout.php">Kijelentkezés</a></li>
             </ul>
         </div>
     </div>
     <!-- End Side Menu -->
 </nav>
+<div class="clearfix"></div>
+<div class="site-wrapper">
+    <!--kép-->
+    <b class="glyphicon-open" style="background-color: #6a6a6a"></b>
+    <div class="site-wrapper-inner">
+        <div class="cover-container">
+        </div>
+    </div>
+</div>
+<!-- End Home -->
+
+<div class="clearfix"></div>

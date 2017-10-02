@@ -5,25 +5,30 @@
  * Date: 2017.08.27.
  * Time: 17:06
  */
+
 ?>
 <div id="contact" class="container">
-    <h3 class="text-center">Termékbevételezés</h3>
+    <h3 class="text-center">Új terméknév rögzítés</h3>
     <label class="text-center">Üdvözöllek : <?php print($userRow['user_name']); ?></label>
     <div class="row">
     </div>
 </div>
-<form name="btn-rogzit" method="post" >
+<form name="rogzit" method="post" >
+
     <div class="container">
         <div class="row clearfix">
             <div class="col-md-12 column">
                 <table class="table table-bordered  table-hover"  id="tab_logic">
-                    <thead class="alert-warning">
+                    <thead class="alert-info">
                     <tr >
                         <th class="text-center">
                             #
                         </th>
                         <th class="text-center">
-                            Megnevezési csoport rögzítés
+                            Megnevezés csoport
+                        </th>
+                        <th class="text-center">
+                            Terméknév felvétele
                         </th>
                     </tr>
                     </thead>
@@ -33,8 +38,18 @@
                             1
                         </td>
                         <td>
-                            <input type="text" name='megnevezes[0]'  placeholder='PL:Csavar' class="form-control"
-                                   pattern="[A-Za-z,öÖüÜóÓőŐúÚéÉáÁűŰíÍ\s]{3,50}"  title="Betüket lehet beütni" required/>
+                            <select class="form-control" id="sel1" name="megnevezes_id[0]" >
+                                <?php
+                                while ($sor1 = $talal->fetch(PDO::FETCH_ASSOC)){
+                                    print "<option value='".$sor1['megnevezes_id']."' >".$sor1['megnevezes']."</option>";
+                                }
+                                ?>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="text" name='termekneve[0]'  placeholder='Termék neve' class="form-control"
+                                   pattern="[0-9 A-Za-z,öÖüÜóÓőŐúÚéÉáÁűŰíÍ * - /\s]{3,50}"  title="Betüket lehet
+                                   beütni" required/>
                         </td>
                     </tr>
                     <tr id='addr1'></tr>
@@ -52,9 +67,13 @@
     $(document).ready(function(){
         var i=1;
         $("#add_row").click(function(){
-            $('#addr'+i).html("<td>"+ (i+1) +"</td>" +
-                "<td><input name='megnevezes[0]["+i+"]' type='text' placeholder='Megnevezés' " +
-                "class='form-control input-md' pattern='[A-Za-z,öÖüÜóÓőŐúÚéÉáÁűŰíÍ */-\s]{3,50}'  " +
+            $('#addr'+i).html("<td>"+ (i+1) +"</td><td><select class='form-control' id='sel1' name='megnevezes_id["+i+"]'><?php
+                    while ($sor = $keres->fetch(PDO::FETCH_ASSOC)){
+                        echo "<option name ='kell[0]' value='".$sor['megnevezes_id']."' >".$sor['megnevezes']."</option>";
+                    }
+                    ?></select></td>" +
+                "<td><input name='termekneve["+i+"]' type='text' placeholder='Termékneve' " +
+                "neve' class='form-control input-md' pattern='[0-9 A-Za-z,öÖüÜóÓőŐúÚéÉáÁűŰíÍ */-\s]{3,50}'  " +
                 "title='Betüket " +
                 "lehet beütni' required/> </td>"
 
@@ -86,5 +105,4 @@
             }
         );
     });
-
 </script>
