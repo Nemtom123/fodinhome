@@ -20,6 +20,7 @@
                         </td>
                         <td>
                             <select class="form-control" id="sel1" name="jav" onChange="this.form.submit()">
+
                                 <?php
                                 while ($sor = $megrendelo->fetch(PDO::FETCH_ASSOC)){
                                     print "<option value='".$sor['megrendelo_id']."' >".$sor['megrendelocsaladi']

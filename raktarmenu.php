@@ -69,6 +69,13 @@ $url = new Raktar();
                         <li><a href="megrendelotorles.php">Megrendelő törlés</a></li>
                     </ul>
                 <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Beszállító</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="beszallitofelvetel.php">Beszállító felvétel</a></li>
+                        <li><a href="beszallitojavitas.php">Beszállító javítás</a></li>
+                        <li><a href="beszallitotorles.php">Beszállító törlés</a></li>
+                    </ul>
+                <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Lekérdezések</a>
                             <ul class="dropdown-menu">
                                 <li><a href="termeklekerdezes.php">Termék lekérdezés</a></li>

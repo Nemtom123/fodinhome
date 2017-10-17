@@ -100,7 +100,7 @@ class Termek
     {
 
         try {
-            $bekeres = $this->kapcsolat->prepare("SELECT *  FROM temektabla ORDER BY termekneve ASC");
+            $bekeres = $this->conn->prepare("SELECT *  FROM temektabla ORDER BY termekneve ASC");
             $bekeres->execute(array(':termekneve' => $termekneve, ':termek_id' => $termek_id));
             $bekeres->execute();
 
@@ -113,7 +113,7 @@ class Termek
     {
 
         try {
-            $bekeres = $this->kapcsolat->prepare("SELECT *  FROM temektabla ORDER BY termekneve ASC");
+            $bekeres = $this->conn->prepare("SELECT *  FROM temektabla WHERE termek_id= :termek_id");
             $bekeres->execute(array(':termek_id' => $termek_id));
             $bekeres->execute();
 
@@ -174,6 +174,34 @@ class Termek
             $bekeres->bindparam(":termek_ujnetto", $termek_ujnetto, PDO::PARAM_STR);
             $bekeres->bindparam(":tbrutto", $tbrutto, PDO::PARAM_STR);
             $bekeres->bindparam(":termek_date", $termek_date,PDO::PARAM_STR);
+
+            $bekeres->execute();
+
+            return $bekeres;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    public function termekUpDate($termek_id, $termek_ara_netto, $termek_mennyiseg, $osssznetto, $osszbrutto, $csokkenes, $ujossznetto, $ujosszbrutto, $termek_ujnetto,
+                                $tbrutto, $novekedes, $uj_termek_mennyiseg, $ujtbrutto)
+    {
+
+        try {
+            $bekeres = $this->conn->prepare("UPDATE temektabla  SET termek_id= :termek_id, termek_ara_netto= :termek_ara_netto, termek_mennyiseg= :termek_mennyiseg, osssznetto= :osssznetto, osszbrutto= :osszbrutto, csokkenes= :csokkenes,  ujossznetto= :ujossznetto, ujosszbrutto= :ujosszbrutto, termek_ujnetto= :termek_ujnetto, tbrutto= :tbrutto, novekedes= :novekedes, uj_termek_mennyiseg= :uj_termek_mennyiseg, ujtbrutto= :ujtbrutto WHERE termek_id= :termek_id");
+            $bekeres->bindparam(":termek_id", $termek_id, PDO::PARAM_STR);
+            $bekeres->bindparam(":termek_ara_netto", $termek_ara_netto, PDO::PARAM_STR);
+            $bekeres->bindparam(":termek_mennyiseg", $termek_mennyiseg, PDO::PARAM_STR);
+            $bekeres->bindparam(":osssznetto", $osssznetto, PDO::PARAM_STR);
+            $bekeres->bindparam(":osszbrutto", $osszbrutto, PDO::PARAM_STR);
+            $bekeres->bindparam(":csokkenes", $csokkenes, PDO::PARAM_STR);
+            $bekeres->bindparam(":ujossznetto", $ujossznetto, PDO::PARAM_STR);
+            $bekeres->bindparam(":ujosszbrutto", $ujosszbrutto, PDO::PARAM_STR);
+            $bekeres->bindparam(":termek_ujnetto", $termek_ujnetto, PDO::PARAM_STR);
+            $bekeres->bindparam(":tbrutto", $tbrutto, PDO::PARAM_STR);
+            $bekeres->bindparam(":novekedes", $novekedes, PDO::PARAM_STR);
+            $bekeres->bindparam(":uj_termek_mennyiseg", $uj_termek_mennyiseg, PDO::PARAM_STR);
+            $bekeres->bindparam(":ujtbrutto", $ujtbrutto, PDO::PARAM_STR);
 
             $bekeres->execute();
 

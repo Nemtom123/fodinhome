@@ -100,8 +100,21 @@ class Megrenedelo
     {
 
         try {
-            $megrendelo = $this->kapcsolodas->prepare("SELECT termek_id, $megrendelocsaladi FROM megrendelo ORDER BY $megrendelocsaladi ASC");
+            $megrendelo = $this->kapcsolodas->prepare("SELECT $megrendelocsaladi FROM megrendelo ORDER BY $megrendelocsaladi ASC");
             $megrendelo->execute(array(':megrendelocsaladi' => $megrendelocsaladi));
+            $megrendelo->execute();
+
+            return $megrendelo;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+    public function megrendelLeKerdez($megrendelo_id)
+    {
+
+        try {
+            $megrendelo = $this->kapcsolodas->prepare("SELECT megrendelo_id FROM megrendelo ORDER BY megrendelocsaladi ASC");
+            $megrendelo->execute(array(':megrendelo_id' => $megrendelo_id));
             $megrendelo->execute();
 
             return $megrendelo;
@@ -137,7 +150,7 @@ class Megrenedelo
     {
 
         try {
-            $megrendelo = $this->kapcsolat->prepare("UPDATE megrendelo  SET megrendelocsaladi= :megrendelocsaladi, megrendelo_id= :megrendelo_id WHERE megrendelo_id= :megrendelo_id");
+            $megrendelo = $this->kapcsolodas->prepare("UPDATE megrendelo  SET megrendelocsaladi= :megrendelocsaladi, megrendelo_id= :megrendelo_id WHERE megrendelo_id= :megrendelo_id");
             $megrendelo->bindparam(":megrendelocsaladi", $megrendelocsaladi);
             $megrendelo->bindparam(":megrendelo_id", $megrendelo_id);
             $megrendelo->execute();

@@ -76,10 +76,8 @@ if (isset($_POST['jav'])) {
                 $betesz->frissitDate($megnevezes, $megnevezes_id, $megrendelokereszt, $megrendelovaros,
                             $megrendeloutca, $megrendelohazszam, $megrendeloemelet, $megrendeloemail,
                             $megrendelotelefon, $megrendelomobil);
-                $betesz->redirect('megrendelojavitas.php?joined.');
-
             }
-
+            $betesz->redirect('megrendelojavitas.php?joined.');
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
@@ -181,8 +179,9 @@ if (isset($_POST['jav'])) {
     </div>
 
     <button class="btn btn-danger pull-left" id="rogzit" name="btn-rogzit" value="rogzit"
-            type="submit">Rögzít
+            type="submit" onclick="myFunction()">Rögzít
     </button>
 <?php }
 include_once("raktarfooter.php");
 ?>
+<script src="sikeresrogzites.js"></script>

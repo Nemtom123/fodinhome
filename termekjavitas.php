@@ -50,15 +50,15 @@ if (isset($_POST['jav'])) {
     } else if (isset($_GET['joined'])) {
         ?>
         <div class="alert alert-info">
-            <i class="glyphicon 	glyphicon glyphicon-thumbs-up">-</i>Sikeres rögzítés gratulálok</>
+            <i class="glyphicon 	glyphicon glyphicon-thumbs-up">-</i>Sikeres rögzítés gratulálok
+        </>
         </div>
         <?php
     }
 
 
     $eredmeny = $_POST['jav'];
-    $bekeres = $javit->runQuery("SELECT * FROM temektabla WHERE termek_id = $eredmeny");
-    $bekeres->execute(array());
+    $bekeres = $javit->termKerdez($eredmeny);
     $ujsor = $bekeres->fetch(PDO::FETCH_ASSOC);
     $betesz = new Termek();
     if (isset($_POST['btn-rogzit'])) {
@@ -71,8 +71,7 @@ if (isset($_POST['jav'])) {
                 $termek_megyseg = strip_tags($_POST['termek_megyseg']);
                 $betesz->upDate($termekneve, $termek_id, $termek_ara_netto, $termek_mennyiseg, $termek_megyseg);
                 $betesz->redirect('termekjavitas.php?joined.');
-                  }
-
+            }
 
 
         } catch (PDOException $e) {
@@ -81,8 +80,6 @@ if (isset($_POST['jav'])) {
     }
     ?>
     <div class="row clearfix">
-
-
 
 
         <div class="col-md-12 column">
@@ -113,22 +110,24 @@ if (isset($_POST['jav'])) {
                     </td>
                     <td>
                         <input type="text" class="form-control" name="termekneve" id="usr"
-                               value="<?php echo $ujsor['termekneve']; ?>" pattern="[A-Za-z, öÖüÜóÓőŐúÚéÉáÁűŰíÍ
-                               \s]{3,20}" title="Betüket lehet beütni" required/>
+                               value="<?php echo $ujsor['termekneve']; ?>" pattern="[A-Za-z 0-9, öÖüÜóÓőŐúÚéÉáÁűŰíÍ
+                               * / \s]{3,20}" title="Betüket lehet beütni" required/>
                         <input type="hidden" class="form-control" name="termek_id" id="usr"
                                value="<?php echo $ujsor['termek_id']; ?>"/>
                     </td>
                     <td>
                         <input type="text" class="form-control" name="termek_ara_netto" id="usr"
-                               value="<?php echo $ujsor['termek_ara_netto']; ?> "  pattern="[0-9\s]{1,50}" title="Számokat lehet beütni" required/>
+                               value="<?php echo $ujsor['termek_ara_netto']; ?> " pattern="[0-9\s]{1,50}"
+                               title="Számokat lehet beütni" required/>
                     </td>
                     <td>
                         <input type="text" class="form-control" name="termek_mennyiseg" id="usr"
-                               value="<?php echo $ujsor['termek_mennyiseg']; ?>"  pattern="[0-9\s]{1,50}" title="Számokat lehet beütni" required/>
+                               value="<?php echo $ujsor['termek_mennyiseg']; ?>" pattern="[0-9\s]{1,50}"
+                               title="Számokat lehet beütni" required/>
                     </td>
                     <td>
                         <input type="text" class="form-control" name="termek_megyseg" id="usr"
-                               value="<?php echo $ujsor['termek_megyseg']; ?>"  pattern="[A-Za-z, öÖüÜóÓőŐúÚéÉáÁűŰíÍ
+                               value="<?php echo $ujsor['termek_megyseg']; ?>" pattern="[A-Za-z, öÖüÜóÓőŐúÚéÉáÁűŰíÍ
                                \s]{2,20}" title="Betüket lehet beütni" required/>
                     </td>
                 </tr>
@@ -138,8 +137,28 @@ if (isset($_POST['jav'])) {
         </div>
     </div>
     <button class="btn btn-danger pull-left" id="rogzit" name="btn-rogzit" value="rogzit"
-            type="submit" onclick="myFunction()" >Rögzít
+            type="submit" onclick="myFunction()">Rögzít
     </button>
 <?php }
 include_once("raktarfooter.php");
 ?>
+<script>
+   function myFunction() {
+       swal({
+           title: 'Sikeres Rögzítés!!!!',
+           text: '',
+           timer: 5000,
+           onOpen: function () {
+               swal.showLoading()
+           }
+       }).then(
+           function () {},
+           // handling the promise rejection
+           function (dismiss) {
+               if (dismiss === 'timer') {
+                   console.log('I was closed by the timer')
+               }
+           }
+       )
+   }
+</script>

@@ -23,6 +23,7 @@
                         </td>
                         <td>
                             <select class="form-control" id="sel1" name="jav" onChange="this.form.submit()">
+                                <option value="" class="center">     Termék választás    </option>
                                 <?php
                                 while ($sor = $bekeres->fetch(PDO::FETCH_ASSOC)){
                                     print "<option value='".$sor['termek_id']."' >".$sor['termekneve']."</option>";

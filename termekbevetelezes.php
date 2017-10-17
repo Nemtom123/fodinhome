@@ -16,11 +16,11 @@ include_once("raktarheadertermek.php");
 <?php include_once("raktarmenu.php"); ?>
 <br/><br><br><br>
 <?php
-$javit = new Raktar();
-$keres = $javit->runQuery("SELECT * FROM temektabla ORDER BY termekneve ASC");
+$javit = new Termek();
+$keres = $javit->runQuery("SELECT * FROM temektabla  ORDER BY termekneve ASC");
 $keres->execute(array());
 
-$beker = new Raktar();
+$beker = new Termek();
 $talal = $beker->runQuery("SELECT * FROM temektabla ORDER BY termekneve ASC");
 $talal->execute(array());
 
@@ -66,7 +66,7 @@ if (isset($_POST['rogzit'])) {
             }
 
         }
-        $lekerdez->redirect('termekbevetelezes.php?joined.');
+       // $lekerdez->redirect('termekbevetelezes.php?joined.');
         exit;
 
     } catch
