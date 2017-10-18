@@ -50,6 +50,15 @@ if (isset($_POST['rogzit'])) {
             $bekeres = $csokken->runQuery("SELECT * FROM temektabla WHERE termek_id = $tomb1");
             $bekeres->execute(array());
             $adat = $bekeres->fetch(PDO::FETCH_ASSOC);
+            $sum = 0;
+            if ($adat['termek_mennyiseg'] == '0' ) {
+                echo '<script language="javascript">window.top.location.href = "termekkiadas.php";</script>';
+
+            }
+            else if ($tomb2 >= $adat['termek_mennyiseg'] and $tomb2 == 0){
+                echo '<script language="javascript">window.top.location.href = "termekkiadas.php";</script>';
+            }
+            else  {
             $tomb4 = $adat['termek_id'];
             $tomb5 = $adat['termek_ara_netto'];
             $tomb6 = $adat['termek_mennyiseg'];
@@ -57,7 +66,7 @@ if (isset($_POST['rogzit'])) {
             $tomb8 = $adat['uj_termek_mennyiseg'];
             $tomb9 = $adat['osssznetto'];
             $tomb10 = $adat['osszbrutto'];
-            $tomb11 = $adat['csokkenes'];
+            $tomb11 = $adat['csokkenes']+$_POST['Mennyiség'];
             $tomb12 = $adat['novekedes'];
             $tomb13 = $adat['ujossznetto'];
             $tomb14 = $adat['ujosszbrutto'];
@@ -68,15 +77,20 @@ if (isset($_POST['rogzit'])) {
             $tomb17 = $tomb9 - $tomb5 * $tomb2; // össznetto megrendelő
             $tomb18 = $tomb10 - $tomb2 * $tbrutto; // össznetto megrendelő
             $csokken->termekUpDate($tomb1,$tomb5,$tomb6,$tomb17,$tomb18, $tomb2, $tomb13, $tomb14, $tomb7, $tomb15,$tomb12,$tomb8, $tomb16);
-            //  $lekerdez->redirect('termekkiadas.php?joined.');
+            echo '<script language="javascript">window.top.location.href = "termekkiadas.php";</script>';
             //$kiad->kiadasRogzit($tomb0, $tomb1, $tomb2, $tomb3);
+                }
         }
 
-    } catch
+    }catch
     (PDOException $e) {
         echo $e->getMessage();
     }
+
+    $leker->redirect('termekkiadas.php?joined.');
 }
+
+
 function TombKereses($amiben, $amit)
 {
     $vissza = FALSE;
