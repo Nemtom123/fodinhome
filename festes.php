@@ -53,7 +53,7 @@
         <div class='animatedParent' data-sequence='500' >
             <h1 class='animated growIn slower'  data-id='1' style="color: #FFFFFF; text-align: center">Szobafestés Mázolás</h1>
             <h2 class='animated bounceInRight slower'  data-id='2' style="color: #FFFFFF">Kérje árajánlatunkat</h2>
-            <h2 class="animated bounceInLeft slower" data-id='1' ><a href="levelezes.php"style="color: red" >Levelezés
+            <h2 class="animated bounceInLeft slower" data-id='1' ><a href="kontakt.php"style="color: red" >Levelezés
             </a> </h2>
         </div>
     </div>

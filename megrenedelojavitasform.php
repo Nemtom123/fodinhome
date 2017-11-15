@@ -20,11 +20,11 @@
                         </td>
                         <td>
                             <select class="form-control" id="sel1" name="jav" onChange="this.form.submit()">
-
+                                <option value="">Megrendelő választás</option>
                                 <?php
                                 while ($sor = $megrendelo->fetch(PDO::FETCH_ASSOC)){
                                     print "<option value='".$sor['megrendelo_id']."' >".$sor['megrendelocsaladi']
-                                        . ' '. $sor['megrendelokereszt'] . ' ' . ' ->' . ' ' .$sor['megrendeloemail']."</option>";
+                                        . ' '. $sor['megrendelokereszt'] . ' ' . ' ->' . ' ' .$sor['megrendelokod']."</option>";
                                 }
                                 ?>
                             </select>

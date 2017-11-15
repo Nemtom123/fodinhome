@@ -65,7 +65,7 @@ $row = $leker->fetch(PDO::FETCH_ASSOC);
 
 if ($row['beszallito_nev'] == $beszallitonev and $row['beszallito_kod'] == $beszallitokod) {
     $rogzit->redirect('beszallitojavitas.php?joined');;
-} else {
+}   else {
 $nev = strip_tags($_POST['beszallito_nev']);
 $kod = strip_tags($_POST['beszallito_kod']);
 $id = strip_tags($_POST['beszallito_id']);
@@ -147,7 +147,8 @@ if ($rogzit->BeszallitoupDate($nev, $kod, $id)) {
                     swal.showLoading()
                 }
             }).then(
-                function () {},
+                function () {
+                },
                 // handling the promise rejection
                 function (dismiss) {
                     if (dismiss === 'timer') {

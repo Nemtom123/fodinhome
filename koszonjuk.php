@@ -139,90 +139,71 @@
 
     </style>
 </head>
-<body>
-<!-- Start Navigation -->
-<?php include_once ("menu.php");?>
-<br>
-<!-- Container (Contact Section) -->
-<div id="contact" class="container">
-    <h3 class="text-center">Lépjen kapcsolatba velünk</h3>
-    <p class="text-center"><em>Mi önökért vagyunk!</em></p>
 
-    <div class="row">
-        <div class="col-md-4">
-            <p>Küldjön üzenetet.</p>
-            <p><span class="glyphicon glyphicon-map-marker"></span>Miskolc Győri K. 24/B 3531</p>
-            <p><span class="glyphicon glyphicon-phone"></span>Telefon: +36309123668</p>
-            <p><span class="glyphicon glyphicon-envelope"></span>Email: fodinhome@fodinhome.hu</p>
-        </div>
-        <form method="post" name="myemailform" action="form-to-email.php">
+<?php
+/**
+ * Created by PhpStorm.
+ * User: tom
+ * Date: 2017.11.04.
+ * Time: 11:41
+ */
+
+include_once "menu.php";
+?>
+    <br>
+    <div id="contact" class="container">
+        <h3 class="text-center">Hamarosan felvesszük önnel a kapcsolatot</h3>
+        <p class="text-center"><em>Mi önökért vagyunk!</em></p>
+
+        <div class="row">
+            <div class="col-md-4">
+                <p>Sikeresen elküldte az üzenetét.</p>
+                <p><span class="glyphicon glyphicon-map-marker"></span>Miskolc Győri K. 24/B 3531</p>
+                <p><span class="glyphicon glyphicon-phone"></span>Telefon: +36309123668</p>
+                <p><span class="glyphicon glyphicon-envelope"></span>Email: fodinhome@fodinhome.hu</p>
+            </div>
         <div class="col-md-8">
             <div class="row">
                 <div class="col-sm-6 form-group">
-                    <input class="form-control" id="name" name="name" placeholder="Név" type="text" required>
-                </div>
-                <div class="col-sm-6 form-group">
-                    <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+                    <div class="col-sm-6 form-group">
+                        <input class="form-control" id="name" name="name" placeholder="Köszönjük levelét" type="text" required>
                 </div>
             </div>
-            <textarea class="form-control" id="comments" name="message" placeholder="Üzenet" rows="5"></textarea>
-            <br>
-            <div class="row">
-                <div class="col-md-12 form-group">
-                    <button class="btn pull-right" name="submit" type="submit">Küldés</button>
-                </div>
-            </div>
+
         </div>
-        </form>
+        </div>
     </div>
-</div>
-<br>
-<!-- Add Google Maps -->
-<div id="googleMap"></div>
-<script>
-    function myMap() {
-        var myCenter = new google.maps.LatLng(48.10420, 20.75900);
-        var mapProp = {center:myCenter, zoom:12, scrollwheel:false, draggable:false, mapTypeId:google.maps.MapTypeId.ROADMAP};
-        var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-        var marker = new google.maps.Marker({position:myCenter});
-        marker.setMap(map);
-    }
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
+        <br>
+        <!-- Add Google Maps -->
+        <div id="googleMap"></div>
+        <script>
+            function myMap() {
+                var myCenter = new google.maps.LatLng(48.10420, 20.75900);
+                var mapProp = {center:myCenter, zoom:12, scrollwheel:false, draggable:false, mapTypeId:google.maps.MapTypeId.ROADMAP};
+                var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+                var marker = new google.maps.Marker({position:myCenter});
+                marker.setMap(map);
+            }
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
 
-<!-- Start Footer -->
-<footer class="footer"  style="background-color: #FFFFFF">
-    <div class="text-center" style="background-color:#FFFFFF" >
-        <a class="up-arrow" href="kontakt.php" data-toggle="tooltip" title="TO TOP">
-            <span class="glyphicon glyphicon-chevron-up" style="color: #2f6f9f"></span>
-        </a><br><br><br><br><br><br>
-        <p style="color: #2f6f9f; background-color: #FFFFFF">Licenced by FODIN HOME KFT</p>
-    </div>
-</footer>
+        <!-- Start Footer -->
+        <footer class="footer"  style="background-color: #FFFFFF">
+            <div class="text-center" style="background-color:#FFFFFF" >
+                <a class="up-arrow" href="kontakt.php" data-toggle="tooltip" title="TO TOP">
+                    <span class="glyphicon glyphicon-chevron-up" style="color: #2f6f9f"></span>
+                </a><br>
+                <p style="color: #2f6f9f; background-color: #FFFFFF">Licenced by FODIN HOME KFT</p>
+            </div>
+        </footer>
+        <script src="bootsnav-master/js/bootsnav.js"></script>
 
-<!-- End Footer -->
+        <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+        <script src="https://cdnjs.cloudflare.c
 
-<!-- Placed at the end of the document so the pages load faster -->
-<script language="JavaScript">
-    // Code for validating the form
-    // Visit http://www.javascript-coder.com/html-form/javascript-form-validation.phtml
-    // for details
-    var frmvalidator  = new Validator("myemailform");
-    frmvalidator.addValidation("name","req","Kérjük adja meg a nevét");
-    frmvalidator.addValidation("email","req","Kérjük, adja meg az email címét");
-    frmvalidator.addValidation("email","email","Nem valós email");
-</script>
-<script type="bootsnav-master/text/javascript" src="bootsnav-master/js/jquery.min.js"></script>
-<script type="text/javascript" src="bootnav-master/js/bootstrap.min.js"></script>
-<!-- Bootsnavs -->
-<script src="bootsnav-master/js/bootsnav.js"></script>
-
-<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="bootstrap-3.3.7/docs/assets/js/ie10-viewport-bug-workaround.js"></script>
+        ktop Windows 8 bug -->
+        <script src="bootstrap-3.3.7/docs/assets/js/ie10-viewport-bug-workaround.js"></script>
 
 
-</body>
-</html>
+        </body>
+        </html>

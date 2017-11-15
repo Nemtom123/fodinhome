@@ -27,23 +27,15 @@ class Megrenedelo
     }
 
 
-    public function megrendeloRogzit($megrendelocsaladi, $megrendelokereszt, $megrendelovaros,
-                                     $megrendeloutca, $megrendelohazszam, $megrendeloemelet, $megrendeloemail,
-                                     $megrendelotelefon, $megrendelomobil, $megrendelodate)
+    public function megrendeloRogzit($megrendelocsaladi, $megrendelokereszt, $megrendelokod, $megrendelodate)
     {
         try {
-            $megrendelo = $this->kapcsolodas->prepare("INSERT INTO megrendelo (megrendelocsaladi,megrendelokereszt,megrendelovaros,megrendeloutca,megrendelohazszam,megrendeloemelet,megrendeloemail,megrendelotelefon,	megrendelomobil,megrendelodate) 
-            VALUES(:megrendelocsaladi,:megrendelokereszt,:megrendelovaros,:megrendeloutca,:megrendelohazszam, :megrendeloemelet,:megrendeloemail,:megrendelotelefon,:megrendelomobil,:megrendelodate )");
+            $megrendelo = $this->kapcsolodas->prepare("INSERT INTO megrendelo (megrendelocsaladi,megrendelokereszt,	megrendelokod,megrendelodate) 
+            VALUES(:megrendelocsaladi,:megrendelokereszt,:megrendelokod,:megrendelodate )");
 
             $megrendelo->bindparam(":megrendelocsaladi", $megrendelocsaladi, PDO::PARAM_STR);
             $megrendelo->bindparam(":megrendelokereszt", $megrendelokereszt, PDO::PARAM_STR);
-            $megrendelo->bindparam(":megrendelovaros", $megrendelovaros, PDO::PARAM_STR);
-            $megrendelo->bindparam(":megrendeloutca", $megrendeloutca, PDO::PARAM_STR);
-            $megrendelo->bindparam(":megrendelohazszam", $megrendelohazszam, PDO::PARAM_STR);
-            $megrendelo->bindparam(":megrendeloemelet", $megrendeloemelet, PDO::PARAM_STR);
-            $megrendelo->bindparam(":megrendeloemail", $megrendeloemail, PDO::PARAM_STR);
-            $megrendelo->bindparam(":megrendelotelefon", $megrendelotelefon, PDO::PARAM_STR);
-            $megrendelo->bindparam(":megrendelomobil", $megrendelomobil, PDO::PARAM_STR);
+            $megrendelo->bindparam(":megrendelokod", $megrendelokod, PDO::PARAM_STR);
             $megrendelo->bindparam(":megrendelodate", $megrendelodate, PDO::PARAM_STR);
             $megrendelo->execute();
 
@@ -113,7 +105,7 @@ class Megrenedelo
     {
 
         try {
-            $megrendelo = $this->kapcsolodas->prepare("SELECT megrendelo_id FROM megrendelo ORDER BY megrendelocsaladi ASC");
+            $megrendelo = $this->kapcsolodas->prepare("SELECT * FROM megrendelo WHERE megrendelo_id= :megrendelo_id");
             $megrendelo->execute(array(':megrendelo_id' => $megrendelo_id));
             $megrendelo->execute();
 
@@ -123,22 +115,15 @@ class Megrenedelo
         }
     }
 
-    public function frissitDate($megrendelocsaladi, $megrendelo_id, $megrendelokereszt, $megrendelovaros,
-                           $megrendeloutca, $megrendelohazszam, $megrendeloemelet, $megrendeloemail, $megrendelotelefon, $megrendelomobil)
+    public function frissitDate($megrendelocsaladi, $megrendelo_id, $megrendelokereszt, $megrendelokod)
     {
 
         try {
-            $megrendelo = $this->kapcsolodas->prepare("UPDATE megrendelo  SET megrendelocsaladi= :megrendelocsaladi, megrendelo_id= :megrendelo_id, megrendelokereszt= :megrendelokereszt, megrendelovaros= :megrendelovaros, megrendeloutca= :megrendeloutca,  megrendelohazszam= :megrendelohazszam, megrendeloemelet= :megrendeloemelet, megrendeloemail= :megrendeloemail, megrendelotelefon= :megrendelotelefon, megrendelomobil= :megrendelomobil WHERE megrendelo_id = :megrendelo_id");
+            $megrendelo = $this->kapcsolodas->prepare("UPDATE megrendelo  SET megrendelocsaladi= :megrendelocsaladi, megrendelo_id= :megrendelo_id, megrendelokod= :megrendelokod WHERE megrendelo_id = :megrendelo_id");
             $megrendelo->bindparam(":megrendelocsaladi", $megrendelocsaladi, PDO::PARAM_STR);
             $megrendelo->bindparam(":megrendelo_id", $megrendelo_id, PDO::PARAM_STR);
             $megrendelo->bindparam(":megrendelokereszt", $megrendelokereszt, PDO::PARAM_STR);
-            $megrendelo->bindparam(":megrendelovaros", $megrendelovaros, PDO::PARAM_STR);
-            $megrendelo->bindparam(":megrendeloutca", $megrendeloutca, PDO::PARAM_STR);
-            $megrendelo->bindparam(":megrendelohazszam", $megrendelohazszam, PDO::PARAM_STR);
-            $megrendelo->bindparam(":megrendeloemelet", $megrendeloemelet, PDO::PARAM_STR);
-            $megrendelo->bindparam(":megrendeloemail", $megrendeloemail, PDO::PARAM_STR);
-            $megrendelo->bindparam(":megrendelotelefon", $megrendelotelefon, PDO::PARAM_STR);
-            $megrendelo->bindparam(":megrendelomobil", $megrendelomobil, PDO::PARAM_STR);
+            $megrendelo->bindparam(":megrendelokod", $megrendelokod, PDO::PARAM_STR);
             $megrendelo->execute();
 
             return $megrendelo;

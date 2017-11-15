@@ -29,25 +29,7 @@
                             Keresztnév
                         </th>
                         <th class="text-center">
-                            Város
-                        </th>
-                        <th class="text-center">
-                            Utca
-                        </th>
-                        <th class="text-center">
-                            Házszsám
-                        </th>
-                        <th class="text-center">
-                            Emelet-ajtó
-                        </th>
-                        <th class="text-center">
-                            Email-cím
-                        </th>
-                        <th class="text-center">
-                            Telefonszám
-                        </th>
-                        <th class="text-center">
-                            Mobilszám
+                            Kód
                         </th>
                         <th class="text-center">
                             Dátum
@@ -70,37 +52,9 @@
                                    required/>
                         </td>
                         <td>
-                            <input type="text" name='megrendelovaros[0]' placeholder='Város' class="form-control"
-                                   pattern="[A-Za-z, öÖüÜóÓőŐúÚéÉáÁűŰíÍ\s]{3,50}" title="Betüket lehet beütni"
-                                   required/>
-                        </td>
-                        <td>
-                            <input type="text" name='megrendeloutca[0]' placeholder='Utca' class="form-control"
-                                   pattern="[A-Za-z, öÖüÜóÓőŐúÚéÉáÁűŰíÍ \s]{3,50}" title="Betüket lehet beütni"
-                                   required/>
-                        </td>
-                        <td>
-                            <input type="text" name='megrendelohazszam[0]' placeholder='Házszám' class="form-control"
-                                   pattern="[0-9\s]{1,50}" title="Számokat lehet beütni" required/>
-                        </td>
-                        <td>
-                            <input type="text" name='megrendeloemelet[0]' placeholder='Emelet-ajtó' class="form-control"
-                                   pattern="[0-9 / \s]{1,50}" title="Számokat lehet beütni" required/>
-                        </td>
-                        <td>
-                            <input type="text" name='megrendeloemail[0]'
-                                   pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" class="form-control"
-                                   placeholder="Email*" id="email" required/>
-                        </td>
-                        <td>
-                            <input type="text" name='megrendelotelefon[0]' placeholder='Pl:06-46/700-102'
-                                   class="form-control"
-                                   pattern="[0-9/-\s]{1,50}" title="Számokat lehet beütni" required/>
-                        </td>
-                        <td>
-                            <input type="text" name='megrendelomobil[0]' placeholder='Pl:0620/953-4412'
-                                   class="form-control"
-                                   pattern="[0-9/-\s]{1,30}" title="Számokat lehet beütni" required/>
+                            <input type='text' name='megrendelokod[0]'  value='<?php echo rand(0,10000000); ?>'
+                                   class='form-control'
+                                   pattern='[0-9/-\s]{1,50}' title='Számokat lehet beütni' enabled/>
                         </td>
                         <td>
                             <input class="form-control" id="rogzitesiido" name="megrendelodate[0]" value="<?php echo
@@ -122,24 +76,17 @@
 <script>
     $(document).ready(function () {
         var i = 1;
+        var x = document.write = Math.floor((Math.random() * 1000000) + 1);
         $("#add_row").click(function () {
             $('#addr' + i).html("<td>" + (i + 1) + "</td><td><input name='megrendelocsaladi[" + i + "]' " +
                 "type='text'placeholder='Pl:Kovács' class='form-control input-md' pattern='[A-Za-z, " +
                 "öÖüÜóÓőŐúÚéÉáÁűŰíÍ\s]{3,50}'title='Betüket lehet beütni' required/> </td>" +
-                "<td><input type='text' name='megrendelokereszt[" + i + "]'  placeholder='PL:Lajos' class='form-control'pattern='[A-Za-z, öÖüÜóÓőŐúÚéÉáÁűŰíÍ\s]{3,20}'  title='Betüket lehet beütni' required/></td>" +
-                "<td><input  name='megrendelovaros[" + i + "]' type='text' placeholder='Város' class='form-control'pattern='[A-Za-z, öÖüÜóÓőŐúÚéÉáÁűŰíÍ\s]{3,50}'  title='Számokat lehet beütni' required/></td><td>" +
-                "<input type='text' name='megrendeloutca[" + i + "]' placeholder='Utca' class='form-control' pattern='[A-Za-z, öÖüÜóÓőŐúÚéÉáÁűŰíÍ\s]{3,50}'  title='Betüket lehet beütni'  required/></td>" +
-                " <td> <input type='text' name='megrendelohazszam[" + i + "]' placeholder='Házszám' class='form-control' pattern='[0-9\s]{1,50}'   title='Számokat lehet beütni'  required/> </td>" +
-                "<td> <input type='text' name='megrendeloemelet[" + i + "]' placeholder='Emelet-ajtó' " +
-                "class='form-control'pattern='[0-9 / \s]{1," +
-                "50}'   title='Számokat lehet beütni'  required/> </td>" +
-                "<td><input type='text' name='megrendeloemail[" + i + "]' pattern='[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1," +
-                "63}$'class='form-control' placeholder='Email*' id='email' required/></td>" +
-                "<td><input type='text' name='megrendelotelefon[" + i + "]' placeholder='Pl:06-46/700-102' " +
-                "class='form-control'pattern='[0-9/-\s]{1,50}' title='Számokat lehet beütni' required/> </td>" +
-                "<td><input type='text' name='megrendelomobil[" + i + "]' placeholder='Pl:0620/953-4412' " +
+                "<td><input type='text' name='megrendelokereszt[" + i + "]'  placeholder='PL:Lajos'" +
+                " class='form-control'pattern='[A-Za-z, öÖüÜóÓőŐúÚéÉáÁűŰíÍ\s]{3,20}'  title='Betüket lehet beütni'required/></td>" +
+                "<td><input type='text' name='megrendelokod[" + i + "]' value='" + x*i + "' " +
                 "class='form-control'pattern='[0-9/-\s]{1,50}'title='Számokat lehet beütni' required/> </td>" +
-                "<td><input  name='megrendelodate[" + i + "]' type='text' placeholder='Rögzítési idő'  value='<?php echo $date = date('Y-m-d'); ?>' class='form-control'/></td>"
+                "<td><input  name='megrendelodate[" + i + "]' type='text' placeholder='Rögzítési idő'" +
+                "  value='<?php echo $date = date('Y-m-d'); ?>' class='form-control'/></td>"
             );
             $('#tab_logic').append('<tr id="addr' + (i + 1) + '"></tr>');
             i++;

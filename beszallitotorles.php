@@ -1,13 +1,13 @@
 <?php
 require_once("session.php");
 require_once("Beszallito.php");
-
+require_once("error.php");
 $auth_user = new USER();
 $user_id = $_SESSION['user_session'];
 $stmt = $auth_user->runQuery("SELECT * FROM users WHERE user_id=:user_id");
 $stmt->execute(array(":user_id"=>$user_id));
 $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
-include_once ('header.php');
+include_once ('raktarheader.php');
 ?>
 
 <?php include_once ("raktarmenu.php");?>
@@ -60,23 +60,23 @@ if (isset($_POST['jav'])){
                 $row=$leker->fetch(PDO::FETCH_ASSOC);
 
                 if($row['beszallito_nev'] != $beszallito_nev) {
-                    $error[] = "Létezik ez a megnevezés:"." $beszallito_nev ";
+                    $error[] = ":"." $beszallito_nev ";
                 }
                 else
                 {
-                    if($torol->BeszallitoTorol($beszallito_id)) {
-
-
-                    }
-                    else if(isset($_GET['joined']))
-                    {
-
+                    if($row['beszallito_nev'] == $beszallito_nev) {
+                        $torol->BeszallitoTorol($beszallito_id);
+                        $torol->redirect('beszallitotorles.php?joined');
+                    } else if (isset($_GET['joined'])) {
+                        ?>
+                        <div class=" btn-alert alert-info">
+                            <i class="glyphicon 	glyphicon glyphicon-thumbs-up">-</i>Sikeres rögzítés-<b onChange="this
+                      .form.submit()">Gratulálok</b>
+                        </div>
+                        <?php
                     }
                 }
-                $torol->redirect('beszallitotorol.php?joined');
-            }
-
-            catch(PDOException $e)
+            } catch(PDOException $e)
             {
                 echo $e->getMessage();
             }
@@ -112,16 +112,19 @@ if (isset($_POST['jav'])){
         </div>
     </div>
 
+
     <button class="btn btn-danger pull-left" id="rogzit" name="btn-rogzit" value="rogzit"
-            type="submit" onclick="myFunction()">Töröl</button>
+            type="submit"onclick="myFunction()">Rögzít
+    </button>
     </div>
     </form>
-<?php }
+<?php
 include_once ('raktarfooter.php');
+
+}
 ?>
 <script>
     function myFunction() {
-        alert("Sikeres törlés");
         swal({
             title: 'Sikeresen törölted',
             text: '',

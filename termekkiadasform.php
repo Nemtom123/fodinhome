@@ -2,11 +2,11 @@
 /**
  * Created by PhpStorm.
  * User: dobiasz.tamas
- * Date: 2017.08.27.
+ * Date: 2017.10.01.
  * Time: 17:06
  */
 ?>
-<div id="contact" class="container">
+<div id="contact" class="container" xmlns="">
     <h3 class="text-center">Termék kiadás</h3>
     <label class="text-center">Üdvözöllek : <?php print($userRow['user_name']); ?></label>
     <div class="row">
@@ -51,7 +51,8 @@
                             1
                         </td>
                         <td>
-                            <select class="form-control" id='madd1[" + i + "]' name='megrendelo_id[0]'>
+                            <select class="form-control" id='meg' name='megrendelo_id[0]'
+                                    onChange='megrendelo(this,"0")'>
                                 <option value="">Megrendelő választás</option>
                                 <?php
                                 while ($sor = $kereses->fetch(PDO::FETCH_ASSOC)) {
@@ -61,7 +62,7 @@
                             </select>
                         </td>
                         <td>
-                            <select class="form-control" id='add1[" + i + "]' name='termek_id[0]'
+                            <select class="form-control" id='add[" + i + "]' name='termek_id[0]'
                                     onChange='valaszt1(this,"0")'>
                                 <option value="">Termék választás</option>
                                 <?php
@@ -75,23 +76,23 @@
                         </td>
                         <td>
                             <input type="text" name='termek_ara_netto[0]' placeholder='Termék ára netto'
-                                   class="form-control" id='add10' value=''
+                                   class="form-control" id='add100' value=''
                                    pattern="[0-9\s]{1,50}" title="Számokat lehet beütni"
                                    required/>
                         </td>
                         <td>
-                            <input type="text" name='termek_mennyiseg[0]' id='badd10' value="" placeholder='Mennyiség'
+                            <input type="text" name='termek_mennyiseg0' id='badd100' value="" placeholder='Mennyiség'
                                    class="form-control"
                                    pattern="[0-9\s]{1,50}" title="Számokat lehet beütni" required/>
                         </td>
                         <td>
-                            <input type='text' name='Mennyiség[0]' id='darab10' value='' class='form-control'
+                            <input type='text' name='Mennyiség[0]' id='darab100' value='' class='form-control'
                                    placeholder='Kérem a darabszámot' pattern='[0-9\s]{1,50}'
                                    title='Számokat lehet beütni' required/>
                         </td>
                         <td>
                             <select class="form-control" data-live-search="true"
-                                    name="termek_megyseg[0]" id="madd10"
+                                    name="termek_megyseg[0]" id="egyseg100"
                                     placeholder="Mennyiségi egysége" required>
                                 <option placeholder="Mennyiségi egység választás">Mennyiségi egység választás</option>
                                 <option value="Db">Darab</option>
@@ -119,33 +120,63 @@
     </div>
 </form>
 <script>
+    var global_i_id = 0;
+    var globalis_megrendelo_tomb = "";
     $(document).ready(function () {
         var i = 1;
         $("#add_row").click(function () {
-            $('#addr' + i).html("<td>" + (i + 1) + "</td>" +
-                "<td><select class='form-control' id='sel1' name='megrendelo_id[" + i + "]'><option value=''>Megrendelő választás</option><?php
-                    while ($sor = $leker->fetch(PDO::FETCH_ASSOC)) {
-                        print "<option value='" . $sor['megrendelo_id'] . "' >" . $sor['megrendelocsaladi'] . ' ' . ' ' . $sor['megrendelokereszt'] . "</option>";
-                    }?></select> </td>" +
 
-                "<td><select class='form-control' " +
-                " onChange='select(this," + i + ")' name='termek_id[" + i + "]'><option value=''>Termék választás</option><?php while ($sor = $keres->fetch(PDO::FETCH_ASSOC)) {
-                    echo "<option name ='kell[0]' value='" . $sor['termek_id'] . "' >" . $sor['termekneve'] . "</option>";
-                }?></select></td>" +
-                "<td><input  name='termek_ara_netto[" + i + "]' type='text'  id='add1" + i + "' value='' placeholder='Termék ára netto' class='form-control input-md'pattern='[0-9\s]{1,50}'" +
-                "title='Számokat lehet beütni' required/></td>" +
-                "<td><input  name='termek_mennyiseg[" + i + "]' id='badd1" + i + "' value='' type='text' placeholder='Mennyiség'  class='form-control input-md'></td>" +
-                "input-md'pattern='[0-9\s]{1,50}'  title='Számokat lehet beütni' disabled></td>" +
-                "<td><input type='text' name='Mennyiség[" + i + "]' id='darab1" + i + "' class='form-control'placeholder='Kérem a darabszámot' pattern='[0-9\s]{1,50}'title='Számokat lehet beütni' required/>" +
-                "</td>" +
-                "<td><select class='form-control'id='madd1" + i + "' value=''  data-live-search='true' " +
-                "name='mennyisegegyseg[" + i + "]' placeholder='Mennyiségi egysége' required> <option " +
-                "placeholder='Mennyiségi egység választás'>Mennyiségi egység választás</option> <option " +
-                "value='Db'>Darab</option> <option value='Kg'>Kilgramm</option> <option value='Liter'>Liter</option> " +
-                "<option value='M'>Méter</option> <option value='M3'>Köbméter</option> </select></td>" +
-                "<td><input  name='Rögzítésiidő[" + i + "]' type='text' placeholder='Rögzítési idő'  value='<?php echo $date = date('Y-m-d'); ?>' class='form-control'/></td>"
-            );
+            globalis_megrendelo_tomb = "";
+            $("select[id*='meg'").each(function (index, value) {
+                if (globalis_megrendelo_tomb.length > 0) {
+                    globalis_megrendelo_tomb += ",";
+                }
+                globalis_megrendelo_tomb += value.value;
+            });
 
+
+            var vissza_erkezett = $.ajax({
+                method: "POST",
+                async: false,
+                dataType: 'json',
+                url: "get_rendel.php",
+                data: {
+                    globalis_megrendelo_tomb: globalis_megrendelo_tomb,
+                    i: i
+                }
+            });
+            vissza_erkezett.fail(function (jqXHR, textStatus) {
+                alert("Error: " + textStatus + jqXHR);
+            });
+            vissza_erkezett.done(function (jqXHR) {
+                $('#addr' + i).html("<td>" + (i + 1) + "</td>" +
+                    "<td><input class='form-control' id='meg1" + i + "' value='' name='megrendelo_id[" + i + "]'><input type='hidden'  id='meg2" + i + "' name='megrendelo_id[" + i + "]'></td>" +
+                    "<td><select class='form-control' " +
+                    " onChange='select(this," + i + ")'id='add" + i + "' name='termek_id[" + i + "]'><option value=''>Termék választás</option></select></td>" +
+                    "<td><input  name='termek_ara_netto[" + i + "]' type='text'  id='add100" + i + "' value='' " +
+                    "placeholder='Termék ára netto' class='form-control input-md'pattern='[0-9\s]{1,50}'" +
+                    "title='Számokat lehet beütni' required/></td>" +
+                    "<td><input  name='termek_mennyiseg[" + i + "]' id='badd100" + i + "' value='' type='text' " +
+                    "placeholder='Mennyiség'  class='form-control input-md'></td>" +
+                    "input-md'pattern='[0-9\s]{1,50}'  title='Számokat lehet beütni' disabled></td>" +
+                    "<td><input type='text' name='Mennyiség[" + i + "]' id='darab100" + i + "' " +
+                    "class='form-control'placeholder='Kérem a darabszámot' pattern='[0-9\s]{1,50}'title='Számokat lehet beütni' required/>" +
+                    "</td>" +
+                    "<td><select class='form-control'id='egyseg100" + i + "' value=''  data-live-search='true' " +
+                    "name='mennyisegegyseg[" + i + "]' placeholder='Mennyiségi egysége' required> <option " +
+                    "placeholder='Mennyiségi egység választás'>Mennyiségi egység választás</option> <option " +
+                    "value='Db'>Darab</option> <option value='Kg'>Kilgramm</option> <option value='Liter'>Liter</option> " +
+                    "<option value='M'>Méter</option> <option value='M3'>Köbméter</option> </select></td>" +
+                    "<td><input  name='Rögzítésiidő[" + i + "]' type='text' placeholder='Rögzítési idő'  value='<?php echo $date = date('Y-m-d'); ?>' class='form-control'/></td>"
+                );
+                $.each(jqXHR, function (index, value, i) {
+                    var eredmeny = jqXHR['eredmeny'];
+                    var i = 1;
+                    $('#meg1' + jqXHR['i']).val(eredmeny['megrendelocsaladi'] + ' ' + eredmeny['megrendelokereszt'])
+                        .css("border-color", "blue").prop('disabled', true);
+                    $('#meg2' + jqXHR['i']).val(eredmeny['megrendelo_id']).css("border-color", "blue").prop('enabled', true);
+                });
+            });
             $('#tab_logic').append('<tr id="addr' + (i + 1) + '"></tr>');
             i++;
         });
@@ -155,7 +186,6 @@
                 i--;
             }
         });
-
     });
 </script>
 <script>
@@ -173,60 +203,65 @@
         vissza_erkezett.fail(function (jqXHR, textStatus) {
             alert("Error: " + textStatus + jqXHR);
         });
-        vissza_erkezett.done(function (jqXHR) {
+        vissza_erkezett.done(function (jqXHR, textStatus) {
             var adat = jqXHR['adat'];
             var termek_ara_netto = jqXHR['termek_ara_netto'];
             var termek_mennyiseg = jqXHR['termek_mennyiseg'];
+            var novekedes = jqXHR['novekedes'];
+            var bekert = jqXHR['bekert'];
             var darab4 = adat['termek_mennyiseg'] === '1';
             var darab5 = adat['termek_mennyiseg'] === '2';
             var darab6 = adat['termek_mennyiseg'] === '3';
             var netto = adat['termek_ara_netto'] === '0';
             var ido = adat['termek_date'] === '0000-00-00';
 
-            $("#add1").empty();
+            $("#add").empty();
+
             if (netto === false) {
-                $('#add10').val(adat['termek_ara_netto']).css("border-color", "green").prop('disabled', true);
-                $('#uadd10').val(adat['termek_ujnetto']).css("border-color", "green").prop('disabled', true);
-                $('#madd10').val(adat['termek_megyseg']).css("border-color", "blue").prop('disabled', true);
-                $('#darab10').css("border-color", "orange").prop('enabled', true);
+                $('#add100').val(adat['termek_ara_netto']).css("border-color", "green").prop('disabled', true);
+                $('#uadd100').val(adat['termek_ujnetto']).css("border-color", "green").prop('disabled', true);
+                $('#egyseg100').val(adat['termek_megyseg']).css("border-color", "blue").prop('disabled', true);
+                $('#darab100').css("border-color", "orange").prop('enabled', true);
             }
             else {
-                $('#add10').val(adat['termek_ara_netto']).css("border-color", "orange").prop('disabled', true);
-                $('#uadd10').val(adat['termek_ujnetto']).css("border-color", "red").prop('disabled', true);
-                $('#darab10').css("border-color", "orange").prop('enabled', true);
+                $('#add100').val(adat['termek_ara_netto']).css("border-color", "orange").prop('disabled', true);
+                $('#uadd100').val(adat['termek_ujnetto']).css("border-color", "red").prop('disabled', true);
+                $('#darab100').css("border-color", "orange").prop('enabled', true);
             }
             if (darab4 === true) {
-                $('#badd10').val(adat['termek_mennyiseg']).css("border-color", "red").prop('disabled', true);
-                $('#ubadd10').val(adat['uj_termek_mennyiseg']).css("border-color", "red").prop('disabled', true);
+                $('#badd100').val(adat['novekedes']).css("border-color", "red").prop('disabled', true);
+                $('#ubadd100').val(adat['uj_termek_mennyiseg']).css("border-color", "red").prop('disabled', true);
             }
-           else if (darab5 === true) {
-                $('#badd10').val(adat['termek_mennyiseg']).css("border-color", "red").prop('disabled', true);
-                $('#ubadd10').val(adat['uj_termek_mennyiseg']).css("border-color", "red").prop('disabled', true);
+            else if (darab5 === true) {
+                $('#badd100').val(adat['novekedes']).css("border-color", "red").prop('disabled', true);
+                $('#ubadd100').val(adat['uj_termek_mennyiseg']).css("border-color", "red").prop('disabled', true);
             }
-           else if (darab6 === true) {
-                $('#badd10').val(adat['termek_mennyiseg']).css("border-color", "orange").prop('disabled', true);
-                $('#ubadd10').val(adat['uj_termek_mennyiseg']).css("border-color", "orange").prop('disabled', true);
+            else if (darab6 === true) {
+                $('#badd100').val(adat['novekedes']).css("border-color", "orange").prop('disabled', true);
+                $('#ubadd100').val(adat['uj_termek_mennyiseg']).css("border-color", "orange").prop('disabled', true);
             }
             else {
-                $('#badd10').val(adat['termek_mennyiseg']).css("border-color", "green").prop('disabled', true);
-                $('#ubadd10').val(adat['uj_termek_mennyiseg']).css("border-color", "green").prop('disabled', true);
+                $('#badd100').val(adat['novekedes']).css("border-color", "green").prop('disabled', true);
+                $('#ubadd100').val(adat['uj_termek_mennyiseg']).css("border-color", "green").prop('disabled', true);
 
 
             }
 
             if (ido === false) {
-                $('#dadd10').val(adat['termek_date']).css("border-color", "green");
+                $('#dadd100').val(adat['termek_date']).css("border-color", "green");
             }
             else if (ido === true) {
-                $('#dadd10').$.Date('Y-m-d');
+                $('#dadd100').$.Date('Y-m-d');
             }
 
         });
 
     }
 </script>
+
 <script>
     function select(val, i) {
+
         var vissza_erkezett = $.ajax({
             method: "POST",
             async: false,
@@ -244,53 +279,104 @@
             var adat = jqXHR['adat'];
             var termek_ara_netto = jqXHR['termek_ara_netto'];
             var termek_mennyiseg = jqXHR['termek_mennyiseg'];
+            var bekert = jqXHR['bekert'];
             var darab4 = adat['termek_mennyiseg'] === '1';
             var darab5 = adat['termek_mennyiseg'] === '2';
             var darab6 = adat['termek_mennyiseg'] === '3';
             var netto = adat['termek_ara_netto'] === '0';
             var ido = adat['termek_date'] === '0000-00-00';
 
-            $("#add1").empty();
+            $("#add").empty();
             //  $('#add1' + jqXHR['i']).val(termek_ara_netto);
             if (netto === false) {
-                $('#add1' + jqXHR['i']).val(adat['termek_ara_netto']).css("border-color", "green").prop('disabled', true);
-                $('#uadd1' + jqXHR['i']).val(adat['termek_ujnetto']).css("border-color", "green").prop('disabled', true);
-                $('#madd1' + jqXHR['i']).val(adat['termek_megyseg']).css("border-color", "blue").prop('disabled', true);
-                $('#darab1' + jqXHR['i']).css("border-color", "orange").prop('enabled', true);
+                $('#add100' + jqXHR['i']).val(adat['termek_ara_netto']).css("border-color", "green").prop('disabled',
+                    true);
+                $('#uadd100' + jqXHR['i']).val(adat['termek_ujnetto']).css("border-color", "green").prop('disabled',
+                    true);
+                $('#egyseg100' + jqXHR['i']).val(adat['termek_megyseg']).css("border-color", "blue").prop('disabled',
+                    true);
+                $('#darab100' + jqXHR['i']).css("border-color", "orange").prop('enabled', true);
             }
             else {
-                $('#add1' + jqXHR['i']).val(adat['termek_ara_netto']).css("border-color", "orange").prop('disabled', true);
-                $('#uadd1' + jqXHR['i']).val(adat['termek_ujnetto']).css("border-color", "red").prop('disabled', true);
-                $('#darab1' + jqXHR['i'] ).css("border-color", "orange").prop('disabled', true);
+                $('#add100' + jqXHR['i']).val(adat['termek_ara_netto']).css("border-color", "orange").prop('disabled',
+                    true);
+                $('#uadd100' + jqXHR['i']).val(adat['termek_ujnetto']).css("border-color", "red").prop('disabled',
+                    true);
+                $('#darab100' + jqXHR['i']).css("border-color", "orange").prop('disabled', true);
             }
-            if (darab4  === true) {
-                $('#badd1' + jqXHR['i']).val(adat['termek_mennyiseg']).css("border-color", "red").prop('disabled', true);
-                $('#ubadd1' + jqXHR['i']).val(adat['uj_termek_mennyiseg']).css("border-color", "red").prop('disabled', true);
+            if (darab4 === true) {
+                $('#badd100' + jqXHR['i']).val(adat['novekedes']).css("border-color", "red").prop('disabled', true);
+                $('#ubadd100' + jqXHR['i']).val(adat['uj_termek_mennyiseg']).css("border-color", "red").prop
+                ('disabled', true);
             }
-           else if (darab5  === true) {
-                $('#badd1' + jqXHR['i']).val(adat['termek_mennyiseg']).css("border-color", "red").prop('disabled', true);
-                $('#ubadd1' + jqXHR['i']).val(adat['uj_termek_mennyiseg']).css("border-color", "red").prop('disabled', true);
+            else if (darab5 === true) {
+                $('#badd100' + jqXHR['i']).val(adat['novekedes']).css("border-color", "red").prop('disabled', true);
+                $('#ubadd100' + jqXHR['i']).val(adat['uj_termek_mennyiseg']).css("border-color", "red").prop
+                ('disabled', true);
             }
-           else if (darab6  === true) {
-                $('#badd1' + jqXHR['i']).val(adat['termek_mennyiseg']).css("border-color", "orange").prop('disabled', true);
-                $('#ubadd1' + jqXHR['i']).val(adat['uj_termek_mennyiseg']).css("border-color", "orange").prop('disabled', true);
+            else if (darab6 === true) {
+                $('#badd100' + jqXHR['i']).val(adat['novekedes']).css("border-color", "orange").prop('disabled', true);
+                $('#ubadd100' + jqXHR['i']).val(adat['uj_termek_mennyiseg']).css("border-color", "orange").prop
+                ('disabled', true);
             }
             else {
-                $('#badd1' + jqXHR['i']).val(adat['termek_mennyiseg']).css("border-color", "green").prop('disabled', true);
-                $('#ubadd1' + jqXHR['i']).val(adat['uj_termek_mennyiseg']).css("border-color", "green").prop('disabled', true);
-
+                $('#badd100' + jqXHR['i']).val(adat['novekedes']).css("border-color", "green").prop('disabled', true);
+                $('#ubadd100' + jqXHR['i']).val(adat['uj_termek_mennyiseg']).css("border-color", "green").prop
+                ('disabled', true);
             }
 
             if (ido === false) {
-                $('#dadd1' + jqXHR['i']).val(adat['termek_date']).css("border-color", "green");
-            }
-            else if (ido === true) {
-            } else {
-                $('#dadd1' + jqXHR['i']).new
-                Date('Y-m-d');
+                $('#dadd100' + jqXHR['i']).val(adat['termek_date']).css("border-color", "green");
             }
         });
     }
+</script>
+<script>
+    var globalis_termek_tomb = "";
+
+    $(document).ready(function () {
+        var i = +1;
+        var id = "";
+        $("#add_row").click(function () {
+            globalis_termek_tomb = "";
+            $("select[id*='add'").each(function (index, value) {
+                if (globalis_termek_tomb.length > 0) {
+                    globalis_termek_tomb += ",";
+                }
+                globalis_termek_tomb += value.value;
+                id = value.id;
+            });
+
+
+            var vissza = $.ajax({
+                method: "POST",
+                async: false,
+                dataType: 'json',
+                url: "get_termek_kivesz.php",
+                data: {
+                    globalis_termek_tomb: globalis_termek_tomb,
+                    i: i
+                }
+            });
+            vissza.fail(function (jqXHR, textStatus) {
+                alert("Error: " + textStatus + jqXHR);
+            });
+            vissza.done(function (jqXHR) {
+                $.each(jqXHR['erkezik'], function (index, value) {
+                    var erkezik = value['erkezik'];
+                    var termek_id = value['termek_id'];
+                    var termekneve = value['termekneve'];
+                    $('#' + id).append("<option value=\"" + termek_id + "\">" + termekneve +
+                        "</option>").css("border-color", "blue").prop('enabled', true);
+                });
+            });
+        });
+    });
+
+</script>
+<script>
+
+
 </script>
 <script>
     function myFunction() {
@@ -302,7 +388,8 @@
                 swal.showLoading()
             }
         }).then(
-            function () {},
+            function () {
+            },
             // handling the promise rejection
             function (dismiss) {
                 if (dismiss === 'timer') {

@@ -34,7 +34,8 @@
                         </td>
                         <td>
                             <input type="text" name='megnevezes[0]'  placeholder='PL:Csavar' class="form-control"
-                                   pattern="[A-Za-z,öÖüÜóÓőŐúÚéÉáÁűŰíÍ\s]{3,50}"  title="Betüket lehet beütni" required/>
+                                   pattern="[A-Za-z, öÖüÜóÓőŐúÚéÉáÁűŰíÍ 0-9/-\s]{3,0}"  title="Betüket lehet beütni"
+                                   required/>
                         </td>
                     </tr>
                     <tr id='addr1'></tr>

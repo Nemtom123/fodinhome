@@ -21,7 +21,7 @@ include_once("raktarheader.php");
 echo '<form method="post" class="media" name="jav">';
 echo '<br><br><br><br>';
 $javit = new Termek();
-$bekeres = $javit->runQuery("SELECT * FROM temektabla ORDER BY termek_id ASC");
+$bekeres = $javit->runQuery("SELECT * FROM temektabla WHERE termek_ara_netto != 0 ORDER BY termekneve ASC");
 $bekeres->execute(array());
 ?>
 
@@ -51,7 +51,6 @@ if (isset($_POST['jav'])) {
         ?>
         <div class="alert alert-info">
             <i class="glyphicon 	glyphicon glyphicon-thumbs-up">-</i>Sikeres rögzítés gratulálok
-        </>
         </div>
         <?php
     }
@@ -63,14 +62,56 @@ if (isset($_POST['jav'])) {
     $betesz = new Termek();
     if (isset($_POST['btn-rogzit'])) {
         try {
+           $ujsor['termek_ara_netto'];
+            $afa27 = 1.27;
             foreach ($_POST AS $key => $value) {
+
                 $termekneve = strip_tags($_POST['termekneve']);
                 $termek_id = $_POST['termek_id'];
                 $termek_ara_netto = strip_tags($_POST['termek_ara_netto']);
                 $termek_mennyiseg = strip_tags($_POST['termek_mennyiseg']);
-                $termek_megyseg = strip_tags($_POST['termek_megyseg']);
-                $betesz->upDate($termekneve, $termek_id, $termek_ara_netto, $termek_mennyiseg, $termek_megyseg);
-                $betesz->redirect('termekjavitas.php?joined.');
+                $ujtermeknetto = strip_tags($_POST['termek_ujnetto']);
+                $ujmennyiseg = strip_tags($_POST['uj_termek_mennyiseg']);
+                $csokkenes = $ujsor['csokkenes'];
+                $beszallito_id = $ujsor['beszallito_id'];
+                $osssznetto = $termek_ara_netto * $termek_mennyiseg;
+                $tbrutto = $termek_ara_netto * $afa27;
+                $osszbrutto = $osssznetto * $afa27;
+                $ujossznetto = $ujtermeknetto * $ujmennyiseg;
+                $ujtbrutto = $ujtermeknetto * $afa27;
+                $ujosszbrutto = $ujossznetto * $afa27;
+                $novekedes = $termek_mennyiseg  + $ujmennyiseg;
+
+
+
+                if (!empty($termekneve) and !empty($termek_ara_netto) and !empty($termek_mennyiseg and
+                        $termek_ara_netto != 0 and $termek_mennyiseg != 0))
+                {
+                    $betesz->termekUpDate($termek_id, $termek_ara_netto, $termek_mennyiseg, $osssznetto,
+                        $osszbrutto,
+                        $csokkenes, $ujossznetto, $ujosszbrutto,$ujtermeknetto,$tbrutto, $novekedes,
+                        $ujmennyiseg,$ujtbrutto,$termekneve,$beszallito_id);
+                    $betesz->redirect('termekjavitas.php?joined.');
+                }
+                else if (!empty($termekneve) and !empty($termek_ara_netto) and !empty($termek_mennyiseg) and
+                    $ujtermeknetto != 0 and $ujmennyiseg != 0 and !empty($ujtermeknetto) and !empty($ujmennyiseg))
+                {
+                    $betesz->termekUpDate($termek_id, $termek_ara_netto, $termek_mennyiseg, $osssznetto,
+                        $osszbrutto,
+                        $csokkenes, $ujossznetto, $ujosszbrutto,$ujtermeknetto,$tbrutto, $novekedes,
+                        $ujmennyiseg,$ujtbrutto,$termekneve,$beszallito_id);
+                    $betesz->redirect('termekjavitas.php?joined.');
+                } else if (!empty($termekneve) and $termek_ara_netto == 0 and $termek_mennyiseg == 0 and $ujtermeknetto == 0 and $ujmennyiseg == 0)
+                {
+
+                    $betesz->termekUpDate($termek_id, $termek_ara_netto, $termek_mennyiseg, $osssznetto,
+                        $osszbrutto,
+                        $osszbrutto, $ujossznetto, $ujosszbrutto,$ujtermeknetto,$tbrutto, $novekedes,
+                        $ujmennyiseg,$ujtbrutto,$termekneve, $beszallito_id);
+                    $betesz->redirect('termekjavitas.php?joined.');
+                }
+
+
             }
 
 
@@ -97,6 +138,12 @@ if (isset($_POST['jav'])) {
                     </th>
                     <th class="text-center">
                         Mennyiség
+                    </th>
+                    <th class="text-center">
+                        Új termék ára netto
+                    </th>
+                    <th class="text-center">
+                        Új mennyiség
                     </th>
                     <th class="text-center">
                         Mennyiségi egység
@@ -126,9 +173,19 @@ if (isset($_POST['jav'])) {
                                title="Számokat lehet beütni" required/>
                     </td>
                     <td>
+                        <input type="text" class="form-control" name="termek_ujnetto" id="usr"
+                               value="<?php echo $ujsor['termek_ujnetto']; ?> " pattern="[0-9\s]{1,50}"
+                               title="Számokat lehet beütni" required/>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" name="uj_termek_mennyiseg" id="usr"
+                               value="<?php echo $ujsor['uj_termek_mennyiseg']; ?>" pattern="[0-9\s]{1,50}"
+                               title="Számokat lehet beütni" required/>
+                    </td>
+                    <td>
                         <input type="text" class="form-control" name="termek_megyseg" id="usr"
                                value="<?php echo $ujsor['termek_megyseg']; ?>" pattern="[A-Za-z, öÖüÜóÓőŐúÚéÉáÁűŰíÍ
-                               \s]{2,20}" title="Betüket lehet beütni" required/>
+                               \s]{2,20}" title="Betüket lehet beütni" disabled/>
                     </td>
                 </tr>
                 <tr id='addr1'></tr>

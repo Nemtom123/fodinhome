@@ -1,18 +1,6 @@
-<?php include_once ("levelezesheader.php");?>
-<body>
-<!-- Start Navigation -->
-<?php include_once ("menu.php");?>
-
 <?php
-
-/**
- * Created by PhpStorm.
- * User: dobiasz.tamas
- * Date: 2017.06.12.
- * Time: 13:27
-*/
-
-
+include_once ("levelezesheader.php");
+include_once ("menu.php");
 
 if (!empty($_POST['visszanev']) and !empty($_POST['visszavaros']) and !empty($_POST['visszautca']) and !empty($_POST['visszahazszam'])
     and !empty($_POST['visszamail']) and !empty($_POST['visszairas'])

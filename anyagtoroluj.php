@@ -8,10 +8,7 @@ $stmt = $auth_user->runQuery("SELECT * FROM users WHERE user_id=:user_id");
 $stmt->execute(array(":user_id" => $user_id));
 $userRow = $stmt->fetch(PDO::FETCH_ASSOC);
 include_once("raktarheader.php");
-?>
-<body>
-<!-- Start Navigation -->
-<?php include_once("raktarmenu.php"); ?>
+include_once("raktarmenu.php"); ?>
 <br/><br>
 <?php
 echo '<form method="post" class="media" name="jav">';
@@ -28,21 +25,15 @@ $keres->execute(array());
     <div class="row">
     </div>
 </div>
-
 <?php include_once('anyagmodositform3.php'); ?>
-
 <br>
 <?php
-
 if (isset($_POST['jav'])) {
-
     $eredmeny_id = $_POST['jav'];
-    $keres = $javit->runQuery("SELECT * FROM megnevezes WHERE megnevezes_id = $eredmeny_id");
-    $keres->execute(array());
+    $eredmeny_id = $_POST['jav'];
+    $keres = $javit->beKeres($eredmeny_id);
     $ujsor = $keres->fetch(PDO::FETCH_ASSOC);
     $torol = new Raktar();
-
-
     if (isset($_POST['btn-rogzit'])) {
         $megnevezes = strip_tags($_POST['felulir']);
         $megnevezes_id = $_POST['felulir_id'];
@@ -60,7 +51,6 @@ if (isset($_POST['jav'])) {
                 } else {
                     if ($torol->megnevezesTorol($megnevezes_id)) {
                         $torol->redirect('anyagtoroluj.php?joined');
-
                     } else if (isset($_GET['joined'])) {
                         ?>
                         <div class=" btn-alert alert-info">
@@ -71,7 +61,7 @@ if (isset($_POST['jav'])) {
                     }
                 }
 
-            } catch (PDOException $e) {
+            }catch (PDOException $e) {
                 echo $e->getMessage();
             }
         }
@@ -109,41 +99,32 @@ if (isset($_POST['jav'])) {
     </div>
 
     <button class="btn btn-danger pull-left" id="rogzit" name="btn-rogzit" value="rogzit"
-            type="submit">Töröl
+            type="submit" onclick="myFunction()">Rögzít
     </button>
     </div>
     </form>
-<?php } ?>
-<!-- Start Footer -->
-
-<br><br><br><br><br><br><br><br><br><br><br><br>
-<div class="clearfix"></div>
-<!-- Start Footer -->
-<footer class="footer" style="background-color: #FFFFFF">
-    <div class="text-center" style="background-color:#FFFFFF">
-        <a class="up-arrow" href="kontakt.php" data-toggle="tooltip" title="TO TOP">
-            <span class="glyphicon glyphicon-chevron-up" style="color: #2f6f9f"></span>
-        </a>
-        <p style="color: #2f6f9f; background-color: #FFFFFF">Licenced by FODIN HOME KFT</p>
-    </div>
-</footer>
-
-<!-- End Footer -->
-
-<!-- Placed at the end of the document so the pages load faster -->
-<script type="bootsnav-master/text/javascript" src="bootsnav-master/js/jquery.min.js"></script>
-<script type="text/javascript" src="bootsnav-master/js/bootstrap.min.js"></script>
-<!-- Bootsnavs -->
-<script src="bootsnav-master/js/bootsnav.js"></script>
-
-<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
-        integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
-        crossorigin="anonymous"></script>
-
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="bootstrap-3.3.7/docs/assets/js/ie10-viewport-bug-workaround.js"></script>
-
-
-</body>
-</html>
+    <?php
+    include_once("raktarfooter.php");
+}
+?>
+<script>
+    function myFunction() {
+        swal({
+            title: 'Javítást használj kérlek!!!!',
+            text: '',
+            timer: 5000,
+            onOpen: function () {
+                swal.showLoading()
+            }
+        }).then(
+            function () {
+            },
+            // handling the promise rejection
+            function (dismiss) {
+                if (dismiss === 'timer') {
+                    console.log('I was closed by the timer')
+                }
+            }
+        )
+    }
+</script>

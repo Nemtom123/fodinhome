@@ -61,5 +61,6 @@
     <link href="bootsnav-master/css/style.css" rel="stylesheet">
 
     <link rel="stylesheet" href="termekbevet.css">
+    <link rel="stylesheet" href="dragarea.css">
 </head>
 <body>

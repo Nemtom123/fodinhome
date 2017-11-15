@@ -59,7 +59,8 @@ function AlphaNumeric($length)
                                    required/>
                         </td>
                         <td>
-                            <input type='text' name='beszallito_kod[0]'  value='<?php echo rand(); ?>'
+
+                            <input type='text' name='beszallito_kod[0]'  value='<?php echo rand(1,10000000); ?>'
                                    class='form-control'
                                    pattern='[0-9/-\s]{1,50}' title='Számokat lehet beütni' enabled/>
                         </td>
@@ -83,7 +84,7 @@ function AlphaNumeric($length)
 <script>
     $(document).ready(function () {
         var i = 1;
-        var x = document.write = Math.floor((Math.random() * 1000) + 1);
+        var x = document.write = Math.floor((Math.random() * 1000000) + 1);
         $("#add_row").click(function () {
             $('#addr' + i).html("<td>" + (i + 1) + "</td><td><input name='beszallito_nev[" + i + "]' " +
                 "type='text'placeholder='Pl:Szerencse Kft' class='form-control input-md' pattern='[A-Za-z, " +

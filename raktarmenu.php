@@ -102,7 +102,8 @@ $url = new Raktar();
         <div class="widget">
             <h6 class="title">Menü</h6>
             <ul class="link">
-                <li><a href="arajanlat.php">Árajánlat készítéss</a></li>
+                <li><a href="arajanlat.php">Árajánlat készítés</a></li>
+                <li><a href="kepbehuzas.php">Kép csere</a></li>
                 <li><a href="logout.php">Kijelentkezés</a></li>
             </ul>
         </div>

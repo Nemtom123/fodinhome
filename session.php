@@ -7,5 +7,5 @@
 
 	if(!$session->is_loggedin())
 	{
-		$session->redirect('index.html');
+		$session->redirect('index.php');
 	}

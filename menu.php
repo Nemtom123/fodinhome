@@ -16,7 +16,7 @@
         <div class="container">
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-search"></i></span>
-                <input type="text" class="form-control" placeholder="Keresés">
+                <input class="form-control" placeholder="Keresés">
                 <span class="input-group-addon close-search"><i class="fa fa-times"></i></span>
             </div>
         </div>
@@ -78,8 +78,8 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navbar-menu">
             <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-                <li><a href="index.html">Fodin-Home</a></li>
-                <li><a href="proba.php">Szolgáltatások</a></li>
+                <li><a href="index.php">Fodin-Home</a></li>
+                <li><a href="szolgaltatasaink.php">Szolgáltatások</a></li>
 
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Szolgáltatások részletesen</a>
@@ -153,4 +153,3 @@
 </div>
 <!-- End Home -->
 
-<div class="clearfix"></div>

@@ -70,13 +70,22 @@ class Raktar
     {
 
         try {
-            $leker = $this->kapcsolat->prepare("SELECT megnevezes_id, megnevezes FROM megnevezes");
+            $leker = $this->kapcsolat->prepare("SELECT megnevezes_id, megnevezes FROM megnevezes ORDER BY megnevezes");
             $leker->execute(array(':megnevezes' => $megnevezes));
-            while ($row = $leker->fetch(PDO::FETCH_ASSOC)) {
-                echo "<option name ='kell' value='".$row['megnevezes_id']."' >".$row['megnevezes']
-                    ."</option>";
-            }
+            $leker->execute();
 
+            return $leker;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    public function beKeres($megnevezes_id)
+    {
+
+        try {
+            $leker = $this->kapcsolat->prepare("SELECT * FROM megnevezes WHERE megnevezes_id= :megnevezes_id ORDER BY megnevezes");
+            $leker->execute(array(':megnevezes_id' => $megnevezes_id));
             $leker->execute();
 
             return $leker;

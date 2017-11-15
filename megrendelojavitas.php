@@ -29,34 +29,22 @@ $megrendelo->execute(array());
     </div>
 </div>
 
-<?php include_once('megrenedelojavitasform.php'); ?>
+<?php include_once('megrenedelojavitasform.php');
 
-<br>
-<?php
 if (isset($_POST['jav'])) {
-
-
     if (isset($error)) {
-        foreach ($error as $error) {
+            foreach ($error as $error) {
             ?>
-            <div class="alert alert-danger">
-                <i class="glyphicon glyphicon-warning-sign"></i> &nbsp; <?php echo $error; ?>
-            </div>
-            <?php
-        }
-    } else if (isset($_GET['joined'])) {
-        ?>
-        <div class="alert alert-info">
-            <i class="glyphicon 	glyphicon glyphicon-thumbs-up">-</i>Sikeres rögzítés-<b onChange="this
-                      .form.submit()">Gratulálok</b>
-        </div>
+                <div class="alert alert-danger">
+                    <i class="glyphicon glyphicon-warning-sign"></i> &nbsp; <?php echo $error; ?>
+                </div>
         <?php
+        }
     }
 
-
     $eredmeny = $_POST['jav'];
-    $megrendelo = $javit->runQuery("SELECT * FROM megrendelo WHERE megrendelo_id = $eredmeny");
-    $megrendelo->execute(array());
+    $megrendelo = $javit->megrendelLeKerdez($eredmeny);
+    $megrendelo->execute();
     $ujsor = $megrendelo->fetch(PDO::FETCH_ASSOC);
     $betesz = new Megrenedelo();
 
@@ -66,16 +54,8 @@ if (isset($_POST['jav'])) {
                 $megnevezes = strip_tags($_POST['megrendelocsaladi']);
                 $megnevezes_id = $_POST['megrendelo_id'];
                 $megrendelokereszt = strip_tags($_POST['megrendelokereszt']);
-                $megrendelovaros = strip_tags($_POST['megrendelovaros']);
-                $megrendeloutca = strip_tags($_POST['megrendeloutca']);
-                $megrendelohazszam = strip_tags($_POST['megrendelohazszam']);
-                $megrendeloemelet = strip_tags($_POST['megrendeloemelet']);
-                $megrendeloemail = strip_tags($_POST['megrendeloemail']);
-                $megrendelotelefon = strip_tags($_POST['megrendelotelefon']);
-                $megrendelomobil = strip_tags($_POST['megrendelomobil']);
-                $betesz->frissitDate($megnevezes, $megnevezes_id, $megrendelokereszt, $megrendelovaros,
-                            $megrendeloutca, $megrendelohazszam, $megrendeloemelet, $megrendeloemail,
-                            $megrendelotelefon, $megrendelomobil);
+                $megrendelokod = strip_tags($_POST['megrendelokod']);
+                $betesz->frissitDate($megnevezes, $megnevezes_id, $megrendelokereszt, $megrendelokod);
             }
             $betesz->redirect('megrendelojavitas.php?joined.');
         } catch (PDOException $e) {
@@ -98,25 +78,10 @@ if (isset($_POST['jav'])) {
                         Keresztnév
                     </th>
                     <th class="text-center">
-                        Város
+                        Kód
                     </th>
                     <th class="text-center">
-                        Utca
-                    </th>
-                    <th class="text-center">
-                        Házszsám
-                    </th>
-                    <th class="text-center">
-                        Emelet
-                    </th>
-                    <th class="text-center">
-                        Email
-                    </th>
-                    <th class="text-center">
-                        Telefonszám
-                    </th>
-                    <th class="text-center">
-                        Mobilszám
+                        Dátum
                     </th>
                 </tr>
                 </thead>
@@ -138,38 +103,13 @@ if (isset($_POST['jav'])) {
                                \s]{3,20}" title="Betüket lehet beütni" required/>
                     </td>
                     <td>
-                        <input type="text" class="form-control" name="megrendelovaros" id="usr"
-                               value="<?php echo $ujsor['megrendelovaros']; ?>" pattern="[A-Za-z, öÖüÜóÓőŐúÚéÉáÁűŰíÍ
-                               \s]{3,20}" title="Betüket lehet beütni" required/>
-                    </td>
-                    <td>
-                        <input type="text" class="form-control" name="megrendeloutca" id="usr"
-                               value="<?php echo $ujsor['megrendeloutca']; ?>" pattern="[A-Za-z, öÖüÜóÓőŐúÚéÉáÁűŰíÍ
-                               \s]{3,20}" title="Betüket lehet beütni" required/>
-                    </td>
-                    <td>
-                        <input type="text" class="form-control" name="megrendelohazszam" id="usr"
-                               value="<?php echo $ujsor['megrendelohazszam']; ?>"  pattern="[0-9\s]{1,50}" title="Számokat lehet beütni" required/>
-                    </td>
-                    <td>
-                        <input type="text" class="form-control" name="megrendeloemelet" id="usr"
-                               value="<?php echo $ujsor['megrendeloemelet']; ?>"  pattern="[0-9 / \s]{1,50}"
+                        <input type="text" class="form-control" name="megrendelokod" id="usr"
+                               value="<?php echo $ujsor['megrendelokod']; ?>" pattern="[0-9 - / \s]{1,50}"
                                title="Számokat lehet beütni" required/>
                     </td>
                     <td>
-                        <input type="text" class="form-control" name="megrendeloemail" id="usr"
-                               value="<?php echo $ujsor['megrendeloemail']; ?>"   pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" class="form-control"
-                               placeholder="Email*" id="email" required/>
-                    </td>
-                    <td>
-                        <input type="text" class="form-control" name="megrendelotelefon" id="usr"
-                               value="<?php echo $ujsor['megrendelotelefon']; ?>" pattern="[0-9  /-\s]{1,50}"
-                               title="Számokat lehet beütni" required/>
-                    </td>
-                    <td>
-                        <input type="text" class="form-control" name="megrendelomobil" id="usr"
-                               value="<?php echo $ujsor['megrendelomobil']; ?>" pattern="[0-9 - / \s]{1,50}"
-                               title="Számokat lehet beütni" required/>
+                        <input class="form-control" id="rogzitesiido" name="megrendelodate[0]" value="<?php echo
+                        $date = date('Y-m-d'); ?>" type="text" required>
                     </td>
                 </tr>
                 <tr id='addr1'></tr>
@@ -184,4 +124,24 @@ if (isset($_POST['jav'])) {
 <?php }
 include_once("raktarfooter.php");
 ?>
-<script src="sikeresrogzites.js"></script>
+<script>
+    function myFunction() {
+        swal({
+            title: '',
+            text: 'Sikeres javítás!!!!',
+            timer: 5000,
+            onOpen: function () {
+                swal.showLoading()
+            }
+        }).then(
+            function () {
+            },
+            // handling the promise rejection
+            function (dismiss) {
+                if (dismiss === 'timer') {
+                    console.log('I was closed by the timer')
+                }
+            }
+        )
+    }
+</script>

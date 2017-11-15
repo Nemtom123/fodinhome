@@ -47,14 +47,7 @@
 <!-- End Navigation -->
 
 <div class="clearfix"></div>
-<div class="site-wrapper">
-    <!--kép-->
-    <a href="#" class="photo"><img src="bootsnav-master/images/thumb/fa.png" class="cart-thumb" alt="" /></a>
-    <div class="site-wrapper-inner">
-        <div class="cover-container">
-        </div>
-    </div>
-</div>
+
 <!-- End Home -->
 <div class="clearfix"></div>
 <header class='mainHeader8'>

@@ -22,7 +22,8 @@
                             <select class="form-control" id="sel1" name="jav" onChange="this.form.submit()">
                                 <?php
                                 while ($sor = $keres->fetch(PDO::FETCH_ASSOC)){
-                                    print "<option value='".$sor['megnevezes_id']."' >".$sor['megnevezes']."</option>";
+                                    print "<option value='".$sor['megrendelo_id']."' >".$sor['megrendelocsaladi']
+                                        . ' '. $sor['megrendelokereszt'] . ' ' . ' ->' . ' ' .$sor['megrendelokod']."</option>";
                                 }
                                 ?>
                             </select>

@@ -8,17 +8,22 @@
 
 
 require_once('Termek.php');
-$db_handle = new Termek();
+$termekbeker = new Termek();
 session_start();
 if (!empty($_POST['netto'])) {
 
     $termek_id = $_POST['netto'];
-    $bekeres = $db_handle->runQuery("SELECT * FROM temektabla WHERE termek_id = $termek_id");
+    $bekeres = $termekbeker->runQuery("SELECT * FROM temektabla WHERE termek_id = $termek_id");
     $bekeres->execute(array());
     $adat = $bekeres->fetch(PDO::FETCH_ASSOC);
 
 }
+
 print json_encode( array("adat" => $adat, "i" => $_POST['i'] ) );
+
+
+
+
 
 ?>
 

@@ -24,35 +24,30 @@ $talal = $beker->runQuery("SELECT * FROM megrendelo ORDER BY megrendelocsaladi A
 $talal->execute(array());
 
 $lekerdez = new Megrenedelo();
-$megrendelo = $lekerdez->runQuery("SELECT * FROM megrendelo ORDER BY megrendeloemail ASC");
-$megrendelo->execute(array());
+$megrendelo = $lekerdez->runQuery("SELECT * FROM megrendelo ORDER BY megrendelocsaladi ASC");
 
 $lekert = array();
 if (isset($_POST['btn-rogzit'])) {
-
+    echo '<pre>';
+    print_r($_POST);
+    echo '</pre>';
     try {
         while ($sor = $megrendelo->fetch(PDO::FETCH_ASSOC)) {
-            $lekert[$sor['megrendelo_id']] = $sor['megrendeloemail'];
+            $lekert[$sor['megrendelo_id']] = $sor['megrendelocsaladi'];
         }
 
         $letezik = array();
         $nem_letezik = array();
-        foreach ($_POST['megrendeloemail'] as $key => $value) {
+        foreach ($_POST['megrendelokod'] as $key => $value) {
             $tomb1 = $value;
             $tomb10 = $_POST['megrendelocsaladi'][$key];
             $tomb2 = $_POST['megrendelokereszt'][$key];
-            $tomb3 = $_POST['megrendelovaros'][$key];
-            $tomb4 = $_POST['megrendeloutca'][$key];
-            $tomb5 = $_POST['megrendelohazszam'][$key];
-            $tomb6 = $_POST['megrendeloemelet'][$key];
-            $tomb7 = $_POST['megrendelotelefon'][$key];
-            $tomb8 = $_POST['megrendelomobil'][$key];
             $tomb9 = $_POST['megrendelodate'][$key];
             if (TombKereses($lekert, $tomb1)) {
                 array_push($letezik, $tomb1);
             } else {
                 array_push($nem_letezik, $tomb1);
-                $lekerdez->megrendeloRogzit($tomb10, $tomb2, $tomb3, $tomb4, $tomb5, $tomb6, $tomb1, $tomb7, $tomb8, $tomb9);
+                $lekerdez->megrendeloRogzit($tomb10, $tomb2, $tomb1, $tomb9);
 
             }
 
@@ -64,6 +59,11 @@ if (isset($_POST['btn-rogzit'])) {
     }
     exit;
 }
+/**
+ * @param $amiben
+ * @param $amit
+ * @return bool
+ */
 function TombKereses($amiben, $amit)
 {
     $vissza = FALSE;
@@ -78,9 +78,6 @@ function TombKereses($amiben, $amit)
 
 ?>
 
-</div>
-
-</form>
 <form method="post" class="rogzit">
     <div class="container-fluid" style="margin-top:80px;">
         <h2 class="form-signin-heading"></h2>
