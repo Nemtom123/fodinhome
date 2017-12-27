@@ -1,0 +1,10 @@
+300 szög                                                            
+200 szög                                                            
+20*20 lemezcsavar                                                            
+18*18 facsavar                                                            
+17*17 fémcsavar                                                            
+14*14 lemezcsavar                                                            
+14*14 facsavar                                                            
+12*12 facsavar                                                            
+100 szög                                                            
+10*10 facsavar                                                            

@@ -280,8 +280,8 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navbar-menu">
             <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-                <li><a href="index.html">Fodin-Home</a></li>
-                <li><a href="proba.php">Szolgáltatások</a></li>
+                <li><a href="index.php">Fodin-Home</a></li>
+                <li><a href="szolgaltatasaink.html">Amivel foglalkozunk</a></li>
                 <li><a href="faiparimunkak.php">Faipari munkák</a></li>
 
                 <li class="dropdown">
@@ -302,7 +302,6 @@
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Fűtés</a>
                                     <ul class="dropdown-menu">
                                         <li><a href="padlo.php">Padló</a></li>
-                                        <li><a href="radiator.html">Radiátor</a></li>
                                         <li><a href="kozponti.php">Központi</a></li>
                                     </ul>
                                 </li>
@@ -335,7 +334,6 @@
             <ul class="link">
                 <li><a href="ujotthon.php">Új otthon</a></li>
                 <li><a href="erdekessegek.php">Érdekességek</a></li>
-                <li><a href="szakaszok.html">Szakaszok</a></li>
                 <li><a href="epiteszet.php">Az építészet</a></li>
                 <li><a href="login.php">Bejelentkezés</a></li>
             </ul>

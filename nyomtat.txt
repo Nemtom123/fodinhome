@@ -1,0 +1,10 @@
+Tuti-buli Kft;300 szög;3000;Tuti-buli Kft;1000;10;2017-11-26;
+Öko szervezet Kft;200 szög;2000;Öko szervezet Kft;0;0;2017-12-04;
+Öko szervezet Kft;20*20 lemezcsavar;1000;Öko szervezet Kft;0;0;2017-12-04;
+Öko szervezet Kft;18*18 facsavar;3000;Öko szervezet Kft;0;0;2017-12-04;
+Gargantua Kft;17*17 fémcsavar;5000;Gargantua Kft;2000;5;2017-11-26;
+Pedo-Teo Bt;14*14 lemezcsavar;4000;Pedo-Teo Bt;3000;2;2017-11-19;
+Öko szervezet Kft;14*14 facsavar;2001;Öko szervezet Kft;4000;4;2017-11-20;
+Audaxtrade Export Import Kft;12*12 facsavar;5000;Audaxtrade Export Import Kft;3000;5;2017-11-19;
+Gargantua Kft;100 szög;1000;Gargantua Kft;4500;1;2017-11-26;
+;10*10 facsavar;3000;;4012;21;2017-11-19;

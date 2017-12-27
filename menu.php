@@ -79,23 +79,25 @@
         <div class="collapse navbar-collapse" id="navbar-menu">
             <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
                 <li><a href="index.php">Fodin-Home</a></li>
-                <li><a href="szolgaltatasaink.php">Szolgáltatások</a></li>
+                <li><a href="szolgaltatasaink.html">Amivel foglalkozunk</a></li>
 
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Szolgáltatások részletesen</a>
                     <ul class="dropdown-menu">
-                        <li><a href="parkettazas.php">Parketázás</a></li>
-                        <li><a href="hidegburkolas.php">Hidegburkolás</a></li>
-                        <li><a href="festes.php">Festés mázolás</a></li>
+                        <li><a href="bontas.php">Bontás munkálatok</a></li>
+                        <li><a href="falvagas.php">Speciális falvágások</a></li>
+                        <li><a href="lako.php">Lakó és nem lakó házak építése és átalakítása</a></li>
                         <li><a href="komuves.php">Kőműves munkák</a></li>
-                        <li><a href="szigeteles.php">Szigetelés</a></li>
                         <li><a href="faiparimunkak.php">Faipari munkák</a></li>
+                        <li><a href="szigeteles.php">Szigetelés</a></li>
+                        <li><a href="falvagas.php">Ablakok-Redőny-Reluxa</a></li>
+                        <li><a href="villanyszereles.php">Villanyszerelés</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Energia</a>
                             <ul class="dropdown-menu">
                                 <li><a href="viz.php">Viz</a></li>
                                 <li><a href="gaz.php">Gáz</a></li>
-                                <li><a href="villanyszereles.php">Villanyszerelés</a></li>
+
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Fűtés</a>
                                     <ul class="dropdown-menu">
@@ -105,7 +107,11 @@
                                 </li>
                             </ul>
                         </li>
+                        <li><a href="hidegburkolas.php">Hidegburkolás</a></li>
+                        <li><a href="parkettazas.php">Parketázás</a></li>
                         <li><a href="gipszkarton.html">Gipszkartonozás</a></li>
+                        <li><a href="falvagas.php">Tetőtér beépítés</a></li>
+                        <li><a href="festes.php">Festés mázolás</a></li>
                     </ul>
                 </li>
                 <li><a href="kontakt.php">Kontakt</a></li>
@@ -122,20 +128,29 @@
             <ul class="link">
                 <li><a href="leiras.php">Leírás</a></li>
                 <li><a href="szerviz.php">Szervíz</a></li>
-                <li><a href="bejegyzesek.php">Bejegyzések</a></li>
-                <li><a href="portfolio.php">Portfolio</a></li>
                 <li><a href="kontakt.php">Kontact</a></li>
             </ul>
         </div>
         <div class="widget">
-            <h6 class="title">További linkek</h6>
+            <h6 class="title">Ablakok, redőny, reluxa, árnyékolástechnika, biztonság, beltér</h6>
             <ul class="link">
-                <li><a href="ujotthon.php">Új otthon</a></li>
-                <li><a href="erdekessegek.php">Érdekességek</a></li>
-                <li><a href="epiteszet.php">Az építészet</a></li>
-                <li><a href="levelezes.php">Levelezés</a></li>
-                <li><a href="login.php">Bejelentkezés</a></li>
+                <li><a href="ablak.php">Ablak</a></li>
+                <li><a href="redony.php">Redőny, Reluxa, Árnyékolás</a></li>
+                <li><a href="belter.php">Bizttonsági és beltéri ajtók</a></li>
             </ul>
+        </div>
+        <div class="widget">
+            <h6 class="title">Gépészeti munkák</h6>
+            <ul class="link">
+                <li><a href="viz.php">Viz</a></li>
+                <li><a href="gaz.php">Gáz</a></li>
+                <li><a href="padlo.php">Padló</a></li>
+                <li><a href="kozponti.php">Központi</a></li>
+            </ul>
+        </div>
+        <div class="widget">
+            <h6 class="title">Bejelentkezés az oldalra</h6>
+            <li><a href="login.php">Bejelentkezés</a> </li>
         </div>
     </div>
     <!-- End Side Menu -->
@@ -145,7 +160,7 @@
 <div class="clearfix"></div>
 <div class="site-wrapper">
     <!--kép-->
-    <a href="#" class="photo"><img src="bootsnav-master/images/thumb/fa.png" class="cart-thumb" alt="" /></a>
+   <img src="bootsnav-master/images/thumb/fa.png" class="cart-thumb"  />
     <div class="site-wrapper-inner">
         <div class="cover-container">
         </div>
