@@ -31,11 +31,11 @@ include_once "menu.php";
         </div>
 
         <div class="item">
-            <img  src="image/home1.jpg" alt="Chicago">
+            <img  src="image/home1.jpg" alt="">
         </div>
 
         <div class="item">
-            <img src="image/home3.jpg" alt="New York">
+            <img src="image/home3.jpg" alt="">
         </div>
     </div>
 
@@ -106,7 +106,25 @@ include_once "menu.php";
     <button type="button" class="btn-lg btn-info center-block" data-toggle="modal"
             data-target="kontakt.php"><a href="kontakt.php">Írjon nekünk</a>
     </button>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th style="color: #5f5f5f; font-size: x-large">Megbízható partner</th>
 
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+
+            <td style="color: #5f5f5f">
+                <img src="image/logo1.jpg" type="application/jpg" style="height: 580px; width: auto;  margin: auto; display: block;">
+                    <a href="http://biztosvallalkozasok.hu/?s=fodinhome" style="color: red">Kattints a linkre!</a></p>
+                </img>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 
         <table class="table table-hover">
             <thead>

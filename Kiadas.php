@@ -22,11 +22,11 @@ class Kiadas
         $kiadas = $this->kapcsolodas->prepare($adatbazis);
         return $kiadas;
     }
-    public function kiadasRogzit($megrendelo_id, $termek_id, $mennyiseg, $kiadasi_ido, $regiar, $ujar)
+    public function kiadasRogzit($megrendelo_id, $termek_id, $mennyiseg, $kiadasi_ido, $regiar, $ujar, $regidb, $ujdb)
     {
         try {
-            $kiadas = $this->kapcsolodas->prepare("INSERT INTO termekkiadas (megrendelo_id,termek_id,mennyiseg,kiadasi_ido,regiar,ujar) 
-            VALUES(:megrendelo_id,:termek_id,:mennyiseg,:kiadasi_ido,:regiar,:ujar)");
+            $kiadas = $this->kapcsolodas->prepare("INSERT INTO termekkiadas (megrendelo_id,termek_id,mennyiseg,kiadasi_ido,regiar,ujar,regi_db,uj_db) 
+            VALUES(:megrendelo_id,:termek_id,:mennyiseg,:kiadasi_ido,:regiar,:ujar,:regi_db,:uj_db)");
 
             $kiadas->bindparam(":megrendelo_id", $megrendelo_id, PDO::PARAM_STR);
             $kiadas->bindparam(":termek_id", $termek_id, PDO::PARAM_STR);
@@ -34,6 +34,8 @@ class Kiadas
             $kiadas->bindparam(":kiadasi_ido", $kiadasi_ido, PDO::PARAM_STR);
             $kiadas->bindparam(":regiar", $regiar, PDO::PARAM_STR);
             $kiadas->bindparam(":ujar", $ujar, PDO::PARAM_STR);
+            $kiadas->bindparam(":regi_db", $regidb, PDO::PARAM_STR);
+            $kiadas->bindparam(":uj_db", $ujdb, PDO::PARAM_STR);
 
             $kiadas->execute();
 

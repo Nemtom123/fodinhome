@@ -43,12 +43,8 @@
 <div>
 <!-- Start Navigation -->
 <?php include_once ("menu.php");?>
-<!-- Start Adsense -->
-<div class="container margintop50">
-</div>
-<!-- End Adsense -->
 <div class="clearfix"></div>
-<header class='mainHeader12'>
+<header class='mainHeader14'>
     <div class='container'>
         <div class='animatedParent' data-sequence='500' >
             <h1 class='animated growIn slower'  data-id='1' style="color: #FFFFFF; text-align: center">Kőműves munkák</h1>
@@ -65,14 +61,26 @@
     <div class='animatedParent col-md-6' data-sequence='1000'  style="color: #5f5f5f">
         <b><p class='animated bounceInDown' data-id="1">Kőműves munkák</p></b>
         <p class='animated bounceInLeft' data-id='1' style="color: #5f5f5f">
-            <b style="color: red">Minősségi</b> munka kedvező áron. Ingyenes felmérés és kalkuláció
-
+            <b style="color: red">Falszerkezetekkel szemben támasztott követelmények:</b><br>
+           <b> 1. Tartószerkezet:</b><br>
+           <b> - szilárdság, tartósság, tűzállóság </b><br>
+            <b>2. Épületszerkezet:</b><br>
+            <b>- hővédelem, hangvédelem, nedvességvédelem, faraghatóság, véshetőség, szegezhetőség, vakolattartás,
+                alacsony térfogatsúly</b><br>
+            <b>3. Esztétika</b><br>
+            <b>- tetszetős homlokzati felület, szín, hézagrajz, belső felület esztétikus kialakítása</b><br>
+            <b>4. Kiviteli-gazdaságossági</b><br>
+            <b>- jól szerelhető, gépesíthető építés, alacsony helyszíni élőmunka igény</b>
         </p>
     </div>
     <div class='animatedParent col-md-6' style="color: #5f5f5f; height: 410px">
         <p class='animated growIn slowest' data-id='3'>Korszerűsítés</p>
         <pre class='animated bounceInRight slow' style=" background-color: #3f3f3f; color: #FFFFFF;">
-<b style="color: red">Felújítás:</b> Kőműves munkák
+<b style="color: red">Falazás :</b>A falazás a kőművesmunkák egyik legismertebb munkafolyamata.
+- A házilagos falazás helyett, kérje a szakember segítségét.
+- Falazás menete nem a legegyszerűbb munkafolyamatokat tartalmazza.
+- Magas szakmai rutinnal kell rendelkezni ahhoz,
+  hogy egyenes falat építsünk.
 </pre>
     </div>
 </div>
@@ -96,21 +104,32 @@
     <div class='animatedParent'>
         <h2 class='animated growIn slowest'>Kőműves munkák</h2>
     </div>
-    <div class='animatedParent col-md-6' data-sequence='1000'  style="color: #5f5f5f">
+    <div class='animatedParent col-md-12' data-sequence='1000'  style="color: #5f5f5f">
         <b><p class='animated bounceInDown' data-id="1">Kőműves munkák</p></b>
         <p class='animated bounceInLeft' data-id='1' style="color: #5f5f5f">
-            <b style="color: red">Kőműves munkák</b> Kőműves munkák
+            <b style="color: red">Gépi vakolás</b>
+            Gyors és gazdaságos, mivel a technológia kevés segéd munkát igényel, és kevés az anyag veszteség
+             A határidőket is könnyen betarthatók és tervezhetők
+            Minősége állandó, az anyagok ÉMI által felülvizsgáltak, már szárazanyagként abszolút homogének
+            Esztétikus, a hagyományos vakoláshoz képest könnyebben érhetünk el vele tükörsima felületet !!!
+            Kültéri munka esetén is tartós felületet adnak, nehezebben veszik be a nedvességet, így a lefagyás
+            veszélye a hagyományos anyagokhoz képest sokkal kisebb.
+            Pára áteresztőek, az egészségügyi szempontoknak is megfelelnek, így penészedés, legúti megbetegedések
+            kockázatának csökken.
         </p>
     </div>
-    <div class='animatedParent col-md-6' style="color: #5f5f5f; height: 410px">
+    <div class='animatedParent col-md-12' style="color: #5f5f5f ; height: 410px">
         <p class='animated growIn slowest' data-id='3'>Kőműves munkák</p>
         <pre class='animated bounceInRight slow' style=" background-color: #3f3f3f; color: #FFFFFF;">
-<b style="color: red">Kőműves munkák:</b>
-Kőműves munkák        </pre>
+<b style="color: red">Falazott szerkezet: </b>
+A falazott szerkezetek falazóelemekből és közöttük lévő vízszintes és függőleges
+hézagokat kitöltő habarcsból állnak. A falazó habarcs feladata az elemek egymáshoz
+kötése, az elemek közötti átmenő hézagok kitöltése, valamint az egyenletes
+teherátadás biztosítása. A falazóelem és a habarcs minőségét nem lehet egymástól
+függetlenül megválasztani, hiszen a falazat szilárdságát együttesen határozzák meg.</pre>
     </div>
 </div>
-<br><br>
-<header class='mainHeader14'>
+<header class='mainHeader11'>
     <div class='container'>
         <div class='animatedParent' data-sequence='500' >
             <h2 class='animated growIn slower'  data-id='1' style="color: darkred">Kőműves munkák</h2>
@@ -120,28 +139,6 @@ Kőműves munkák        </pre>
         </div>
     </div>
 </header>
-<div class='container'>
-    <div class='animatedParent'>
-        <h2 class='animated growIn slowest'>Kőműves munkák</h2>
-    </div>
-    <div class='animatedParent col-md-6' data-sequence='1000'  style="color: #5f5f5f">
-        <b><p class='animated bounceInDown' data-id="1">Kőműves munkák</p></b>
-        <p class='animated bounceInLeft' data-id='1' style="color: #5f5f5f">
-            <b style="color: red">Kőműves munkák</b> Kőműves munkák
-        </p>
-    </div>
-    <div class='animatedParent col-md-6' style="color: #5f5f5f; height: 410px">
-        <p class='animated growIn slowest' data-id='3'>Kőműves munkák</p>
-        <pre class='animated bounceInRight slow' style=" background-color: #3f3f3f; color: #FFFFFF;">
-<b style="color: red">Kőműves munkák</b>
-Kőműves munkák
-
-        </pre>
-    </div>
-</div>
-
-
-<br><br>
 <div class="clearfix"></div>
 
 
@@ -166,5 +163,5 @@ Kőműves munkák
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src='css3-animate-it-master/js/css3-animate-it.js'></script>
 
-</body>
+
 </html>
